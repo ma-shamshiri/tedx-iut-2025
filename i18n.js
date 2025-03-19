@@ -21,6 +21,7 @@ const storedLanguage = localStorage.getItem("selectedLanguage") || "fa";
 i18n.use(initReactI18next).init({
   resources,
   lng: storedLanguage, // set the initial language from localStorage
+  fallbackLng: "fa",
   interpolation: {
     escapeValue: false, // react already safes from xss
   },
