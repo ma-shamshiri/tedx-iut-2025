@@ -83,10 +83,10 @@ export const teamMembersData: TeamMember[] = [
         name: "hananeGhasemi",
         title: "mediaCoordinator",
         image: hanane_ghasemi,
-        profileHref: "hanane-ghasemi",
-        linkedinAddress: "https://www.linkedin.com/in/moksh-sood-3515b3171/",
-        emailAddress: "",
-        twitterAddress: "",
+        // profileHref: "hanane-ghasemi",
+        // linkedinAddress: "https://www.linkedin.com/in/moksh-sood-3515b3171/",
+        // emailAddress: "",
+        // twitterAddress: "",
     },
     {
         id: 6,
@@ -255,7 +255,7 @@ export const teamMembersData: TeamMember[] = [
         image: amin,
         // profileHref: "amin-shamshiri",
         // linkedinAddress: "https://www.linkedin.com/in/ma-shamshiri/",
-        // emailAddress: "",
+        // emailAddress: "mailto:ma.shamshiri@gmail.com",
         // twitterAddress: "",
     },
     // Add more speakers as needed
