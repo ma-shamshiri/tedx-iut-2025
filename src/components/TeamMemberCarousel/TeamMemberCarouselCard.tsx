@@ -11,12 +11,15 @@ import {
 } from '@chakra-ui/react';
 import { FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
 import { TeamMember } from './data';
+import { useTranslation } from 'react-i18next';
 
 interface TeamMemberCarouselCardProps {
     member: TeamMember;
 }
 
 const TeamMemberCarouselCard: React.FC<TeamMemberCarouselCardProps> = ({ member }) => {
+    const { t, i18n } = useTranslation();
+
     const cardBg = useColorModeValue('white', 'gray.700');
     const overlayBg = 'linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)';
 
@@ -59,11 +62,24 @@ const TeamMemberCarouselCard: React.FC<TeamMemberCarouselCardProps> = ({ member 
                 _groupHover={{ opacity: 1 }}
                 p={4}
             >
-                <Text fontSize="xl" fontWeight="bold" color="white" mb={1}>
-                    {member.name}
+                <Text
+                    fontSize={{ base: "1.4rem", lg: "1.4rem" }}
+                    fontWeight="bold"
+                    color="white"
+                    mb={1}
+                    fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                    dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                >
+                    {member.name && t(member.name)}
                 </Text>
-                <Text fontSize="sm" color="gray.200" mb={2}>
-                    {member.title}
+                <Text
+                    fontSize={{ base: "1.2rem", lg: "1.2rem" }}
+                    color="gray.200"
+                    mb={2}
+                    fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                    dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                >
+                    {member.title && t(member.title)}
                 </Text>
 
                 <Flex gap={2}>
@@ -101,19 +117,6 @@ const TeamMemberCarouselCard: React.FC<TeamMemberCarouselCardProps> = ({ member 
                         </Link>
                     )}
                 </Flex>
-
-                {member.profileHref && (
-                    <Link
-                        href={member.profileHref}
-                        isExternal
-                        mt={3}
-                        fontWeight="semibold"
-                        color="teal.200"
-                        _hover={{ textDecoration: 'underline' }}
-                    >
-                        View Profile
-                    </Link>
-                )}
             </Flex>
         </Box>
     );

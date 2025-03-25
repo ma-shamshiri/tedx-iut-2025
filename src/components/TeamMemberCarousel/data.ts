@@ -230,6 +230,16 @@ export const teamMembersData: TeamMember[] = [
     },
     {
         id: 20,
+        name: "aminShamshiri",
+        title: "websiteDesigner",
+        image: amin,
+        // profileHref: "amin-shamshiri",
+        // linkedinAddress: "https://www.linkedin.com/in/ma-shamshiri/",
+        // emailAddress: "",
+        // twitterAddress: "",
+    },
+    {
+        id: 21,
         name: "aliMehrjoo",
         title: "sponsorshipCoordinator",
         image: ali_mehrjoo,
@@ -239,7 +249,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 21,
+        id: 22,
         name: "erfanehHosseini",
         title: "communicationsCoordinator",
         image: erfaneh_hosseini,
@@ -248,15 +258,6 @@ export const teamMembersData: TeamMember[] = [
         // emailAddress: "",
         // twitterAddress: "",
     },
-    {
-        id: 22,
-        name: "aminShamshiri",
-        title: "websiteDesigner",
-        image: amin,
-        // profileHref: "amin-shamshiri",
-        // linkedinAddress: "https://www.linkedin.com/in/ma-shamshiri/",
-        // emailAddress: "",
-        // twitterAddress: "",
-    },
+
     // Add more speakers as needed
 ];

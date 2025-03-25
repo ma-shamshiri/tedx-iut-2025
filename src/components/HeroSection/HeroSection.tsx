@@ -22,14 +22,7 @@ const HeroSection: React.FC = () => {
     <Box position="relative" width="100%" minH="100vh" overflow="hidden">
       <CountdownTimer eventStartTime={eventStartTime} />
       <Box
-        bgGradient="
-          radial(
-            circle at center,
-            rgba(229,62,62,1) 0%,
-            rgba(229,62,62,0.2) 40%,
-            rgba(0,0,0,1) 100%
-          )
-        "
+        bgGradient="radial(circle at center, rgba(229,62,62,1) 0%, rgba(229,62,62,0.2) 40%, rgba(0,0,0,1) 100%)"
         minH="100vh"
         display="flex"
         alignItems="center"
