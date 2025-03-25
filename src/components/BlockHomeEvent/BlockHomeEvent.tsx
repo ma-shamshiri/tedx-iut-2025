@@ -14,6 +14,7 @@ import Typed from "react-typed";
 import CountdownTimer from "../CountdownTimer";
 import QuizModal from "../QuizModal";
 import { motion } from "framer-motion";
+import TeamMemberCarousel from "../TeamMemberCarousel";
 
 
 const BlockHomeEvent: React.FC = () => {
@@ -46,6 +47,8 @@ const BlockHomeEvent: React.FC = () => {
             // backgroundRepeat="no-repeat"
             overflow="hidden"
         >
+                                <TeamMemberCarousel />
+
             <Box
                 width="100%"
                 height="100%"
@@ -93,7 +96,7 @@ const BlockHomeEvent: React.FC = () => {
                                 xl: i18n.language === "fa" ? "2.5rem" : "3.5rem"
                             }}
                             fontWeight="bold"
-                            fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : "Big Shoulders Display"}
+                            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "Big Shoulders Display"}
                             dir={i18n.language === "fa" ? "rtl" : "ltr"}
                             letterSpacing="0.7px"
                             color="#fff"
@@ -117,7 +120,7 @@ const BlockHomeEvent: React.FC = () => {
                             }}
 
                             fontWeight="bold"
-                            fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : "Big Shoulders Display"}
+                            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "Big Shoulders Display"}
                             dir={i18n.language === "fa" ? "rtl" : "ltr"}
                             letterSpacing="0.7px"
                             color="silver"
@@ -127,7 +130,7 @@ const BlockHomeEvent: React.FC = () => {
                         </Text>
 
                         <VStack
-                            fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
                             dir={i18n.language === "fa" ? "rtl" : "ltr"}
                             fontSize={{
                                 base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
@@ -155,7 +158,7 @@ const BlockHomeEvent: React.FC = () => {
                 flexDirection="column"
                 width="100%"
                 gap="1rem"
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
                 // dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 fontWeight="bold"
                 justifyContent="center"

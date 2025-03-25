@@ -90,7 +90,7 @@ const MyNavbar: React.FC = () => {
                 <Flex
                     as="nav"
                     display={{ base: "block", lg: "none" }}
-                    bg={useColorModeValue("#f1f1f1", "#000000")}
+                    bg={useColorModeValue("#f1f1f1", "gray.900")}
                     width="100%"
                     height="7rem"
                     paddingX="0.6rem"
@@ -138,7 +138,7 @@ const MyNavbar: React.FC = () => {
                 <Flex
                     as="nav"
                     display={{ base: "none", lg: "block" }}
-                    bg={useColorModeValue("#f1f1f1", "#000000")}
+                    bg={useColorModeValue("#f1f1f1", "#000")}
                     width="100%"
                     height="8rem"
                     paddingX="1rem"

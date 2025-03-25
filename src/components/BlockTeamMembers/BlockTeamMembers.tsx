@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
     Box,
     Text,
@@ -9,45 +9,37 @@ import {
 import { teamMembersData } from "./data";
 import FlipCard from "./FlipCard";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
-// Wave background at the bottom
-const WaveBackground: React.FC = () => {
-    const waveFill = useColorModeValue("#CB0000", "#CB0000");
-
-    return (
-        <Box
-            as="svg"
-            viewBox="0 0 1440 320"
-            position="absolute"
-            bottom="0"
-            left="0"
-            width="100%"
-            height="auto"
-            zIndex={1}
-        >
-            <path
-                fill={waveFill}
-                fillOpacity="1"
-                d="M0,256L30,256C60,256,120,256,180,224C240,192,300,128,360,122.7C420,117,480,171,540,181.3C600,192,660,160,720,128C780,96,840,64,900,80C960,96,1020,160,1080,165.3C1140,171,1200,117,1260,90.7C1320,64,1380,64,1410,64L1440,64L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
-            />
-        </Box>
-    );
+const initialVariants: { [key: string]: any } = {
+    initial: {
+        y: 75,
+        opacity: 0,
+    },
+    animate: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.7,
+            ease: "easeInOut",
+            staggerChildren: 0.2,
+        },
+    },
 };
 
 const BlockTeamMembers: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+
+    const ref = useRef<HTMLDivElement>(null);
 
     return (
         <Box
             position="relative"
             minH="100vh"
-            bg={useColorModeValue("gray.50", "gray.900")}
+            bg={useColorModeValue("gray.50", "#000")}
             padding="4rem 1rem 6rem 1rem"
             overflow="hidden"
         >
-            {/* Wave background at the bottom */}
-            <WaveBackground />
-
             <Flex
                 direction="column"
                 align="center"
@@ -65,12 +57,13 @@ const BlockTeamMembers: React.FC = () => {
                     marginBottom={{ base: "4rem", lg: "6rem" }}
                 >
                     <Text
-                        color={useColorModeValue('gray.800', '#16F8B6')}
+                        color={useColorModeValue('gray.800', "red.400")}
                         marginBottom="2rem"
                         marginTop="0"
                         fontSize={{ base: '2.8rem', lg: '4rem' }}
-                        fontWeight="1000"
-                        fontFamily="Big Shoulders Display"
+                        fontWeight={i18n.language === "fa" ? "bold" : "1000"}
+                        fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "Big Shoulders Display"}
+                        dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         letterSpacing="0.5px"
                         lineHeight="1.1"
                     >
@@ -81,6 +74,8 @@ const BlockTeamMembers: React.FC = () => {
                         marginBottom="4rem"
                         marginTop="0"
                         fontSize={{ base: '1.5rem', lg: '2.3rem' }}
+                        fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "Big Shoulders Display"}
+                        dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         lineHeight="1.5"
                     >
                         {t("teamPageSubTitle")}
@@ -89,37 +84,44 @@ const BlockTeamMembers: React.FC = () => {
 
                 {/* Staggered Grid Layout */}
                 <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacingX="5rem"
-                    spacingY={{ base: "12rem", lg: "10rem" }}
-                    maxW="1200px"
+                    columns={{ base: 1, md: 2, lg: 4, xl: 4 }}
+                    spacingX={{ base: "initial", md: "5rem", lg: "2rem", xl: "2.5rem" }}
+                    spacingY={{ base: "12rem", lg: "20rem", xl: "20rem" }}
+                    maxW={{ base: "100%", lg: "90%" }}
                     width="100%"
                     height='fit-content'
                     position={"relative"}
                     paddingX={{ base: "1rem", lg: "initial" }}
                     paddingTop={{ base: "2rem", lg: "2rem" }}
-                    paddingBottom={{ base: "15rem", lg: "40rem" }}
+                    paddingBottom={{ base: "15rem", lg: "15rem" }}
                 >
                     {teamMembersData.map((teamMember, index) => {
-                        const offset = index % 2 === 0 ? "0px" : "80px";
+                        const offset = index % 2 === 0 ? "0px" : "55px";
 
                         return (
-                            <Box
-                                key={teamMember.id}
-                                marginTop={{ base: "initial", lg: offset }}
-                                borderRadius="10px"
+                            <motion.div
+                                ref={ref}
+                                variants={initialVariants}
+                                initial="initial"
+                                whileInView="animate"
                             >
-                                <FlipCard
-                                    id={index}
-                                    name={teamMember.name}
-                                    title={teamMember.title}
-                                    image={teamMember.image}
-                                    profileHref={teamMember.profileHref}
-                                    linkedinAddress={teamMember.linkedinAddress}
-                                    emailAddress={teamMember.emailAddress}
-                                    twitterAddress={teamMember.twitterAddress}
-                                />
-                            </Box>
+                                <Box
+                                    key={teamMember.id}
+                                    marginTop={{ base: "initial", lg: offset }}
+                                    borderRadius="10px"
+                                >
+                                    <FlipCard
+                                        id={index}
+                                        name={teamMember.name && t(teamMember.name)}
+                                        title={teamMember.title && t(teamMember.title)}
+                                        image={teamMember.image && teamMember.image}
+                                        profileHref={teamMember.profileHref && teamMember.profileHref}
+                                        linkedinAddress={teamMember.linkedinAddress && teamMember.linkedinAddress}
+                                        emailAddress={teamMember.emailAddress && teamMember.emailAddress}
+                                        twitterAddress={teamMember.twitterAddress && teamMember.twitterAddress}
+                                    />
+                                </Box>
+                            </motion.div>
                         );
                     })}
                 </SimpleGrid>

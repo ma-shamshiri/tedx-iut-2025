@@ -8,10 +8,11 @@ import {
   IconButton,
   HStack,
   useBreakpointValue,
-  VStack
+  VStack,
+  Flex
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
 import { TfiEmail } from "react-icons/tfi";
 import { BsLinkedin } from "react-icons/bs";
 import { motion } from 'framer-motion';
@@ -30,7 +31,7 @@ const FlipCard: React.FC<FlipCardProps> = ({
   emailAddress,
   twitterAddress,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [isFlipped, setIsFlipped] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -48,7 +49,6 @@ const FlipCard: React.FC<FlipCardProps> = ({
   return (
     <Box
       position="relative"
-
       // borderWidth="1px"
       // borderColor={useColorModeValue("#000", "#fff")}
       borderRadius="10px"
@@ -82,12 +82,12 @@ const FlipCard: React.FC<FlipCardProps> = ({
             height="100%"
             textAlign="center"
             bg="radial-gradient(circle, 
-    rgba(186, 192, 200, 1) 0%,   /* Soft Silver (#BAC0C8 - Your Base Color) */
-    rgba(160, 166, 175, 1) 30%,  /* Cool Metallic Gray */
-    rgba(130, 136, 145, 1) 65%,  /* Deep Steel Shade */
-    rgba(100, 105, 115, 1) 100%  /* Dark Gunmetal Edge */
-);
-"
+              rgba(186, 192, 200, 1) 0%,   /* Soft Silver (#BAC0C8 - Your Base Color) */
+              rgba(160, 166, 175, 1) 30%,  /* Cool Metallic Gray */
+              rgba(130, 136, 145, 1) 65%,  /* Deep Steel Shade */
+              rgba(100, 105, 115, 1) 100%  /* Dark Gunmetal Edge */
+          );
+          "
             borderRadius="10px"
             style={{
               WebkitBackfaceVisibility: "hidden",
@@ -102,15 +102,31 @@ const FlipCard: React.FC<FlipCardProps> = ({
               objectFit="cover"
               borderRadius="10px"
             />
-            <Text
-              fontSize="2.8rem"
-              fontWeight="bold"
-              fontFamily="Big Shoulders Display"
-              letterSpacing="0.5px"
-              paddingTop="2rem"
+
+            <Flex
+              flexDirection="column"
+              gap="0.8rem"
             >
-              {name}
-            </Text>
+              <Text
+                fontSize={i18n.language === "fa" ? "2.2rem" : "2.8rem"}
+                fontWeight={i18n.language === "fa" ? "" : "bold"}
+                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "Big Shoulders Display"}
+                dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                letterSpacing="0.3px"
+                paddingTop={{ base: "1.5rem", lg: "1.5rem" }}
+              >
+                {name}
+              </Text>
+              <Text
+                fontSize={i18n.language === "fa" ? "1.8rem" : "1.8rem"}
+                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                letterSpacing="0.3px"
+                color="#02e65e"
+              >
+                {title}
+              </Text>
+            </Flex>
           </Box>
           <Box
             className="card__face card__face--back"
@@ -138,59 +154,25 @@ const FlipCard: React.FC<FlipCardProps> = ({
           >
             <VStack>
               <Text
-                fontSize="2.8rem"
-                fontWeight="1000"
-                // fontFamily="'Acme', sans-serif"
-
-                // fontWeight="bold"
-                fontFamily="Big Shoulders Display"
-                letterSpacing="0.5px"
-
-                // letterSpacing="1px"
-                marginBottom={2}
+                fontSize={i18n.language === "fa" ? "2.5rem" : "2.8rem"}
+                fontWeight={i18n.language === "fa" ? "" : "1000"}
+                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "Big Shoulders Display"}
+                dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                letterSpacing="0.3px"
+                paddingBottom={2}
               >
                 {name}
               </Text>
               <Text
                 fontSize="1.7rem"
-                fontWeight="400"
-                marginBottom={2}
+                fontWeight="bold"
+                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 paddingX="2.5rem"
               >
                 {title}
               </Text>
             </VStack>
-
-            {/* View Profile button */}
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: 10 }}
-              whileTap={{ scale: 1, rotate: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 5,
-              }}
-            >
-              <Link
-                as={RouterLink}
-                to={profileHref}
-                cursor="pointer"
-                fontSize="1.8rem"
-                fontWeight="bold"
-                borderWidth="2px"
-                borderColor="#fff"
-                borderRadius="7px"
-                padding="1.5rem"
-                textDecoration="none"
-                _hover={{
-                  textDecoration: "none",
-                  bg: "#fff",
-                  color: "#CB0000"
-                }}
-              >
-                {t("viewProfile")}
-              </Link>
-            </motion.div>
 
             <HStack
               spacing={{ base: "6", lg: "6" }}
@@ -228,10 +210,10 @@ const FlipCard: React.FC<FlipCardProps> = ({
               </Box>
               <Box as="a" href={twitterAddress} target="_blank" rel="noopener noreferrer">
                 <IconButton
-                  aria-label="twitter"
+                  aria-label="instagram"
                   variant="ghost"
                   size="xl"
-                  icon={<FaXTwitter size={iconSize} />}
+                  icon={<FaInstagram size={iconSize} />}
                   color={useColorModeValue("#gray.800", "gray.200")}
                   _hover={{
                     bg: useColorModeValue("gray.800", "gray.200"),
@@ -242,6 +224,39 @@ const FlipCard: React.FC<FlipCardProps> = ({
                 />
               </Box>
             </HStack>
+
+            {/* View Profile button */}
+            {/* <motion.div
+              whileHover={{ scale: 1.1, rotate: 10 }}
+              whileTap={{ scale: 1, rotate: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 5,
+              }}
+            >
+              <Link
+                as={RouterLink}
+                to={profileHref}
+                cursor="pointer"
+                fontSize="1.6rem"
+                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                fontWeight="bold"
+                borderWidth="2px"
+                borderColor="#fff"
+                borderRadius="7px"
+                padding="1.5rem"
+                textDecoration="none"
+                _hover={{
+                  textDecoration: "none",
+                  bg: "#fff",
+                  color: "#CB0000"
+                }}
+              >
+                {t("viewProfile")}
+              </Link>
+            </motion.div> */}
           </Box>
         </Box>
       </Box>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BlockFooter } from "../BlockFooter";
-import { aditya_thakkar } from "../../assets";
+import { sepehr_javan } from "../../assets";
 import { motion } from "framer-motion";
 import MyNavbar from "../MyNavbar";
 import BlockTeamProfiles from "../BlockTeamProfiles";
@@ -29,7 +29,7 @@ const AdityaThakkar: React.FC = () => {
                     name="Aditya Thakkar"
                     title="Organiser"
                     biography={``}
-                    image={aditya_thakkar}
+                    image={sepehr_javan}
                     linkedinAddress="http://linkedin.com/in/adityathakkar032"
                     emailAddress=""
                     twitterAddress="https://x.com/"

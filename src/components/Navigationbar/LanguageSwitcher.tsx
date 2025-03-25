@@ -69,8 +69,8 @@ const LanguageSwitcher: React.FC = () => {
                 EN
             </Button>
             <Button
-                variant={i18n.language === "fr" ? "solid" : "outline"}
-                onClick={() => changeLanguage("fr")}
+                variant={i18n.language === "fa" ? "solid" : "outline"}
+                onClick={() => changeLanguage("fa")}
                 transition="background 0.3s"
                 width={{ base: "40px", lg: "40px" }}
                 height={{ base: "40px", lg: "40px" }}
@@ -83,7 +83,7 @@ const LanguageSwitcher: React.FC = () => {
                 fontSize={{ base: 15, lg: 12 }}
                 fontWeight="bold"
             >
-                FR
+                FA
             </Button>
         </Flex>
     );

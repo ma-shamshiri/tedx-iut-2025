@@ -77,7 +77,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
         containerStyle: {
           padding: '1rem',
           fontSize: '1.5rem',
-          fontFamily: i18n.language === 'fa' ? "'Rubik', sans-serif" : '',
+          fontFamily: i18n.language === 'fa' ? "'YekanBakh', sans-serif" : '',
           direction: i18n.language === 'fa' ? 'rtl' : 'ltr',
         } as any,
       });
@@ -133,7 +133,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
         <ModalHeader
           fontSize={{ lg: '2.3rem' }}
           color="#fff"
-          fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+          fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
           dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
           marginTop="3rem"
         >
@@ -156,7 +156,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   mb={6}
                   color="gold"
                   fontSize={{ base: '1.5rem', lg: '1.7rem' }}
-                  fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                  fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                   dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                 >
                   {t(questions[currentQuestion].text)}
@@ -171,7 +171,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                       variant={answers[currentQuestion] === option ? 'solid' : 'outline'}
                       padding="2rem"
                       fontSize={{ base: '1.2rem', lg: '1.35rem' }}
-                      fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                      fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                       dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                       whiteSpace="normal"        // Allow wrapping
                       wordBreak="break-word"     // Break long words
@@ -200,7 +200,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
                 }}
                 fontWeight="bold"
-                fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
               >
                 {t('yourResult')} : {t(resultElement?.name || '')}
@@ -213,7 +213,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   xl: i18n.language === "fa" ? "1.5rem" : "1.5rem"
                 }}
                 mb={6}
-                fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
               >
                 {t(resultElement?.description || '')}
@@ -224,7 +224,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                 onChange={(e) => setEmail(e.target.value)}
                 mb={4}
                 fontSize="lg"
-                fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                 // Email field always LTR
                 dir="ltr"
               /> */}
@@ -232,7 +232,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                 onClick={handleSendEmail}
                 fontSize="lg"
                 px={8}
-                fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
               >
                 {t('ارسال')}
@@ -249,7 +249,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
               <Text
                 fontSize="2xl"
                 mb={6}
-                fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
               >
                 {t('theTestIsCompleted')}
@@ -259,7 +259,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                 fontSize="xl"
                 px={10}
                 py={6}
-                fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
               >
                 {t('tryAgain')}
@@ -280,7 +280,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   lg: i18n.language === "fa" ? "1.5rem" : "1.5rem",
                   xl: i18n.language === "fa" ? "1.8rem" : "1.8rem"
                 }}
-                fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                 paddingX={{ base: "2rem", md: "2rem", lg: "3rem" }}
                 paddingY={{ base: "2rem", md: "2rem", lg: "2rem" }}
@@ -299,7 +299,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   xl: i18n.language === "fa" ? "1.8rem" : "1.8rem"
                 }}
                 minWidth="10rem"
-                fontFamily={i18n.language === 'fa' ? "'Rubik', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                 paddingX={{ base: "2rem", md: "2rem", lg: "3rem" }}
                 paddingY={{ base: "2rem", md: "2rem", lg: "2rem" }}

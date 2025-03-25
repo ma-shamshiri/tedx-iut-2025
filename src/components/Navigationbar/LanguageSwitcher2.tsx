@@ -33,7 +33,7 @@ const LanguageSwitcher2: React.FC = () => {
     };
 
     useEffect(() => {
-        const storedLanguage = localStorage.getItem("selectedLanguage") || "en";
+        const storedLanguage = localStorage.getItem("selectedLanguage") || "fa";
         const defaultLabel = languageOptions.find(lang => lang.value === storedLanguage)?.label || "Language";
         i18n.changeLanguage(storedLanguage);
         setSelectedLanguageLabel(defaultLabel);

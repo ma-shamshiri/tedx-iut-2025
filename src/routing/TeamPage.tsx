@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { BlockFooter } from "../components/BlockFooter";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
 import MyNavbar from "../components/MyNavbar";
 import BlockTeamMembers from "../components/BlockTeamMembers";
+import FooterSection from "../components/FooterSection";
 
 const TeamPage: React.FC = () => {
-  const { t } = useTranslation();
 
   const [boxLoaded, setBoxLoaded] = useState(false);
 
@@ -28,7 +26,7 @@ const TeamPage: React.FC = () => {
       >
         <MyNavbar />
         <BlockTeamMembers />
-        <BlockFooter />
+        <FooterSection />
       </motion.div>
     </>
   );

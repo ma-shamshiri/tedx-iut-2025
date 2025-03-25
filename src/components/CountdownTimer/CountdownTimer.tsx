@@ -45,8 +45,8 @@ const CountdownTimer: React.FC<{ eventStartTime: Date }> = ({ eventStartTime }) 
     return (
         <Box
             position="absolute"
-            top={{ base: "8%", md: "10%", lg: "8%", xl: "10%" }}
-            left={{ base: "50%", md: "50%", lg: "80%", xl: "82.5%" }}
+            top={{ base: "12%", md: "10%", lg: "8%", xl: "10%" }}
+            left={{ base: "50%", md: "50%", lg: "75%", xl: "77%" }}
             transform="translate(-50%, -50%)"
             margin="0 auto"
             padding="2rem"
@@ -82,7 +82,7 @@ const CountdownTimer: React.FC<{ eventStartTime: Date }> = ({ eventStartTime }) 
                                 boxShadow: "0 12px 24px rgba(0, 0, 0, 0.4)",
                             }}
                             textAlign="center"
-                            fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
                             dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         >
                             <Text
