@@ -114,10 +114,11 @@ import saeed_ranjbar_bafghi from "./assets/images/saeed_ranjbar_bafghi.jpg";
 import sara_chatraee from "./assets/images/sara_chatraee.jpg";
 import sepehr_javan from "./assets/images/sepehr_javan.png";
 import shakila_yavari from "./assets/images/shakila_yavari.jpg";
-
+import mahsa_norouzi from "./assets/images/mahsa_norouzi.jpeg";
 
 
 export {
+    mahsa_norouzi,
     ali_karimi,
     ali_mehrjoo,
     alireza_movahed,

@@ -51,7 +51,7 @@ const FooterSection: React.FC = () => {
           <Flex gap={{ base: '1rem', md: '2rem' }}>
             <Link
               as={RouterLink}
-              to={"#"}
+              to={"/"}
               fontSize={linkFontSize}
               _hover={{ textDecoration: 'none', color: 'gray.100' }}
             >
