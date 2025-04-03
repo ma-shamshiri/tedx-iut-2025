@@ -284,13 +284,17 @@
     "erfanehHosseini": "Erfaneh Hosseini",
     "aminShamshiri": "Amin Shamshiri",
     "mediaTeamLead": "Media Team Lead",
+    "sponsorshipTeamLead": "Sponsorship Team Lead",
     "mediaCoordinator": "Media Coordinator",
     "speakerCurator": "Speaker Curator",
     "communicationsCoordinator": "Communications Coordinator",
     "sponsorshipCoordinator": "Sponsorship Coordinator",
     "websiteDesigner": "Website Designer",
-    "copyrightLineOne":"TEDxIsfahan University of Technology | All rights reserved",
-    "copyrightLineTwo":"This independent TEDx event is operated under license from TED",
+    "copyrightLineOne": "TEDxIsfahan University of Technology | All rights reserved",
+    "copyrightLineTwo": "This independent TEDx event is operated under license from TED",
     "teamSectionTitle": "Organising Team",
-    "mahsaNorouzi":"Mahsa Norouzi"
+    "mahsaNorouzi": "Mahsa Norouzi",
+    "amir": "Amir",
+    "sajedehEtekaf": "Sajedeh Akaaf",
+    "arghavanMahdikhani": "Arghavan Mahdikhani"
 }

@@ -118,6 +118,7 @@
     "aminShamshiri": "امین شمشیری",
     "organizer": "سازمان دهنده",
     "mediaTeamLead": "سرپرست تیم رسانه",
+    "sponsorshipTeamLead": "سرپرست تیم اسپانسرشیپ",
     "mediaCoordinator": "هماهنگ‌کننده رسانه",
     "speakerCurator": "کیوریتور سخنرانان",
     "communicationsCoordinator": "هماهنگ‌کننده ارتباطات",
@@ -134,9 +135,13 @@
     "tedxisfahanuniversityoftechnology": "تداِکس دانشگاه صنعتی اصفهان",
     "home": "صفحه اصلی",
     "team": "تیم",
-    "copyrightLineOne":"تداِکس دانشگاه صنعتی اصفهان | تمامی حقوق محفوظ است",
-    "copyrightLineTwo":"این رویداد مستقل تداِکس تحت مجوز تد برگزار می‌شود",
+    "copyrightLineOne": "تداِکس دانشگاه صنعتی اصفهان | تمامی حقوق محفوظ است",
+    "copyrightLineTwo": "این رویداد مستقل تداِکس تحت مجوز تد برگزار می‌شود",
     "scrollingTeamButtonLabel": "تیم را کاوش کنید",
     "teamSectionTitle": "تیم برگزاری",
-    "mahsaNorouzi": "مهسا نوروزی"
+    "mahsaNorouzi": "مهسا نوروزی",
+    "amir": "امیر",
+    "sajedehEtekaf": "ساجده عکاف",
+    "arghavanMahdikhani": "ارغوان مهدی‌خانی"
+
 }

@@ -115,9 +115,15 @@ import sara_chatraee from "./assets/images/sara_chatraee.jpg";
 import sepehr_javan from "./assets/images/sepehr_javan.png";
 import shakila_yavari from "./assets/images/shakila_yavari.jpg";
 import mahsa_norouzi from "./assets/images/mahsa_norouzi.jpeg";
+import amir from "./assets/images/amir.jpg";
+import arghavan_mahdikhani from "./assets/images/arghavan_mahdikhani.jpg";
+import sajede_akaaf from "./assets/images/sajede_akaaf.jpg";
 
 
 export {
+    amir,
+    arghavan_mahdikhani,
+    sajede_akaaf,
     mahsa_norouzi,
     ali_karimi,
     ali_mehrjoo,
