@@ -118,9 +118,13 @@ import mahsa_norouzi from "./assets/images/mahsa_norouzi.jpeg";
 import amir from "./assets/images/amir.jpg";
 import arghavan_mahdikhani from "./assets/images/arghavan_mahdikhani.jpg";
 import sajede_akaaf from "./assets/images/sajede_akaaf.jpg";
+import maryam_dehghani from "./assets/images/maryam_dehghani.webp";
+import niloofar_sadeghnadi from "./assets/images/niloofar_sadeghnadi.jpg";
 
 
 export {
+    maryam_dehghani,
+    niloofar_sadeghnadi,
     amir,
     arghavan_mahdikhani,
     sajede_akaaf,

@@ -28,6 +28,8 @@ import {
     arghavan_mahdikhani,
     amir,
     sajede_akaaf,
+    niloofar_sadeghnadi,
+    maryam_dehghani,
 } from "../../assets";
 
 export interface TeamMember {
@@ -144,6 +146,16 @@ export const teamMembersData: TeamMember[] = [
     },
     {
         id: 11,
+        name: "maryamDehghani",
+        title: "mediaCoordinator",
+        image: maryam_dehghani,
+        // profileHref: "ramtin",
+        // linkedinAddress: "https://www.linkedin.com/in/ma-shamshiri/",
+        // emailAddress: "",
+        // twitterAddress: "",
+    },
+    {
+        id: 12,
         name: "farzanehMaghsoudi",
         title: "speakerCurator",
         image: farzaneh_maghsoudi,
@@ -153,7 +165,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 12,
+        id: 13,
         name: "nadiaNadi",
         title: "speakerCurator",
         image: nadia_nadi,
@@ -163,7 +175,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 13,
+        id: 14,
         name: "shakilaYavari",
         title: "speakerCurator",
         image: shakila_yavari,
@@ -173,7 +185,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 14,
+        id: 15,
         name: "amirmahyarTeimouri",
         title: "speakerCurator",
         image: amirmahyar_teimouri,
@@ -183,7 +195,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 15,
+        id: 16,
         name: "arefShams",
         title: "speakerCurator",
         image: aref_shams,
@@ -193,7 +205,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 16,
+        id: 17,
         name: "hourabayaz",
         title: "speakerCurator",
         image: houra_bayaz,
@@ -203,7 +215,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 17,
+        id: 18,
         name: "sajedehEtekaf",
         title: "speakerCurator",
         image: sajede_akaaf,
@@ -213,7 +225,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 18,
+        id: 19,
         name: "amir",
         title: "sponsorshipTeamLead",
         image: amir,
@@ -223,7 +235,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 19,
+        id: 20,
         name: "aliMehrjoo",
         title: "sponsorshipCoordinator",
         image: ali_mehrjoo,
@@ -233,7 +245,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 20,
+        id: 21,
         name: "aliKarimi",
         title: "communicationsCoordinator",
         image: ali_karimi,
@@ -243,7 +255,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 21,
+        id: 22,
         name: "royaMazrouee",
         title: "communicationsCoordinator",
         image: roya_mazrouee,
@@ -253,7 +265,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 22,
+        id: 23,
         name: "saraChatraee",
         title: "communicationsCoordinator",
         image: sara_chatraee,
@@ -263,7 +275,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 23,
+        id: 24,
         name: "fatemehNasr",
         title: "communicationsCoordinator",
         image: fatemeh_nasr,
@@ -273,7 +285,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 24,
+        id: 25,
         name: "erfanehHosseini",
         title: "communicationsCoordinator",
         image: erfaneh_hosseini,
@@ -283,7 +295,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 25,
+        id: 26,
         name: "arghavanMahdikhani",
         title: "communicationsCoordinator",
         image: arghavan_mahdikhani,
@@ -293,7 +305,17 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 26,
+        id: 27,
+        name: "niloofarSadeghnadi",
+        title: "communicationsCoordinator",
+        image: niloofar_sadeghnadi,
+        // profileHref: "fatemeh-nasr",
+        // linkedinAddress: "https://www.linkedin.com/in/ma-shamshiri/",
+        // emailAddress: "",
+        // twitterAddress: "",
+    },
+    {
+        id: 28,
         name: "aminShamshiri",
         title: "websiteDesigner",
         image: amin,
