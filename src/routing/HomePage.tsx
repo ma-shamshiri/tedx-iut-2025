@@ -7,6 +7,7 @@ import FooterSection from "../components/FooterSection";
 import HeroSection from "../components/HeroSection";
 import MyNavbar from "../components/MyNavbar";
 import TeamSection from "../components/TeamSection";
+import InstagramGallery from "../components/InstagramGallery";
 
 const HomePage: React.FC = () => {
   const [boxLoaded, setBoxLoaded] = useState(false);
@@ -33,6 +34,7 @@ const HomePage: React.FC = () => {
         <MyNavbar />
         {/* <BlockHomeEvent /> */}
         <HeroSection />
+        {/* <InstagramGallery /> */}
         <AboutSection />
         <TeamSection />
         <FooterSection />

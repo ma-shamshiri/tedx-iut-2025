@@ -35,7 +35,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ title, icon, description }) => {
             <Flex marginBottom="1rem" dir={i18n.language === "fa" ? "rtl" : "ltr"}>
                 <Icon as={icon} boxSize="2.5rem" color="red.400" marginRight="0.75rem" marginLeft="0.75rem" />
                 <Text
-                    fontSize={{ base: "1.4rem", lg: "1.7rem" }}
+                    fontSize={{ base: "2rem", lg: "2.5rem" }}
                     color="red.300"
                     fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
@@ -44,7 +44,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ title, icon, description }) => {
                 </Text>
             </Flex>
             <Text
-                fontSize="1.4rem"
+                fontSize={{ base: "1.5rem", lg: "1.7rem" }}
                 color="gray.200"
                 lineHeight="1.75"
                 fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
@@ -75,7 +75,7 @@ const AboutSection: React.FC = () => {
             overflow="hidden"
         >
             <SimpleGrid
-                columns={{ base: 1, md: 1, lg: 3 }}
+                columns={{ base: 1, md: 2, lg: 2 }}
                 maxW="1400px"
                 spacing="2rem"
                 padding="2rem"
@@ -92,11 +92,11 @@ const AboutSection: React.FC = () => {
                     icon={FaLightbulb}
                     description={t("tedxDescription")}
                 />
-                <AboutCard
+                {/* <AboutCard
                     title={t("tedxisfahanuniversityoftechnology")}
                     icon={FaUniversity}
                     description={t("tedxIsfahanUniversityOfTechnologyDescription")}
-                />
+                /> */}
             </SimpleGrid>
         </Box>
     );

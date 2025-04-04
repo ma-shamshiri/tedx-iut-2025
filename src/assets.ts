@@ -121,8 +121,18 @@ import sajede_akaaf from "./assets/images/sajede_akaaf.jpg";
 import maryam_dehghani from "./assets/images/maryam_dehghani.webp";
 import niloofar_sadeghnadi from "./assets/images/niloofar_sadeghnadi.jpg";
 
+import InstagrapPost1 from "./assets/images/InstagrapPost1.jpg";
+import InstagrapPost2 from "./assets/images/InstagrapPost2.jpg";
+import InstagrapPost3 from "./assets/images/InstagrapPost3.jpg";
+import InstagrapPost4 from "./assets/images/InstagrapPost4.jpg";
+import InstagrapPost5 from "./assets/images/InstagrapPost5.jpg";
 
 export {
+    InstagrapPost1,
+    InstagrapPost2,
+    InstagrapPost3,
+    InstagrapPost4,
+    InstagrapPost5,
     maryam_dehghani,
     niloofar_sadeghnadi,
     amir,
