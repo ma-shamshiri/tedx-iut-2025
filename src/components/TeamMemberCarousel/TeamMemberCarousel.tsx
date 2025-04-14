@@ -1,4 +1,3 @@
-// TeamMemberCarousel.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, IconButton } from '@chakra-ui/react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
@@ -43,15 +42,8 @@ const TeamMemberCarousel: React.FC = () => {
     setCenterIndex((prev) => (prev + 1) % totalItems);
   };
 
-  /**
-   * Determine which team members to show.
-   * We take the centerIndex as the middle item (offset = 0).
-   * For 5 items, offsets are -2, -1, 0, +1, +2.
-   */
   const visibleIndices = Array.from({ length: ITEMS_TO_SHOW }, (_, i) => {
-    // For i in [0..4], offset = i - 2 => [-2, -1, 0, 1, 2]
     const offset = i - Math.floor(ITEMS_TO_SHOW / 2);
-    // Use modulo to wrap around the array
     return (centerIndex + offset + totalItems) % totalItems;
   });
 
@@ -59,12 +51,11 @@ const TeamMemberCarousel: React.FC = () => {
     <Box
       position="relative"
       width="100%"
-      height="400px" // adjust as needed
+      height="400px" 
       overflow="hidden"
       onMouseEnter={stopAutoPlay}
       onMouseLeave={startAutoPlay}
     >
-      {/* Left Arrow (Previous) */}
       <IconButton
         icon={<AiOutlineArrowLeft />}
         aria-label="Previous"
@@ -79,7 +70,6 @@ const TeamMemberCarousel: React.FC = () => {
         onClick={handlePrev}
       />
 
-      {/* Right Arrow (Next) */}
       <IconButton
         icon={<AiOutlineArrowRight />}
         aria-label="Next"
@@ -94,29 +84,23 @@ const TeamMemberCarousel: React.FC = () => {
         onClick={handleNext}
       />
 
-      {/* Display the 5 visible items with a "coverflow-like" effect */}
       {visibleIndices.map((itemIndex, idx) => {
-        // offset in [-2..2] for 5 items
         const offset = idx - Math.floor(ITEMS_TO_SHOW / 2);
 
-        // Determine styling based on offset
         let opacity = 1;
         let scale = 1;
-        let zIndex = 5 - Math.abs(offset); // center item on top
+        let zIndex = 5 - Math.abs(offset);
 
-        // Far edges: offset = -2 or 2 => dim & smaller
         if (Math.abs(offset) === 2) {
           opacity = 0.4;
           scale = 0.8;
         }
-        // Next to center: offset = -1 or 1 => slightly dim
         else if (Math.abs(offset) === 1) {
           opacity = 0.7;
           scale = 0.9;
         }
 
-        // Horizontal shift between each item
-        const xOffset = offset * 250; // adjust spacing to your liking
+        const xOffset = offset * 250;
 
         return (
           <Box

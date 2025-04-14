@@ -3,7 +3,6 @@ import {
   Box,
   Image,
   Text,
-  Link,
   useColorModeValue,
   IconButton,
   HStack,
@@ -11,11 +10,9 @@ import {
   VStack,
   Flex
 } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
 import { FaInstagram } from "react-icons/fa6";
 import { TfiEmail } from "react-icons/tfi";
 import { BsLinkedin } from "react-icons/bs";
-import { motion } from 'framer-motion';
 import { TeamMember } from "./data";
 import { useTranslation } from "react-i18next";
 
@@ -49,8 +46,6 @@ const FlipCard: React.FC<FlipCardProps> = ({
   return (
     <Box
       position="relative"
-      // borderWidth="1px"
-      // borderColor={useColorModeValue("#000", "#fff")}
       borderRadius="10px"
       onMouseEnter={() => id !== undefined && setHoveredIndex(id)}
       onMouseLeave={() => setHoveredIndex(null)}
@@ -224,39 +219,6 @@ const FlipCard: React.FC<FlipCardProps> = ({
                 />
               </Box>
             </HStack>
-
-            {/* View Profile button */}
-            {/* <motion.div
-              whileHover={{ scale: 1.1, rotate: 10 }}
-              whileTap={{ scale: 1, rotate: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 5,
-              }}
-            >
-              <Link
-                as={RouterLink}
-                to={profileHref}
-                cursor="pointer"
-                fontSize="1.6rem"
-                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
-                dir={i18n.language === "fa" ? "rtl" : "ltr"}
-                fontWeight="bold"
-                borderWidth="2px"
-                borderColor="#fff"
-                borderRadius="7px"
-                padding="1.5rem"
-                textDecoration="none"
-                _hover={{
-                  textDecoration: "none",
-                  bg: "#fff",
-                  color: "#CB0000"
-                }}
-              >
-                {t("viewProfile")}
-              </Link>
-            </motion.div> */}
           </Box>
         </Box>
       </Box>

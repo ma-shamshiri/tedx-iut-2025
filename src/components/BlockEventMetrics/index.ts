@@ -1,2 +1,0 @@
-
-export { BlockEventMetrics } from "./BlockEventMetrics";

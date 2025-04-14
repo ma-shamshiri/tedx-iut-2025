@@ -1,4 +1,3 @@
-// TeamMemberCarouselCard.tsx
 import React from 'react';
 import {
     Box,
@@ -46,7 +45,6 @@ const TeamMemberCarouselCard: React.FC<TeamMemberCarouselCardProps> = ({ member 
                 />
             )}
 
-            {/* Hover Overlay */}
             <Flex
                 direction="column"
                 justify="flex-end"

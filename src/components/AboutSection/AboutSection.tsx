@@ -1,9 +1,6 @@
-// AboutSection.tsx
 import React from 'react';
 import {
     Box,
-    Container,
-    Heading,
     Text,
     SimpleGrid,
     Flex,
@@ -92,11 +89,6 @@ const AboutSection: React.FC = () => {
                     icon={FaLightbulb}
                     description={t("tedxDescription")}
                 />
-                {/* <AboutCard
-                    title={t("tedxisfahanuniversityoftechnology")}
-                    icon={FaUniversity}
-                    description={t("tedxIsfahanUniversityOfTechnologyDescription")}
-                /> */}
             </SimpleGrid>
         </Box>
     );

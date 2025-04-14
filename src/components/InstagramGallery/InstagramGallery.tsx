@@ -10,12 +10,10 @@ import { instagramPosts } from "./data";
 import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-// Import slick-carousel CSS files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useTranslation } from "react-i18next";
 
-// Framer Motion component for the cover layer
 const MotionBox = motion(Box);
 
 interface InstagramSlideProps {
@@ -50,13 +48,10 @@ const CustomNextArrow = (props: any) => {
 };
 
 const InstagramSlide: React.FC<InstagramSlideProps> = ({ post }) => {
-    // State to track if the video has been played (thus thumbnail stays hidden)
     const [videoPlayed, setVideoPlayed] = useState(false);
-    // State to track hover (only used when video hasn't been played yet)
     const [isHovered, setIsHovered] = useState(false);
 
     const handleCoverClick = () => {
-        // Mark video as played; once set, thumbnail remains hidden
         if (!videoPlayed) {
             setVideoPlayed(true);
         }
@@ -73,7 +68,6 @@ const InstagramSlide: React.FC<InstagramSlideProps> = ({ post }) => {
                 boxShadow="0 4px 12px rgba(0,0,0,0.3)"
                 border={"2px solid #320701"}
             >
-                {/* Render the cover image normally to set the container’s height */}
                 <Image
                     src={post.imageUrl}
                     alt={post.caption}
@@ -83,7 +77,6 @@ const InstagramSlide: React.FC<InstagramSlideProps> = ({ post }) => {
                     display="block"
                 />
 
-                {/* Video Layer: absolutely positioned to fill the container */}
                 <Box
                     position="absolute"
                     top="0"
@@ -104,7 +97,6 @@ const InstagramSlide: React.FC<InstagramSlideProps> = ({ post }) => {
                     />
                 </Box>
 
-                {/* Cover (Thumbnail) Layer: fades out on hover or if videoPlayed is true */}
                 <MotionBox
                     position="absolute"
                     top="0"
@@ -118,7 +110,6 @@ const InstagramSlide: React.FC<InstagramSlideProps> = ({ post }) => {
                     onClick={handleCoverClick}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    // Disable pointer events if videoPlayed is true so clicks pass to the video
                     style={{ pointerEvents: videoPlayed ? "none" : "auto" }}
                 >
                     <Image
@@ -137,19 +128,17 @@ const InstagramSlide: React.FC<InstagramSlideProps> = ({ post }) => {
 const InstagramGallery: React.FC = () => {
     const { t, i18n } = useTranslation();
 
-    // Responsive number of slides to show
     const slidesToShow = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
 
-    // Slider settings for smooth, elegant motion:
     const settings = {
         dots: false,
         infinite: true,
-        speed: 1500,           // 1.5s transition for smooth movement
+        speed: 1500,
         cssEase: "ease-in-out",
         slidesToShow: slidesToShow,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2800,   // 4 seconds per slide
+        autoplaySpeed: 2800,
         pauseOnHover: true,
         // arrows: true,
         nextArrow: <CustomNextArrow />,
@@ -161,7 +150,7 @@ const InstagramGallery: React.FC = () => {
             <Heading
                 as="h2"
                 textAlign="center"
-                marginY={{base:"4rem", lg:"6rem"}}
+                marginY={{ base: "4rem", lg: "6rem" }}
                 color="#FFF"
                 fontWeight="bold"
                 fontSize={{ base: "1.8rem", md: "2.4rem" }}

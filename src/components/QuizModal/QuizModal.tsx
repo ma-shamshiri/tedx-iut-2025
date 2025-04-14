@@ -1,5 +1,3 @@
-// QuizModal.tsx
-
 import React, { useState, useEffect } from 'react';
 import {
   Modal,
@@ -11,7 +9,6 @@ import {
   Button,
   Box,
   Text,
-  Input,
   useToast,
   SimpleGrid,
   Flex,
@@ -20,7 +17,7 @@ import {
 import { questions, personalityElements, PersonalityElement } from './data';
 import { useTranslation } from 'react-i18next';
 import { BsStars } from 'react-icons/bs';
-import CLBScoreAnimation from '../Animations/CLBScoreAnimation';
+import SubmitAnimation from '../Animations/SubmitAnimation';
 
 interface QuizModalProps {
   isOpen: boolean;
@@ -41,7 +38,6 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState('');
   const [resultElement, setResultElement] = useState<PersonalityElement | null>(null);
 
-  // Reset the quiz state to start over.
   const handleReset = () => {
     setCurrentQuestion(0);
     setAnswers(Array(questions.length).fill(null));
@@ -51,14 +47,12 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     setResultElement(null);
   };
 
-  // Reset quiz whenever the modal is opened.
   useEffect(() => {
     if (isOpen) {
       handleReset();
     }
   }, [isOpen]);
 
-  // Called when an option is selected.
   const handleOptionSelect = (option: string) => {
     const updatedAnswers = [...answers];
     updatedAnswers[currentQuestion] = option;
@@ -66,7 +60,6 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     setHasError(false);
   };
 
-  // Proceed to the next question or show the result on the final question.
   const handleNext = () => {
     if (!answers[currentQuestion]) {
       setHasError(true);
@@ -86,30 +79,23 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // All questions answered; assign a personality element randomly for now.
       const randomIndex = Math.floor(Math.random() * personalityElements.length);
       setResultElement(personalityElements[randomIndex]);
       setShowResult(true);
-
       setShowAnimation(true);
-
-      // Simulate processing time with a timeout
       setTimeout(() => {
         setShowAnimation(false);
       }, 1000);
     }
   };
 
-  // Go back to the previous question.
   const handlePrevious = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(currentQuestion - 1);
     }
   };
 
-  // Handle email submission: show a success toast and display the reset slide.
   const handleSendEmail = () => {
-    // Insert your email sending logic here (e.g., EmailJS integration)
     toast({
       title: t('ایمیل ارسال شد!'),
       status: 'success',
@@ -173,9 +159,9 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                       fontSize={{ base: '1.2rem', lg: '1.35rem' }}
                       fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                       dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                      whiteSpace="normal"        // Allow wrapping
-                      wordBreak="break-word"     // Break long words
-                      textAlign="center"         // Optional, center text
+                      whiteSpace="normal"
+                      wordBreak="break-word"
+                      textAlign="center"
                       _hover={{ transform: 'scale(1.03)' }}
                       transition="color 0.2s ease, background-color 0.2s ease, transform 0.1s ease"
                     >
@@ -187,7 +173,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
             </Box>
           )}
 
-          {/* Result Slide with Email Input */}
+          {/* Result Slide */}
           {showResult && !showResetSlide && (
             <Box textAlign="center" p={6}>
               <Text
@@ -218,28 +204,8 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
               >
                 {t(resultElement?.description || '')}
               </Text>
-              {/* <Input
-                placeholder={t('ایمیل خود را وارد کنید')}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                mb={4}
-                fontSize="lg"
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                // Email field always LTR
-                dir="ltr"
-              /> */}
-              {/* <Button
-                onClick={handleSendEmail}
-                fontSize="lg"
-                px={8}
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-              >
-                {t('ارسال')}
-              </Button> */}
-
               {/* Animation */}
-              {showAnimation && <CLBScoreAnimation />}
+              {showAnimation && <SubmitAnimation />}
             </Box>
           )}
 

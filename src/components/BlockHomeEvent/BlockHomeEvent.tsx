@@ -36,15 +36,7 @@ const BlockHomeEvent: React.FC = () => {
             width="100%"
             minHeight="93vh"
             height="100vh"
-            // paddingBottom="4rem"
             bg="#000"
-            // bg={useColorModeValue(
-            //     "linear-gradient(180deg, #6868f7, #6868f7, #a6a6ff, #a6a6ff)",
-            //     "linear-gradient(180deg, #000000 25%,   #0e0e29 50%,   #1a1a4d 75%)"
-            // )}
-            // backgroundImage={hoemHero2}
-            // backgroundPosition="center"
-            // backgroundRepeat="no-repeat"
             overflow="hidden"
         >
                                 <TeamMemberCarousel />

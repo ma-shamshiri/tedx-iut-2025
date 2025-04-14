@@ -10,40 +10,20 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
-import { motion } from "framer-motion";
 import { tedxBlack, tedxWhite } from "../../assets";
-import { useTranslation } from "react-i18next";
-import ColorModeSwitch from "../Navigationbar/ColorModeSwitch";
-import LanguageSwitcher from "../Navigationbar/LanguageSwitcher";
-import MenuToggle from "../MenuToggle/MenuToggle";
-import SliderText from "../SliderText";
-import LanguageSwitcher2 from "../Navigationbar/LanguageSwitcher2";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
-
-const MotionBox = motion(Box);
+import LanguageSwitcher from "../LanguageSwitcher";
 
 const MyNavbar: React.FC = () => {
-    const { t } = useTranslation();
-
     const { colorMode } = useColorMode();
 
-    const isLargeScreen = useBreakpointValue({ base: false, md: true });
-
     const tedxImg = colorMode === "dark" ? tedxWhite : tedxBlack;
-
-    const menuHeightValue = useBreakpointValue({ base: "225px", lg: "80px" });
 
     const instagramIconSize = useBreakpointValue({ base: "30px", md: "30px", lg: "28px" });
     const instagramIconBoxSize = useBreakpointValue({ base: "40px", md: "40px", lg: "35px" });
 
     const linkedinIconSize = useBreakpointValue({ base: "29px", md: "30px", lg: "24px" });
     const linkedinIconBoxSize = useBreakpointValue({ base: "40px", md: "40px", lg: "35px" });
-
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
 
     const [isNavVisible, setIsNavVisible] = useState(true);
 
@@ -106,7 +86,6 @@ const MyNavbar: React.FC = () => {
                     >
                         <Box
                             as={IconButton}
-                            // onClick={() => setActiveModal("instagram")}
                             onClick={() => window.open("https://www.instagram.com/tedx.iut?igsh=MW1yeDJhMDMxZ3V5Zg==", "_blank")}
                             rel="noopener noreferrer"
                             icon={<FaInstagram size={instagramIconSize} />}
@@ -117,12 +96,11 @@ const MyNavbar: React.FC = () => {
                             boxSize={instagramIconBoxSize}
                         />
                         <Flex position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)" >
-                            <LanguageSwitcher2 />
+                            <LanguageSwitcher />
                         </Flex>
                         <Box
                             as={IconButton}
-                            // onClick={() => setActiveModal("linkedin")}
-                            onClick={() => window.open("https://www.linkedin.com/", "_blank")}
+                            onClick={() => window.open("https://www.linkedin.com/company/tedx-iut/", "_blank")}
                             rel="noopener noreferrer"
                             icon={<FaLinkedin size={linkedinIconSize} />}
                             bg="#0077B5"
@@ -156,7 +134,7 @@ const MyNavbar: React.FC = () => {
                                 <Image src={tedxImg} width={450} />
                             </Link>
                         </Flex>
-                        <LanguageSwitcher2 />
+                        <LanguageSwitcher />
                     </Flex>
                 </Flex>
             </Box>
