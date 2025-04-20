@@ -14,7 +14,7 @@ import {
   Flex,
   ModalCloseButton,
 } from '@chakra-ui/react';
-import { questions, personalityElements, PersonalityElement } from './data';
+import { questions, personalityElements, PersonalityElement, Option } from './data';
 import { useTranslation } from 'react-i18next';
 import { BsStars } from 'react-icons/bs';
 import SubmitAnimation from '../Animations/SubmitAnimation';
@@ -31,7 +31,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
   const [showAnimation, setShowAnimation] = useState(false);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<(string | null)[]>(Array(questions.length).fill(null));
+  const [answers, setAnswers] = useState<(Option | null)[]>(Array(questions.length).fill(null));
   const [hasError, setHasError] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [showResetSlide, setShowResetSlide] = useState(false);
@@ -53,7 +53,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
-  const handleOptionSelect = (option: string) => {
+  const handleOptionSelect = (option: Option) => {
     const updatedAnswers = [...answers];
     updatedAnswers[currentQuestion] = option;
     setAnswers(updatedAnswers);
@@ -79,8 +79,18 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      const randomIndex = Math.floor(Math.random() * personalityElements.length);
-      setResultElement(personalityElements[randomIndex]);
+      const summedArray = answers.reduce((accumulator, currentItem) => {
+        currentItem?.type.forEach((value, index) => {
+          accumulator[index] += value;
+        });
+        return accumulator;
+      }, Array(personalityElements.length).fill(0)); 
+      
+      const maxIndex = summedArray.reduce((maxIdx, currentValue, currentIndex, arr) => {
+        return currentValue > arr[maxIdx] ? currentIndex : maxIdx;
+      }, 0);
+
+      setResultElement(personalityElements[maxIndex]);
       setShowResult(true);
       setShowAnimation(true);
       setTimeout(() => {
@@ -152,9 +162,9 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                     <Button
                       key={index}
                       onClick={() => handleOptionSelect(option)}
-                      bg={answers[currentQuestion] === option ? 'dodgerblue' : 'gray.100'}
-                      color={answers[currentQuestion] === option ? 'white' : 'black'}
-                      variant={answers[currentQuestion] === option ? 'solid' : 'outline'}
+                      bg={answers[currentQuestion]?.text === option.text ? 'dodgerblue' : 'gray.100'}
+                      color={answers[currentQuestion]?.text === option.text ? 'white' : 'black'}
+                      variant={answers[currentQuestion]?.text === option.text ? 'solid' : 'outline'}
                       padding="2rem"
                       fontSize={{ base: '1.2rem', lg: '1.35rem' }}
                       fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
@@ -165,7 +175,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                       _hover={{ transform: 'scale(1.03)' }}
                       transition="color 0.2s ease, background-color 0.2s ease, transform 0.1s ease"
                     >
-                      {t(option)}
+                      {t(option.text)}
                     </Button>
                   ))}
                 </SimpleGrid>
