@@ -1,3 +1,9 @@
+import {
+    campaignT1,
+    // campaignT1,
+    // campaignT1,
+} from "../../assets";
+
 export interface Option {
     text: string;
     type: number[];
@@ -114,6 +120,7 @@ export interface PersonalityElement {
     id: number;
     name: string;
     description: string;
+    image: string;
 }
 
 export const personalityElements: PersonalityElement[] = [
@@ -121,35 +128,42 @@ export const personalityElements: PersonalityElement[] = [
         id: 1,
         name: "resultOneName",
         description: "resultOneDescription",
+        image: campaignT1,
     },
     {
         id: 2,
         name: "resultTwoName",
         description: "resultTwoDescription",
+        image: campaignT1,
     },
     {
         id: 3,
         name: "resultThreeName",
         description: "resultThreeDescription",
+        image: campaignT1,
     },
     {
         id: 4,
         name: "resultFourName",
         description: "resultFourDescription",
+        image: campaignT1,
     },
     {
         id: 5,
         name: "resultFiveName",
         description: "resultFiveDescription",
+        image: campaignT1,
     },
     {
         id: 6,
         name: "resultSixName",
         description: "resultSixDescription",
+        image: campaignT1,
     },
     {
         id: 7,
         name: "resultSevenName",
         description: "resultSevenDescription",
+        image: campaignT1,
     },
 ];

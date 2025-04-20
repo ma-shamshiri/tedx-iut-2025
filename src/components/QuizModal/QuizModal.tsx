@@ -13,6 +13,8 @@ import {
   SimpleGrid,
   Flex,
   ModalCloseButton,
+  Image,
+  Skeleton,
 } from '@chakra-ui/react';
 import { questions, personalityElements, PersonalityElement, Option } from './data';
 import { useTranslation } from 'react-i18next';
@@ -214,6 +216,23 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
               >
                 {t(resultElement?.description || '')}
               </Text>
+
+              <Flex justifyContent="center" alignItems="center" mb={6}>
+                <Image
+                  src={resultElement?.image}
+                  alt={resultElement?.name}
+                  width={{
+                    base: "80%", 
+                    md: "60%",   
+                    lg: "50%",   
+                    xl: "40%"    
+                  }}
+                  height="auto" // Maintain aspect ratio
+                  objectFit="cover"
+                  borderRadius="10px"
+                />
+              </Flex>
+
               {/* Animation */}
               {showAnimation && <SubmitAnimation />}
             </Box>

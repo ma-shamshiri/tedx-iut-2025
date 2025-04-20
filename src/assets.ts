@@ -37,6 +37,7 @@ import tedxWhite from "./assets/images/tedxWhite.png";
 import tickImage from "./assets/images/tick.svg";
 import unknownBoyProfile from "./assets/images/unknownBoyProfile.jpg";
 import unknownGirlProfile from "./assets/images/unknownGirlProfile.jpg";
+import campaignT1 from "./assets/images/campaign/type1.jpg";
 
 export {
     ali_karimi,
@@ -78,4 +79,5 @@ export {
     tickImage,
     unknownBoyProfile,
     unknownGirlProfile,
+    campaignT1,
 };
