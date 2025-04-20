@@ -14,12 +14,23 @@ import {
   Flex,
   ModalCloseButton,
   Image,
-  Skeleton,
 } from '@chakra-ui/react';
 import { questions, personalityElements, PersonalityElement, Option } from './data';
 import { useTranslation } from 'react-i18next';
 import { BsStars } from 'react-icons/bs';
 import SubmitAnimation from '../Animations/SubmitAnimation';
+
+
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array]; 
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+}
+
 
 interface QuizModalProps {
   isOpen: boolean;
@@ -39,6 +50,8 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
   const [showResetSlide, setShowResetSlide] = useState(false);
   const [email, setEmail] = useState('');
   const [resultElement, setResultElement] = useState<PersonalityElement | null>(null);
+  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+
 
   const handleReset = () => {
     setCurrentQuestion(0);
@@ -47,6 +60,12 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     setShowResetSlide(false);
     setEmail('');
     setResultElement(null);
+
+    const shuffledQuestionsCopy = questions.map((question) => ({
+      ...question,
+      options: shuffleArray(question.options),
+    }));
+    setShuffledQuestions(shuffledQuestionsCopy);
   };
 
   useEffect(() => {
@@ -118,6 +137,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     setShowResetSlide(true);
   };
 
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size="6xl">
       <ModalOverlay />
@@ -157,10 +177,11 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                   dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                 >
-                  {t(questions[currentQuestion].text)}
+                  {t(shuffledQuestions[currentQuestion]?.text)}
                 </Text>
+                
                 <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={4}>
-                  {questions[currentQuestion].options.map((option, index) => (
+                  {shuffledQuestions[currentQuestion]?.options.map((option, index) => (
                     <Button
                       key={index}
                       onClick={() => handleOptionSelect(option)}
@@ -216,16 +237,16 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
               >
                 {t(resultElement?.description || '')}
               </Text>
-
+              
               <Flex justifyContent="center" alignItems="center" mb={6}>
                 <Image
                   src={resultElement?.image}
                   alt={resultElement?.name}
                   width={{
-                    base: "80%", 
-                    md: "60%",   
-                    lg: "50%",   
-                    xl: "40%"    
+                    base: "80%", // Small screens (mobile)
+                    md: "60%",   // Medium screens (tablet)
+                    lg: "50%",   // Large screens (laptop)
+                    xl: "40%"    // Extra-large screens (desktop)
                   }}
                   height="auto" // Maintain aspect ratio
                   objectFit="cover"
