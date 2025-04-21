@@ -229,13 +229,8 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                 <Image
                   src={resultElement?.image}
                   alt={resultElement?.name}
-                  height={{
-                    base: "80%", 
-                    md: "60%",   
-                    lg: "50%",   
-                    xl: "40%"    
-                  }}
-                  width="auto"
+                  width="50vh"
+                  height="auto"
                   objectFit="cover"
                   borderRadius="10px"
                 />
