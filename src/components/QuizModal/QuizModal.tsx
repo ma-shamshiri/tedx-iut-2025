@@ -224,31 +224,18 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
               >
                 {t('yourResult')} : {t(resultElement?.name || '')}
               </Text>
-              <Text
-                fontSize={{
-                  base: i18n.language === "fa" ? "1.2rem" : "1.4rem",
-                  md: i18n.language === "fa" ? "1.2rem" : "1.7rem",
-                  lg: i18n.language === "fa" ? "1.5rem" : "1.6rem",
-                  xl: i18n.language === "fa" ? "1.5rem" : "1.5rem"
-                }}
-                mb={6}
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-              >
-                {t(resultElement?.description || '')}
-              </Text>
               
               <Flex justifyContent="center" alignItems="center" mb={6}>
                 <Image
                   src={resultElement?.image}
                   alt={resultElement?.name}
-                  width={{
-                    base: "80%", // Small screens (mobile)
-                    md: "60%",   // Medium screens (tablet)
-                    lg: "50%",   // Large screens (laptop)
-                    xl: "40%"    // Extra-large screens (desktop)
+                  height={{
+                    base: "80%", 
+                    md: "60%",   
+                    lg: "50%",   
+                    xl: "40%"    
                   }}
-                  height="auto" // Maintain aspect ratio
+                  width="auto"
                   objectFit="cover"
                   borderRadius="10px"
                 />
