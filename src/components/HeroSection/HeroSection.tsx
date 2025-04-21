@@ -24,8 +24,7 @@ const HeroSection: React.FC = () => {
         zIndex={1}
       >
         <Container maxW="container.xl" textAlign="center">
-          <InstagramGallery />
-          <Flex flexDirection="column" paddingTop="2rem" paddingBottom="6rem">
+          <Flex flexDirection="column" paddingTop="8rem" paddingBottom="1rem">
             <Text
               fontSize={{ base: "2.1rem", md: "2.6rem", lg: "2.8rem", xl: "3.1rem" }}
               color="gold"
@@ -73,6 +72,8 @@ const HeroSection: React.FC = () => {
             </motion.div>
           </Flex>
           <QuizModal isOpen={isOpen} onClose={onClose} />
+
+          <InstagramGallery />
         </Container>
       </Box>
     
