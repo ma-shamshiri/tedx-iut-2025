@@ -146,5 +146,8 @@
     "tryAgain": "دوباره امتحان کن",
     "viewProfile": "مشاهده پروفایل",
     "websiteDesigner": "طراح وب‌سایت",
-    "yourResult": "نتیجه شما"
+    "yourResult": "نتیجه شما",
+    "handleShareAlert": "Web Share API در مرورگر شما پشتیبانی نمیشود.",
+    "handleShareError": "خطای اشتراک گذاری:",
+    "shareResultTitle": "اشتراک گذاری نتیجه:"
 }

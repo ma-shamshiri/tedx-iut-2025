@@ -147,5 +147,8 @@
     "tryAgain": "Try again",
     "viewProfile": "View Profile",
     "websiteDesigner": "Website Designer",
-    "yourResult": "Your result"
+    "yourResult": "Your result",
+    "handleShareAlert": "Web Share API is not supported in your browser.",
+    "handleShareError": "Error sharing:",
+    "shareResultTitle": "Share your result:"
 }

@@ -19,6 +19,8 @@ import { questions, personalityElements, PersonalityElement, Option } from './da
 import { useTranslation } from 'react-i18next';
 import { BsStars } from 'react-icons/bs';
 import SubmitAnimation from '../Animations/SubmitAnimation';
+import { FaShareAlt, FaWhatsapp, FaLinkedin, FaTelegram } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -137,6 +139,41 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     setShowResetSlide(true);
   };
 
+  
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        const imageUrl = `${window.location.origin}${resultElement?.image}`;
+        await navigator.share({
+          title: resultElement?.name || 'Quiz Result',
+          text: `Check out my quiz result! \n${imageUrl}`,
+        });
+      } catch (error) {
+        console.error(t('handleShareError'), error);
+      }
+    } else {
+      alert(t('handleShareAlert'))
+    }
+  };
+
+  const getShareUrl = (platform: string): string => {
+    const baseText = encodeURIComponent('Check out my quiz result!');
+    const imageUrl = `${window.location.origin}${resultElement?.image}`;
+  
+    switch (platform) {
+      case 'telegram':
+        return `https://t.me/share/url?url=${imageUrl}&text=${baseText}`;
+      case 'twitter':
+        return `https://twitter.com/intent/tweet?text=${baseText}&url=${imageUrl}`;
+      case 'whatsapp': 
+        return `https://wa.me/?text=${baseText} \n${imageUrl}`;
+      case 'linkedin':
+        return `https://www.linkedin.com/feed/?shareActive=true&text=${baseText} \n ${imageUrl}`;
+      default:
+        return '';
+    }
+  };
+
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size="6xl">
@@ -235,6 +272,95 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   borderRadius="10px"
                 />
               </Flex>
+
+              {/* Share Buttons */}
+              <Box mt={4}>
+                <Text
+                  color="white"
+                  mb={4}
+                  fontSize={{
+                    base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
+                    md: i18n.language === "fa" ? "1.5rem" : "2rem",
+                    lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
+                    xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
+                  }}
+                  fontWeight="bold"
+                  fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                  dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                >
+                  {t('shareResultTitle')}
+                </Text>
+
+                <Flex justifyContent="center" alignItems="center" gap={4} flexWrap="wrap">
+                  {/* Platform-Specific Buttons */}
+                  <Button
+                    colorScheme="linkedin"
+                    as="a"
+                    href={getShareUrl('linkedin')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaLinkedin size={36} />
+                  </Button>
+                  <Button
+                    colorScheme="gray"
+                    as="a"
+                    href={getShareUrl('twitter')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaXTwitter size={36} />
+                  </Button>
+                  <Button
+                    colorScheme="whatsapp"
+                    as="a"
+                    href={getShareUrl('whatsapp')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaWhatsapp size={36} />
+                  </Button>
+                  <Button
+                    colorScheme="telegram"
+                    as="a"
+                    href={getShareUrl('telegram')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaTelegram size={36} />
+                  </Button>
+                  
+
+                  {/* Web Share API Button */}
+                  <Button
+                    colorScheme="yellow"
+                    onClick={handleShare}
+                    isDisabled={!navigator.share}
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaShareAlt size={36} />
+                  </Button>
+                </Flex>
+              </Box>
 
               {/* Animation */}
               {showAnimation && <SubmitAnimation />}
