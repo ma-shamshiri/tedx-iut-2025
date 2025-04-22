@@ -249,7 +249,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                       bg={answers[currentQuestion]?.text === option.text ? 'dodgerblue' : 'gray.100'}
                       color={answers[currentQuestion]?.text === option.text ? 'white' : 'black'}
                       variant={answers[currentQuestion]?.text === option.text ? 'solid' : 'outline'}
-                      padding="2rem"
+                      padding="2.5rem"
                       fontSize={{ base: '1.2rem', lg: '1.35rem' }}
                       fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                       dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
