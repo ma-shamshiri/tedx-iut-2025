@@ -149,5 +149,9 @@
     "yourResult": "نتیجه شما",
     "handleShareAlert": "Web Share API در مرورگر شما پشتیبانی نمیشود.",
     "handleShareError": "خطای اشتراک گذاری:",
-    "shareResultTitle": "اشتراک گذاری نتیجه:"
+    "shareResultTitle": "اشتراک گذاری نتیجه:",
+    "downloadResult": "دانلود نتیجه",
+    "downloadDropText": "پلتفرم مربوطه را انتخاب کنید",
+    "downloadDropInstagram": "اینستاگرام",
+    "downloadDropTwitter": "توییتر"
 }

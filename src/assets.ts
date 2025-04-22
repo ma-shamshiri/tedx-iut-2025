@@ -38,6 +38,9 @@ import tickImage from "./assets/images/tick.svg";
 import unknownBoyProfile from "./assets/images/unknownBoyProfile.jpg";
 import unknownGirlProfile from "./assets/images/unknownGirlProfile.jpg";
 import campaignT1 from "./assets/images/campaign/type1.jpg";
+import downInstagram from "./assets/images/campaign/download_instagram.jpg";
+import downTwitter from "./assets/images/campaign/download_twitter.jpg";
+
 
 export {
     ali_karimi,
@@ -80,4 +83,6 @@ export {
     unknownBoyProfile,
     unknownGirlProfile,
     campaignT1,
+    downInstagram,
+    downTwitter,
 };

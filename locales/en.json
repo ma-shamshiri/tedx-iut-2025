@@ -150,5 +150,9 @@
     "yourResult": "Your result",
     "handleShareAlert": "Web Share API is not supported in your browser.",
     "handleShareError": "Error sharing:",
-    "shareResultTitle": "Share your result:"
+    "shareResultTitle": "Share your result:",
+    "downloadResult": "Download result",
+    "downloadDropText": "Choose the platform",
+    "downloadDropInstagram": "Instagram",
+    "downloadDropTwitter": "Twitter"
 }
