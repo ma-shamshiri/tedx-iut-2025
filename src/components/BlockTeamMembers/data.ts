@@ -5,6 +5,7 @@ import {
     ali_mehrjoo,
     alireza_movahed,
     amin_shamshiri,
+    ali_bozorgzad,
     amirmahyar_teimouri,
     aref_shams,
     erfaneh_hosseini,
@@ -323,5 +324,15 @@ export const teamMembersData: TeamMember[] = [
         // emailAddress: "",
         // twitterAddress: "",
     },
+    {
+        id: 29,
+        name: "aliBozorgzad",
+        title: "websiteDesigner",
+        image: ali_bozorgzad,
+        // profileHref: "ali-bozorgzad",
+        // linkedinAddress: "https://www.linkedin.com/",
+        // emailAddress: "",
+        // twitterAddress: "",
+    }
     // Add more speakers as needed
 ];
