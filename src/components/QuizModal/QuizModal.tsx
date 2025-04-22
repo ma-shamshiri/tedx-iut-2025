@@ -77,6 +77,10 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
       options: shuffleArray(question.options),
     }));
     setShuffledQuestions(shuffledQuestionsCopy);
+
+    setShowResult(true)
+    setShowResetSlide(false)
+    setResultElement(personalityElements[0])
   };
 
   useEffect(() => {
@@ -171,13 +175,13 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
   
     switch (platform) {
       case 'telegram':
-        return `https://t.me/share/url?url=${imageUrl}&text=${baseText}`;
+        return `https://t.me/share/url?text=${baseText}&url=${imageUrl}`;
       case 'twitter':
         return `https://twitter.com/intent/tweet?text=${baseText}&url=${imageUrl}`;
       case 'whatsapp': 
         return `https://wa.me/?text=${baseText} \n${imageUrl}`;
       case 'linkedin':
-        return `https://www.linkedin.com/feed/?shareActive=true&text=${baseText} \n ${imageUrl}`;
+        return `https://www.linkedin.com/shareArticle?text=${baseText}&url=${imageUrl}&mini=true`;
       default:
         return '';
     }
