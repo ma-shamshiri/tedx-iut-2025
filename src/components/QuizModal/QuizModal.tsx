@@ -77,10 +77,6 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
       options: shuffleArray(question.options),
     }));
     setShuffledQuestions(shuffledQuestionsCopy);
-
-    setShowResult(true)
-    setShowResetSlide(false)
-    setResultElement(personalityElements[0])
   };
 
   useEffect(() => {
