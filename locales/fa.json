@@ -72,7 +72,7 @@
     "questionFiveAnswerFive": "آب؛ آرام و زلال، اما حیاتی و پرمعنا",
     "questionSix": "اگر در میان یک راه ناشناخته باشی و ناگهان مسیر به دو شاخه تقسیم شود، چه می‌کنی؟",
     "questionSixAnswerOne": "اول یه برسی کلی همه جوانبو بهش فکر میکنم و بهترین تصمیم رو میگیرم",
-    "questionSixAnswerTwo": "میزنم توی دل مسیر جون جسارت انتخاب کردن مهم تره",
+    "questionSixAnswerTwo": "میزنم توی دل مسیر چون جسارت انتخاب کردن مهم تره",
     "questionSixAnswerThree": "یه مکث کوتاه به هرحال من هرجایی باشم راه خودمو پیدا میکنم",
     "questionSixAnswerFour": "با اعتمادبه‌نفس وارد یکی از راه‌ها می‌شوم، چون از هیچ چیزی هراس ندارم",
     "questionSixAnswerFive": "به احساساتم اعتماد میکنم چون اون هیوقت اشتباه نمیکنه",
@@ -121,7 +121,9 @@
     "handleShareError": "خطای اشتراک گذاری:",
     "shareResultTitle": "اشتراک گذاری نتیجه:",
     "downloadResult": "دانلود نتیجه",
-    "downloadDropText": "پلتفرم مربوطه را انتخاب کنید",
-    "downloadDropInstagram": "اینستاگرام",
-    "downloadDropTwitter": "توییتر"
+    "downloadModaText": "پلتفرم مربوطه را انتخاب کنید",
+    "downloadModalInstagram": "اینستاگرام",
+    "downloadModalTwitter": "توییتر",
+    "downloadModalTitle": "ممنون از همراهی شما",
+    "downloadModalClose": "بستن"
 }

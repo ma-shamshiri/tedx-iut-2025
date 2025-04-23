@@ -122,7 +122,9 @@
     "handleShareError": "Error sharing:",
     "shareResultTitle": "Share your result:",
     "downloadResult": "Download result",
-    "downloadDropText": "Choose the platform",
-    "downloadDropInstagram": "Instagram",
-    "downloadDropTwitter": "Twitter"
+    "downloadModaText": "Choose the platform",
+    "downloadModalInstagram": "Instagram",
+    "downloadModalTwitter": "Twitter",
+    "downloadModalTitle": "Thank you for your companionship",
+    "downloadModalClose": "Close"
 }

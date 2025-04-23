@@ -16,7 +16,6 @@ import {
   Image,
   HStack,
   Icon,
-  useOutsideClick,
 } from '@chakra-ui/react';
 import { questions, personalityElements, PersonalityElement, Option } from './data';
 import { useTranslation } from 'react-i18next';
@@ -60,8 +59,8 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
   const [email, setEmail] = useState('');
   const [resultElement, setResultElement] = useState<PersonalityElement | null>(null);
   const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const downloadContainerRef = useRef<HTMLDivElement>(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
 
   const handleReset = () => {
@@ -77,6 +76,10 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
       options: shuffleArray(question.options),
     }));
     setShuffledQuestions(shuffledQuestionsCopy);
+
+    setShowResult(true)
+    setShowResetSlide(false)
+    setResultElement(personalityElements[0])
   };
 
   useEffect(() => {
@@ -183,10 +186,6 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  useOutsideClick({
-    ref: downloadContainerRef,
-    handler: () => setIsDropdownOpen(false),
-  });
 
   const handleDownload = (file: string) => {
     const filePath = `${window.location.origin}${file}`;
@@ -298,12 +297,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
               </Flex>
 
               {/* Download Button Container */}
-              <Box
-                ref={downloadContainerRef}
-                position="relative"
-                mt={6}
-                padding={4}
-              >
+              <Box position="relative" mt={6} padding={4}>
                 {/* Download Button */}
                 <Button
                   colorScheme="gray"
@@ -311,22 +305,9 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   borderRadius="12"
                   px={8}
                   py={8}
-                  fontSize={{
-                    base: '1.2rem',
-                    md: '1.5rem',
-                  }}
+                  fontSize={{ base: '1.2rem', md: '1.5rem' }}
                   fontWeight="bold"
-                  dir="row-reverse"
-                  alignItems="center"
-                  justifyContent="center"
-                  _hover={{ 
-                    bg: 'gray.200', 
-                    color: 'black'  
-                  }}
-                  _active={{ 
-                    bg: 'gray.300'
-                  }}
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  onClick={() => setIsPopupOpen(true)} // Open the popup modal
                 >
                   <Text
                     as="span"
@@ -344,106 +325,125 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                     {t('downloadResult')}
                   </Text>
                   <FaDownload size={20} />
-                  
                 </Button>
 
-                {/* Dropdown Box */}
-                {isDropdownOpen && (
-                  <Box
-                    bg="black"
-                    color="white"
-                    borderRadius="md"
-                    p={4}
-                    boxShadow="md"
-                    position="absolute"
-                    top="100%"
-                    left="50%"
-                    transform="translateX(-50%)"
-                    mt={2}
-                    zIndex={10}
-                    w="270px"
-                  >
-                    <Text
-                      as="span"
-                      mb={4}
-                      fontSize={{
-                        base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
-                        md: i18n.language === "fa" ? "1.5rem" : "2rem",
-                        lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
-                        xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
-                      }}
-                      fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                      dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                    >
-                      {t('downloadDropText')}
-                    </Text>
-
-                    <Flex justifyContent="center" alignItems="center" flexDirection="column" m={6} mb={1}>
-                      {/* Instagram Option */}
-                      <HStack
-                        cursor="pointer"
-                        _hover={{ bg: 'gray.800' }}
-                        p={2}
-                        borderRadius="md"
-                        mb={2}
-                        onClick={() => {
-                          handleDownload(`${downInstagram}`);
+                {/* Popup Modal for Download Options */}
+                <Modal isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} isCentered>
+                  <ModalOverlay backdropFilter="blur(5px)" />
+                  <ModalContent bg="black" color="white" borderRadius="md" p={4} w="350px">
+                    <ModalHeader fontSize="1.5rem" textAlign="center">
+                      <Text
+                        mb={10}
+                        fontSize={{
+                          base: i18n.language === "fa" ? "1.9rem" : "2.1rem",
+                          md: i18n.language === "fa" ? "1.8rem" : "2.3rem",
+                          lg: i18n.language === "fa" ? "2.1rem" : "2.2rem",
+                          xl: i18n.language === "fa" ? "2.1rem" : "2.5rem"
                         }}
+                        fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                        dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                       >
-                        <Icon as={BsArrowDown} size={30} />
-                        <Text
-                          as="span"
-                          ml={6}
-                          mr={6}
-                          fontSize={{
-                            base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
-                            md: i18n.language === "fa" ? "1.5rem" : "2rem",
-                            lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
-                            xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
-                          }}
-                          // fontWeight="bold"
-                          fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                          dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                        >
-                          {t('downloadDropInstagram')}
-                        </Text>
-                        <Icon as={FaInstagram} size={40} />
-                      </HStack>
-
-                      {/* Twitter Option */}
-                      <HStack
-                        cursor="pointer"
-                        _hover={{ bg: 'gray.800' }}
-                        p={2}
-                        borderRadius="md"
-                        onClick={() => {
-                          handleDownload(`${downTwitter}`);
+                        {t('downloadModalTitle')}
+                      </Text>
+                      <Text
+                        as="span"
+                        mb={4}
+                        fontWeight="normal"
+                        fontSize={{
+                          base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
+                          md: i18n.language === "fa" ? "1.5rem" : "2rem",
+                          lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
+                          xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
                         }}
+                        fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                        dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                       >
-                        <Icon as={BsArrowDown} size={30} />
-                        <Text
-                          as="span"
-                          ml={6}
-                          mr={6}
-                          fontSize={{
-                            base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
-                            md: i18n.language === "fa" ? "1.5rem" : "2rem",
-                            lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
-                            xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
+                        {t('downloadModaText')}
+                      </Text>
+                    </ModalHeader>
+                    <ModalBody>
+                      <Flex flexDirection="column" alignItems="center" gap={4}>
+                        {/* Instagram Option */}
+                        <HStack
+                          cursor="pointer"
+                          _hover={{ bg: 'gray.800' }}
+                          p={2}
+                          borderRadius="md"
+                          onClick={() => {
+                            handleDownload(`${downInstagram}`);
+                            setIsPopupOpen(false); // Close the popup after download
                           }}
-                          fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                          dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                         >
-                          {t('downloadDropTwitter')}
-                        </Text>
-                        <Icon as={FaXTwitter} size={30} />
-                      </HStack>
-                    </Flex>
+                          <Icon as={BsArrowDown} size={30} />
+                          <Text
+                            as="span"
+                            ml={6}
+                            mr={6}
+                            fontSize={{
+                              base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
+                              md: i18n.language === "fa" ? "1.5rem" : "2rem",
+                              lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
+                              xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
+                            }}
+                            // fontWeight="bold"
+                            fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                            dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                          >
+                            {t('downloadModalInstagram')}
+                          </Text>
+                          <Icon as={FaInstagram} size={40} />
+                        </HStack>
 
-                    
-                    
-                  </Box>
-                )}
+                        {/* Twitter Option */}
+                        <HStack
+                          cursor="pointer"
+                          _hover={{ bg: 'gray.800' }}
+                          p={2}
+                          borderRadius="md"
+                          onClick={() => {
+                            handleDownload(`${downTwitter}`);
+                            setIsPopupOpen(false); // Close the popup after download
+                          }}
+                        >
+                          <Icon as={BsArrowDown} size={30} />
+                          <Text
+                            as="span"
+                            ml={6}
+                            mr={6}
+                            fontSize={{
+                              base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
+                              md: i18n.language === "fa" ? "1.5rem" : "2rem",
+                              lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
+                              xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
+                            }}
+                            fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                            dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                          >
+                            {t('downloadModalTwitter')}
+                          </Text>
+                          <Icon as={FaXTwitter} size={30} />
+                        </HStack>
+                      </Flex>
+                    </ModalBody>
+                    <ModalFooter>
+                      <Button colorScheme="gray" onClick={() => setIsPopupOpen(false)}>
+                        <Text
+                            as="span"
+                            fontSize={{
+                              base: i18n.language === "fa" ? "1.0rem" : "1.2rem",
+                              md: i18n.language === "fa" ?   "1.0rem" : "1.5rem",
+                              lg: i18n.language === "fa" ?   "1.3rem" : "1.5rem",
+                              xl: i18n.language === "fa" ?   "1.3rem" : "1.9rem"
+                            }}
+                            fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                            dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                          >
+                            {t('downloadModalClose')}
+                          </Text>
+                      </Button>
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
               </Box>
               
               {/* Share Buttons */}
