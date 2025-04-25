@@ -150,5 +150,8 @@
     "downloadModalInstagram": "Instagram",
     "downloadModalTwitter": "Twitter",
     "downloadModalTitle": "Thank you for your companionship",
-    "downloadModalClose": "Close"
+    "downloadModalClose": "Close",
+    "quizErrorOptionSelect": "Please select an option",
+    "quizQuestionName": "Question",
+    "quizQuestionOutOf": "out of"
 }

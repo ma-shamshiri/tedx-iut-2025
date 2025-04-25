@@ -89,7 +89,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     if (!answers[currentQuestion]) {
       setHasError(true);
       toast({
-        title: t('لطفاً یک گزینه را انتخاب کنید'),
+        title: t('quizErrorOptionSelect'),
         status: 'error',
         duration: 2500,
         containerStyle: {
@@ -473,8 +473,23 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
           )}
           {/* Slide number centered */}
           {!showResult && !showResetSlide && (
-            <Text fontSize="1.5rem">
-              {t(`سؤال ${currentQuestion + 1} از ${questions.length}`)}
+            // <Text fontSize="1.5rem">
+            //   {t(`سؤال ${currentQuestion + 1} از ${questions.length}`)}
+            // </Text>
+            <Text
+              as="span"
+              // m={4}
+              fontSize={{
+                base: i18n.language === "fa" ? "1.2rem" : "1.4rem",
+                md: i18n.language === "fa" ?   "1.2rem" : "1.7rem",
+                lg: i18n.language === "fa" ?   "1.5rem" : "1.6rem",
+                xl: i18n.language === "fa" ?   "1.5rem" : "1.9rem"
+              }}
+              // fontWeight="bold"
+              fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+              dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+            >
+              {`${t('quizQuestionName')} ${currentQuestion + 1} ${t('quizQuestionOutOf')} ${questions.length}`}
             </Text>
           )}
         </ModalFooter>

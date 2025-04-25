@@ -149,5 +149,8 @@
     "downloadModalInstagram": "اینستاگرام",
     "downloadModalTwitter": "توییتر",
     "downloadModalTitle": "ممنون از همراهی شما",
-    "downloadModalClose": "بستن"
+    "downloadModalClose": "بستن",
+    "quizErrorOptionSelect": "لطفاً یک گزینه را انتخاب کنید",
+    "quizQuestionName": "سوال",
+    "quizQuestionOutOf": "از"
 }
