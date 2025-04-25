@@ -82,6 +82,50 @@ export const questions: Question[] = [
             { text: "questionSixAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
         ],
     },
+    {
+        id: 7,
+        text: "questionSeven",
+        options: [
+            { text: "questionSevenAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
+            { text: "questionSevenAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
+            { text: "questionSevenAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
+            { text: "questionSevenAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
+            { text: "questionSevenAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
+        ],
+    },
+    {
+        id: 8,
+        text: "questionEight",
+        options: [
+            { text: "questionEightAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
+            { text: "questionEightAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
+            { text: "questionEightAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
+            { text: "questionEightAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
+            { text: "questionEightAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
+        ],
+    },
+    {
+        id: 9,
+        text: "questionNine",
+        options: [
+            { text: "questionNineAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
+            { text: "questionNineAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
+            { text: "questionNineAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
+            { text: "questionNineAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
+            { text: "questionNineAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
+        ],
+    },
+    {
+        id: 10,
+        text: "questionTen",
+        options: [
+            { text: "questionTenAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
+            { text: "questionTenAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
+            { text: "questionTenAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
+            { text: "questionTenAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
+            { text: "questionTenAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
+        ],
+    }
 ];
 
 export interface PersonalityElement {
