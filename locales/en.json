@@ -147,5 +147,15 @@
     "tryAgain": "Try again",
     "viewProfile": "View Profile",
     "websiteDesigner": "Website Designer",
-    "yourResult": "Your result"
+    "yourResult": "Your result",
+    "formTitle": "Contact Us",
+    "formSubTitle": "Share your thoughts and suggestions with us",
+    "name": "Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "telegramId": "Telegram ID",
+    "subject": "Subject",
+    "message": "Message",
+    "yourMessage": "Your Message",
+    "sendMessage": "Send Message"
 }

@@ -5,6 +5,7 @@ import FooterSection from "../components/FooterSection";
 import HeroSection from "../components/HeroSection";
 import MyNavbar from "../components/MyNavbar";
 import TeamSection from "../components/TeamSection";
+import ContactUsSection from "../components/ContactUsSection";
 
 const HomePage: React.FC = () => {
   const [boxLoaded, setBoxLoaded] = useState(false);
@@ -29,6 +30,7 @@ const HomePage: React.FC = () => {
         <HeroSection />
         <AboutSection />
         <TeamSection />
+        <ContactUsSection />
         <FooterSection />
       </motion.div>
     </>

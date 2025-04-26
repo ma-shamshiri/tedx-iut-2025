@@ -146,5 +146,15 @@
     "tryAgain": "دوباره امتحان کن",
     "viewProfile": "مشاهده پروفایل",
     "websiteDesigner": "طراح وب‌سایت",
-    "yourResult": "نتیجه شما"
+    "yourResult": "نتیجه شما",
+    "formTitle": "ارتباط با ما",
+    "formSubTitle": "دیدگاه‌ها و پیشنهادات‌تان را با ما در میان بگذارید",
+    "name": "نام",
+    "email": "ایمیل",
+    "phoneNumber": "شماره تماس",
+    "telegramId": "آیدی تلگرام",
+    "subject": "موضوع",
+    "message": "پیام",
+    "yourMessage": "متن پیام شما",
+    "sendMessage": "ارسال پیام"
 }
