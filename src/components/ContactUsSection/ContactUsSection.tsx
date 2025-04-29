@@ -130,11 +130,10 @@ const ContactUsSection: React.FC = () => {
       >
         <Heading
           fontSize={{ base: '2rem', md: '2.5rem' }}
-          fontFamily="'Vazirmatn', 'Rubik', sans-serif"
+          fontFamily="'YekanBakh', sans-serif"
           textAlign="center"
           color="#000"
           mb={2}
-          fontWeight="extrabold"
           letterSpacing="0.01em"
           lineHeight="1.2"
         >
@@ -143,7 +142,7 @@ const ContactUsSection: React.FC = () => {
 
         <Text
           fontSize={{ base: "1.3rem", md: '1.8rem' }}
-          fontFamily="'Vazirmatn', 'Rubik', sans-serif"
+          fontFamily="'YekanBakh', sans-serif"
           textAlign="center"
           mb={8}
           color="#222"
@@ -366,7 +365,7 @@ const ContactUsSection: React.FC = () => {
             bg="#CB0000"
             color="#fff"
             borderRadius="full"
-            fontFamily="'Vazirmatn', 'Rubik', sans-serif"
+            fontFamily="'YekanBakh', sans-serif"
             fontWeight="extrabold"
             fontSize="1.4rem"
             letterSpacing="0.01em"

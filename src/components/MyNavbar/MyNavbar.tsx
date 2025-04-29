@@ -8,42 +8,41 @@ import {
     useBreakpointValue,
     useColorMode,
     useColorModeValue,
+    Drawer,
+    DrawerBody,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+    Button,
+    VStack,
+    HStack,
 } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import { tedxBlack, tedxWhite } from "../../assets";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import LanguageSwitcher from "../LanguageSwitcher";
+import { useTranslation } from "react-i18next";
+
+const NAV_ITEMS = [
+    { key: "home", label: "home", to: "/" },
+    { key: "team", label: "team", to: "/team" },
+    { key: "gallery", label: "gallery", to: "/gallery" },
+];
+
+const NAV_ITEM_FONT_SIZE = "1.5rem";
 
 const MyNavbar: React.FC = () => {
+    const { t, i18n } = useTranslation();
     const { colorMode } = useColorMode();
-
     const tedxImg = colorMode === "dark" ? tedxWhite : tedxBlack;
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    const instagramIconSize = useBreakpointValue({ base: "30px", md: "30px", lg: "28px" });
-    const instagramIconBoxSize = useBreakpointValue({ base: "40px", md: "40px", lg: "35px" });
-
-    const linkedinIconSize = useBreakpointValue({ base: "29px", md: "30px", lg: "24px" });
-    const linkedinIconBoxSize = useBreakpointValue({ base: "40px", md: "40px", lg: "35px" });
-
-    const [isNavVisible, setIsNavVisible] = useState(true);
-
-    const [scrollPosition, setScrollPosition] = useState(0);
-
-    const handleScroll = () => {
-        const currentPosition = window.pageYOffset;
-        setIsNavVisible(currentPosition < scrollPosition);
-        setScrollPosition(currentPosition);
-    };
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [scrollPosition]);
+    // For highlighting the active nav item
+    const location = useLocation();
 
     return (
         <>
+            {/* Mobile Top Logo */}
             <Box
                 display={{ base: "block", lg: "none" }}
                 width="100%"
@@ -61,7 +60,6 @@ const MyNavbar: React.FC = () => {
 
             <Box
                 position="sticky"
-                // top={isNavVisible ? "0" : "-100px"}
                 top={0}
                 transition="top 0.3s"
                 zIndex="999"
@@ -69,71 +67,116 @@ const MyNavbar: React.FC = () => {
                 {/* Mobile Navbar */}
                 <Flex
                     as="nav"
-                    display={{ base: "block", lg: "none" }}
+                    display={{ base: "flex", lg: "none" }}
                     bg={useColorModeValue("#f1f1f1", "gray.900")}
                     width="100%"
                     height="7rem"
-                    paddingX="0.6rem"
+                    px="0.6rem"
                     justify="space-between"
+                    alignItems="center"
                     position="relative"
                 >
-                    <Flex
-                        width="100%"
-                        height="100%"
-                        justifyContent="space-between"
-                        alignItems="center"
-                        paddingX="1rem"
-                    >
-                        <Box
-                            as={IconButton}
-                            onClick={() => window.open("https://www.instagram.com/tedx.iut?igsh=MW1yeDJhMDMxZ3V5Zg==", "_blank")}
-                            rel="noopener noreferrer"
-                            icon={<FaInstagram size={instagramIconSize} />}
-                            bg={"linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)"}
-                            color="white"
-                            _hover={{ bg: "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)" }}
-                            borderRadius="10px"
-                            boxSize={instagramIconBoxSize}
-                        />
-                        <Flex position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)" >
-                            <LanguageSwitcher />
-                        </Flex>
-                        <Box
-                            as={IconButton}
-                            onClick={() => window.open("https://www.linkedin.com/company/tedx-iut/", "_blank")}
-                            rel="noopener noreferrer"
-                            icon={<FaLinkedin size={linkedinIconSize} />}
-                            bg="#0077B5"
-                            color="white"
-                            _hover={{ bg: "#0077B5" }}
-                            borderRadius="10px"
-                            boxSize={linkedinIconBoxSize}
-                        />
+                    {/* Hamburger on right */}
+                    <IconButton
+                        aria-label="Open menu"
+                        icon={<FaBars />}
+                        variant="ghost"
+                        fontSize="2xl"
+                        onClick={() => setIsDrawerOpen(true)}
+                        ml={2}
+                    />
+                    {/* Centered Language Switcher */}
+                    <Flex position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)">
+                        <LanguageSwitcher />
                     </Flex>
                 </Flex>
+
+                {/* Mobile Drawer */}
+                <Drawer
+                    isOpen={isDrawerOpen}
+                    placement={i18n.language === "fa" ? "right" : "left"}
+                    onClose={() => setIsDrawerOpen(false)}
+                >
+                    <DrawerOverlay />
+                    <DrawerContent>
+                        <DrawerCloseButton />
+                        <DrawerBody bg="#f1f1f1">
+                            <VStack spacing={6} mt={12}>
+                                {NAV_ITEMS.map((item) => (
+                                    <Button
+                                        as={RouterLink}
+                                        to={item.to}
+                                        key={item.key}
+                                        w="100%"
+                                        variant="ghost"
+                                        fontSize={NAV_ITEM_FONT_SIZE}
+                                        fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                                        dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                                        color={location.pathname === item.to ? "#CB0000" : "#000"}
+                                        fontWeight={location.pathname === item.to ? "bold" : "normal"}
+                                        _hover={{
+                                            color: "#CB0000",
+                                            bg: "transparent",
+                                        }}
+                                        onClick={() => setIsDrawerOpen(false)}
+                                    >
+                                        {t(item.label)}
+                                    </Button>
+                                ))}
+                            </VStack>
+                        </DrawerBody>
+                    </DrawerContent>
+                </Drawer>
 
                 {/* Desktop Navbar */}
                 <Flex
                     as="nav"
-                    display={{ base: "none", lg: "block" }}
+                    display={{ base: "none", lg: "flex" }}
                     bg={useColorModeValue("#f1f1f1", "#000")}
                     width="100%"
                     height="8rem"
-                    paddingX="1rem"
+                    px="1rem"
                     position="relative"
+                    alignItems="center"
+                    justifyContent="flex-start"
                 >
-                    <Flex
-                        width="100%"
-                        height="100%"
-                        justifyContent="flex-end"
-                        alignItems="center"
-                        paddingX="2rem"
-                    >
-                        <Flex position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)" >
-                            <Link as={RouterLink} to="/" cursor="pointer">
-                                <Image src={tedxImg} width={450} />
-                            </Link>
-                        </Flex>
+                    {/* Nav Items on the right */}
+                    <HStack spacing={8} pl={6}>
+                        {NAV_ITEMS.map((item) => {
+                            const isActive = location.pathname === item.to;
+                            return (
+                                <Button
+                                    as={RouterLink}
+                                    to={item.to}
+                                    key={item.key}
+                                    variant="ghost"
+                                    fontSize={NAV_ITEM_FONT_SIZE}
+                                    fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                                    dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                                    color={isActive ? "#fff" : "#fff"}
+                                    fontWeight={isActive ? "bold" : "normal"}
+                                    bg={isActive ? "linear-gradient(90deg, #CB0000 60%, #a80000 100%)" : "transparent"}
+                                    boxShadow={isActive ? "0 2px 12px 0 rgba(203,0,0,0.13)" : "none"}
+                                    _hover={{
+                                        color: "#fff",
+                                        bg: "linear-gradient(90deg, #CB0000 60%, #a80000 100%)",
+                                    }}
+                                    padding={"2rem"}
+                                    transition="all 0.18s"
+                                >
+                                    {t(item.label)}
+                                </Button>
+                            );
+                        })}
+                    </HStack>
+                    {/* Logo Centered */}
+                    <Flex position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)">
+                        <Link as={RouterLink} to="/" cursor="pointer">
+                            <Image src={tedxImg} width={450} />
+                        </Link>
+                    </Flex>
+                    {/* LanguageSwitcher on the far left */}
+                    <Flex alignItems="center" ml="auto">
                         <LanguageSwitcher />
                     </Flex>
                 </Flex>
