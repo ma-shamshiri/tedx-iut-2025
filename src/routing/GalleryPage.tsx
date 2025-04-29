@@ -26,7 +26,6 @@ const GalleryPage: React.FC = () => {
             >
                 <MyNavbar />
                 <InfiniteCarousel />
-                <FooterSection />
             </motion.div>
         </>
     );
