@@ -3,6 +3,7 @@ import {
     ali_mehrjoo,
     alireza_movahed,
     amin_shamshiri,
+    ali_bozorgzad,
     amirmahyar_teimouri,
     aref_shams,
     erfaneh_hosseini,
@@ -283,6 +284,16 @@ export const teamMembersData: TeamMember[] = [
     },
     {
         id: 25,
+        name: "aliBozorgzad",
+        title: "websiteDesigner",
+        image: ali_bozorgzad,
+        // profileHref: "ali-bozorgzad",
+        // linkedinAddress: "https://linkedin.com/",
+        // emailAddress: "",
+        // twitterAddress: "",
+    },
+    {
+        id: 26,
         name: "amir",
         title: "sponsorshipTeamLead",
         image: amir,
@@ -292,7 +303,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 26,
+        id: 27,
         name: "aliMehrjoo",
         title: "sponsorshipCoordinator",
         image: ali_mehrjoo,
@@ -302,7 +313,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 27,
+        id: 28,
         name: "arghavanMahdikhani",
         title: "communicationsCoordinator",
         image: arghavan_mahdikhani,
@@ -312,7 +323,7 @@ export const teamMembersData: TeamMember[] = [
         // twitterAddress: "",
     },
     {
-        id: 28,
+        id: 29,
         name: "erfanehHosseini",
         title: "communicationsCoordinator",
         image: erfaneh_hosseini,

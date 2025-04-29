@@ -2,6 +2,7 @@ import ali_karimi from "./assets/images/ali_karimi.png";
 import ali_mehrjoo from "./assets/images/ali_mehrjoo.jpg";
 import alireza_movahed from "./assets/images/alireza_movahed.png";
 import amin_shamshiri from "./assets/images/amin_shamshiri.jpg";
+import ali_bozorgzad from "./assets/images/ali_bozorgzad.jpg";
 import amir from "./assets/images/amir.jpg";
 import amirmahyar_teimouri from "./assets/images/amirmahyar_teimouri.jpg";
 import aref_shams from "./assets/images/aref_shams.jpg";
@@ -63,6 +64,10 @@ import tedxWhite from "./assets/images/tedxWhite.png";
 import tickImage from "./assets/images/tick.svg";
 import unknownBoyProfile from "./assets/images/unknownBoyProfile.jpg";
 import unknownGirlProfile from "./assets/images/unknownGirlProfile.jpg";
+import campaignT1 from "./assets/images/campaign/type1.jpg";
+import downInstagram from "./assets/images/campaign/download_instagram.jpg";
+import downTwitter from "./assets/images/campaign/download_twitter.jpg";
+
 
 
 export {
@@ -70,6 +75,7 @@ export {
     ali_mehrjoo,
     alireza_movahed,
     amin_shamshiri,
+    ali_bozorgzad,
     amir,
     amirmahyar_teimouri,
     aref_shams,
@@ -131,4 +137,7 @@ export {
     tickImage,
     unknownBoyProfile,
     unknownGirlProfile,
+    campaignT1,
+    downInstagram,
+    downTwitter,
 };

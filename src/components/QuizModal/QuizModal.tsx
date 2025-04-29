@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -13,11 +13,27 @@ import {
   SimpleGrid,
   Flex,
   ModalCloseButton,
+  Image,
 } from '@chakra-ui/react';
-import { questions, personalityElements, PersonalityElement } from './data';
+import { questions, personalityElements, PersonalityElement, Option } from './data';
 import { useTranslation } from 'react-i18next';
 import { BsStars } from 'react-icons/bs';
 import SubmitAnimation from '../Animations/SubmitAnimation';
+import { FaShareAlt, FaWhatsapp, FaLinkedin, FaTelegram, FaDownload } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import QuizDownloadModal from "./QuizDownloadModal";
+
+
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array]; 
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+}
+
 
 interface QuizModalProps {
   isOpen: boolean;
@@ -31,12 +47,15 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
   const [showAnimation, setShowAnimation] = useState(false);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<(string | null)[]>(Array(questions.length).fill(null));
+  const [answers, setAnswers] = useState<(Option | null)[]>(Array(questions.length).fill(null));
   const [hasError, setHasError] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [showResetSlide, setShowResetSlide] = useState(false);
   const [email, setEmail] = useState('');
   const [resultElement, setResultElement] = useState<PersonalityElement | null>(null);
+  const [shuffledQuestions, setShuffledQuestions] = useState<typeof questions>([]);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+
 
   const handleReset = () => {
     setCurrentQuestion(0);
@@ -45,6 +64,12 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     setShowResetSlide(false);
     setEmail('');
     setResultElement(null);
+
+    const shuffledQuestionsCopy = questions.map((question) => ({
+      ...question,
+      options: shuffleArray(question.options),
+    }));
+    setShuffledQuestions(shuffledQuestionsCopy);
   };
 
   useEffect(() => {
@@ -53,7 +78,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
-  const handleOptionSelect = (option: string) => {
+  const handleOptionSelect = (option: Option) => {
     const updatedAnswers = [...answers];
     updatedAnswers[currentQuestion] = option;
     setAnswers(updatedAnswers);
@@ -64,7 +89,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     if (!answers[currentQuestion]) {
       setHasError(true);
       toast({
-        title: t('لطفاً یک گزینه را انتخاب کنید'),
+        title: t('quizErrorOptionSelect'),
         status: 'error',
         duration: 2500,
         containerStyle: {
@@ -79,8 +104,18 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      const randomIndex = Math.floor(Math.random() * personalityElements.length);
-      setResultElement(personalityElements[randomIndex]);
+      const summedArray = answers.reduce((accumulator, currentItem) => {
+        currentItem?.type.forEach((value, index) => {
+          accumulator[index] += value;
+        });
+        return accumulator;
+      }, Array(personalityElements.length).fill(0)); 
+      
+      const maxIndex = summedArray.reduce((maxIdx, currentValue, currentIndex, arr) => {
+        return currentValue > arr[maxIdx] ? currentIndex : maxIdx;
+      }, 0);
+
+      setResultElement(personalityElements[maxIndex]);
       setShowResult(true);
       setShowAnimation(true);
       setTimeout(() => {
@@ -105,6 +140,42 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     });
     setShowResetSlide(true);
   };
+
+  
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        const imageUrl = `${window.location.origin}${resultElement?.image}`;
+        await navigator.share({
+          title: resultElement?.name || 'Quiz Result',
+          text: `Check out my quiz result! \n${imageUrl}`,
+        });
+      } catch (error) {
+        console.error(t('handleShareError'), error);
+      }
+    } else {
+      alert(t('handleShareAlert'))
+    }
+  };
+
+  const getShareUrl = (platform: string): string => {
+    const baseText = encodeURIComponent('Check out my quiz result!');
+    const imageUrl = `${window.location.origin}${resultElement?.image}`;
+  
+    switch (platform) {
+      case 'telegram':
+        return `https://t.me/share/url?text=${baseText}&url=${imageUrl}`;
+      case 'twitter':
+        return `https://twitter.com/intent/tweet?text=${baseText}&url=${imageUrl}`;
+      case 'whatsapp': 
+        return `https://wa.me/?text=${baseText} \n${imageUrl}`;
+      case 'linkedin':
+        return `https://www.linkedin.com/shareArticle?text=${baseText}&url=${imageUrl}&mini=true`;
+      default:
+        return '';
+    }
+  };
+
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size="6xl">
@@ -145,17 +216,18 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                   dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                 >
-                  {t(questions[currentQuestion].text)}
+                  {t(shuffledQuestions[currentQuestion]?.text)}
                 </Text>
+                
                 <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={4}>
-                  {questions[currentQuestion].options.map((option, index) => (
+                  {shuffledQuestions[currentQuestion]?.options.map((option, index) => (
                     <Button
                       key={index}
                       onClick={() => handleOptionSelect(option)}
-                      bg={answers[currentQuestion] === option ? 'dodgerblue' : 'gray.100'}
-                      color={answers[currentQuestion] === option ? 'white' : 'black'}
-                      variant={answers[currentQuestion] === option ? 'solid' : 'outline'}
-                      padding="2rem"
+                      bg={answers[currentQuestion]?.text === option.text ? 'dodgerblue' : 'gray.100'}
+                      color={answers[currentQuestion]?.text === option.text ? 'white' : 'black'}
+                      variant={answers[currentQuestion]?.text === option.text ? 'solid' : 'outline'}
+                      padding="2.5rem"
                       fontSize={{ base: '1.2rem', lg: '1.35rem' }}
                       fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                       dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
@@ -165,7 +237,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                       _hover={{ transform: 'scale(1.03)' }}
                       transition="color 0.2s ease, background-color 0.2s ease, transform 0.1s ease"
                     >
-                      {t(option)}
+                      {t(option.text)}
                     </Button>
                   ))}
                 </SimpleGrid>
@@ -191,19 +263,141 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
               >
                 {t('yourResult')} : {t(resultElement?.name || '')}
               </Text>
-              <Text
-                fontSize={{
-                  base: i18n.language === "fa" ? "1.2rem" : "1.4rem",
-                  md: i18n.language === "fa" ? "1.2rem" : "1.7rem",
-                  lg: i18n.language === "fa" ? "1.5rem" : "1.6rem",
-                  xl: i18n.language === "fa" ? "1.5rem" : "1.5rem"
-                }}
-                mb={6}
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-              >
-                {t(resultElement?.description || '')}
-              </Text>
+              
+              <Flex justifyContent="center" alignItems="center" mb={6}>
+                <Image
+                  src={resultElement?.image}
+                  alt={resultElement?.name}
+                  width="50vh"
+                  height="auto"
+                  objectFit="cover"
+                  borderRadius="10px"
+                />
+              </Flex>
+
+              {/* Download Button Container */}
+              <Box position="relative" mt={6} padding={4}>
+                {/* Download Button */}
+                <Button
+                  colorScheme="gray"
+                  size="lg"
+                  borderRadius="12"
+                  px={8}
+                  py={8}
+                  fontSize={{ base: '1.2rem', md: '1.5rem' }}
+                  fontWeight="bold"
+                  onClick={() => setIsDownloadModalOpen(true)} // Open the popup modal
+                >
+                  <Text
+                    as="span"
+                    m={4}
+                    fontSize={{
+                      base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
+                      md: i18n.language === "fa" ? "1.5rem" : "2rem",
+                      lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
+                      xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
+                    }}
+                    fontWeight="bold"
+                    fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                    dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                  >
+                    {t('downloadResult')}
+                  </Text>
+                  <FaDownload size={20} />
+                </Button>
+
+                <QuizDownloadModal isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
+
+              </Box>
+              
+              {/* Share Buttons */}
+              <Box mt={6}>
+                <Text
+                  color="white"
+                  mb={4}
+                  fontSize={{
+                    base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
+                    md: i18n.language === "fa" ? "1.5rem" : "2rem",
+                    lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
+                    xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
+                  }}
+                  fontWeight="bold"
+                  fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                  dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                >
+                  {t('shareResultTitle')}
+                </Text>
+
+                <Flex justifyContent="center" alignItems="center" gap={7} flexWrap="wrap">
+                  {/* Platform-Specific Buttons */}
+                  <Button
+                    colorScheme="linkedin"
+                    as="a"
+                    href={getShareUrl('linkedin')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaLinkedin size={36} />
+                  </Button>
+                  <Button
+                    colorScheme="gray"
+                    as="a"
+                    href={getShareUrl('twitter')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaXTwitter size={36} />
+                  </Button>
+                  <Button
+                    colorScheme="whatsapp"
+                    as="a"
+                    href={getShareUrl('whatsapp')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaWhatsapp size={36} />
+                  </Button>
+                  <Button
+                    colorScheme="telegram"
+                    as="a"
+                    href={getShareUrl('telegram')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaTelegram size={36} />
+                  </Button>
+
+                  {/* Web Share API Button */}
+                  <Button
+                    colorScheme="yellow"
+                    onClick={handleShare}
+                    isDisabled={!navigator.share}
+                    size="xl"
+                    borderRadius="full"
+                    p={3} 
+                    fontSize="2xl"
+                  >
+                    <FaShareAlt size={36} />
+                  </Button>
+                </Flex>
+              </Box>
+
               {/* Animation */}
               {showAnimation && <SubmitAnimation />}
             </Box>
@@ -279,8 +473,18 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
           )}
           {/* Slide number centered */}
           {!showResult && !showResetSlide && (
-            <Text fontSize="1.5rem">
-              {t(`سؤال ${currentQuestion + 1} از ${questions.length}`)}
+            <Text
+              as="span"
+              fontSize={{
+                base: i18n.language === "fa" ? "1.2rem" : "1.4rem",
+                md: i18n.language === "fa" ?   "1.2rem" : "1.7rem",
+                lg: i18n.language === "fa" ?   "1.5rem" : "1.6rem",
+                xl: i18n.language === "fa" ?   "1.5rem" : "1.9rem"
+              }}
+              fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+              dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+            >
+              {`${t('quizQuestionName')} ${currentQuestion + 1} ${t('quizQuestionOutOf')} ${questions.length}`}
             </Text>
           )}
         </ModalFooter>
