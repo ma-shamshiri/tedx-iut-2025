@@ -178,10 +178,11 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
 
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered size="6xl">
+    <Modal isOpen={isOpen} onClose={onClose} isCentered size="5xl">
       <ModalOverlay />
       <ModalContent
         bg="gray.800"
+        bgGradient="linear(to bottom right, rgba(139, 67, 67, 0.7) 0%, rgba(177, 60, 60, 0.2) 30%, rgba(0,0,0,0.1) 100%)"
         borderRadius="10px"
         padding={{ base: '0.5rem', lg: '2rem' }}
         width={{ base: '90%', lg: '' }}
@@ -219,7 +220,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   {t(shuffledQuestions[currentQuestion]?.text)}
                 </Text>
                 
-                <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={4}>
+                <SimpleGrid columns={{ base: 1, lg: 1 }} spacing={4}>
                   {shuffledQuestions[currentQuestion]?.options.map((option, index) => (
                     <Button
                       key={index}
