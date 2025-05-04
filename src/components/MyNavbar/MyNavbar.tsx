@@ -53,7 +53,7 @@ const MyNavbar: React.FC = () => {
             >
                 <Link as={RouterLink} to="/" cursor="pointer">
                     <Flex justifyContent="center" alignItems="center">
-                        <Image src={tedxImg} width={{ base: "90%", md: "60%" }} />
+                        <Image src={tedxImg} width={{ base: "90%", md: "60%" }} borderRadius={0} />
                     </Flex>
                 </Link>
             </Box>
@@ -68,7 +68,7 @@ const MyNavbar: React.FC = () => {
                 <Flex
                     as="nav"
                     display={{ base: "flex", lg: "none" }}
-                    bg={useColorModeValue("#f1f1f1", "gray.900")}
+                    bg="#000"
                     width="100%"
                     height="7rem"
                     px="0.6rem"
@@ -141,7 +141,7 @@ const MyNavbar: React.FC = () => {
                     justifyContent="flex-start"
                 >
                     {/* Nav Items on the right */}
-                    <HStack spacing={8} pl={6}>
+                    <HStack spacing={4} pl={6}>
                         {NAV_ITEMS.map((item) => {
                             const isActive = location.pathname === item.to;
                             return (
@@ -172,7 +172,7 @@ const MyNavbar: React.FC = () => {
                     {/* Logo Centered */}
                     <Flex position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)">
                         <Link as={RouterLink} to="/" cursor="pointer">
-                            <Image src={tedxImg} width={450} />
+                            <Image src={tedxImg} width={{lg:350, xl:450}} borderRadius={0} />
                         </Link>
                     </Flex>
                     {/* LanguageSwitcher on the far left */}

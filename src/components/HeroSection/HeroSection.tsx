@@ -1,9 +1,18 @@
 import React from 'react';
-import { Box, Text, Button, Container, VStack, useDisclosure, Flex } from '@chakra-ui/react';
+import {
+  Box,
+  Text,
+  Button,
+  Container,
+  useDisclosure,
+  Flex,
+  Image
+} from '@chakra-ui/react';
+import { IUT_logo } from '../../assets';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import QuizModal from '../QuizModal';
 import InstagramGallery from '../InstagramGallery';
+import QuizModal from '../QuizModal';
 
 const MotionBox = motion(Box);
 
@@ -13,7 +22,12 @@ const HeroSection: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box position="relative" width="100%" minH="100vh" overflow="hidden">
+    <Box
+      position="relative"
+      width="100%"
+      minH="100vh"
+      overflow="hidden"
+    >
       <Box
         bgGradient="radial(circle at center, rgba(229,62,62,1) 0%, rgba(229,62,62,0.2) 40%, rgba(0,0,0,1) 100%)"
         minH="100vh"
@@ -24,7 +38,11 @@ const HeroSection: React.FC = () => {
         zIndex={1}
       >
         <Container maxW="container.xl" textAlign="center">
-          <Flex flexDirection="column" paddingTop="8rem" paddingBottom="1rem">
+          <Flex
+            flexDirection="column"
+            paddingTop="8rem"
+            paddingBottom="8rem"
+          >
             <Text
               fontSize={{ base: "2.1rem", md: "2.6rem", lg: "2.8rem", xl: "3.1rem" }}
               color="gold"
@@ -72,11 +90,47 @@ const HeroSection: React.FC = () => {
             </motion.div>
           </Flex>
           <QuizModal isOpen={isOpen} onClose={onClose} />
-
+          {/* <PosterSection /> */}
+          <Box
+            position="relative"
+            width="100%"
+            // height="30rem"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            paddingBottom={{ lg: "8rem" }}
+            overflow="hidden"
+          >
+            <Text
+              fontSize={{ base: "3.2rem", md: "5rem", lg: "10rem" }}
+              fontWeight="1000"
+              fontFamily="'YekanBakh', sans-serif"
+              dir="rtl"
+              mb={4}
+            >
+              ورای یک جامعه عادی!
+            </Text>
+            <Text
+              fontSize={{ base: "1.5rem", md: "2.5rem", lg: "3rem" }}
+              fontWeight="1000"
+              fontFamily="'YekanBakh', sans-serif"
+              dir="rtl"
+              mb={8}
+            >
+              تداکس دانشگاه صنعتی اصفهان
+            </Text>
+            <Image
+              src={IUT_logo}
+              alt='IUT Logo'
+              objectFit="cover"
+              width={{ base: "70px", md: "90px", lg: "120px" }}
+            />
+          </Box>
           <InstagramGallery />
         </Container>
       </Box>
-    
+
       <MotionBox
         position="absolute"
         top="20%"

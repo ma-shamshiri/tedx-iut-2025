@@ -58,11 +58,9 @@ const slideTitles = [
     '',
     '',
     '',
-    '',
 ];
 
 const slideDescriptions = [
-    '',
     '',
     '',
     '',
