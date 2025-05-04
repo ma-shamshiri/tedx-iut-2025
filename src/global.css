@@ -21,6 +21,21 @@
   font-style: normal;
 }
 
+
+@font-face {
+  font-family: 'XBZar';
+  src: url('/fonts/XBZarR.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'XBZar';
+  src: url('/fonts/XBZarBd.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
 :root {
   --color-primary: #2584ff;
   --color-secondary: #00d9ff;
