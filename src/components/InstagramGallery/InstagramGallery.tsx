@@ -154,7 +154,7 @@ const InstagramGallery: React.FC = () => {
                 color="#FFF"
                 fontWeight="bold"
                 fontSize={{ base: "1.8rem", md: "2.4rem" }}
-                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                 dir={i18n.language === "fa" ? "rtl" : "ltr"}
             >
                 {t("instagramGalleryTitle2")}

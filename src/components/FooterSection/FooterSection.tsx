@@ -139,16 +139,16 @@ const FooterSection: React.FC = () => {
             textAlign="center"
             fontSize={linkFontSize} mb="0.5rem"
             fontWeight="bold"
-            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+            fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
             dir={i18n.language === "fa" ? "rtl" : "ltr"}
           >
-            © {new Date().getFullYear()} {t("copyrightLineOne")}
+            {t("copyrightLineOne")}
           </Text>
           <Text
             textAlign="center"
             fontSize="1.3rem"
             color="gray.100"
-            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "Big Shoulders Display"}
+            fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : "Big Shoulders Display"}
             dir={i18n.language === "fa" ? "rtl" : "ltr"}
           >
             {t("copyrightLineTwo")}

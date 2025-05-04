@@ -34,7 +34,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ title, icon, description }) => {
                 <Text
                     fontSize={{ base: "2rem", lg: "2.5rem" }}
                     color="red.300"
-                    fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 >
                     {title}
@@ -44,7 +44,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ title, icon, description }) => {
                 fontSize={{ base: "1.5rem", lg: "1.7rem" }}
                 color="gray.200"
                 lineHeight="1.75"
-                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                 dir={i18n.language === "fa" ? "rtl" : "ltr"}
             // textAlign="justify"
             >

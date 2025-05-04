@@ -47,7 +47,7 @@ const HeroSection: React.FC = () => {
               fontSize={{ base: "2.1rem", md: "2.6rem", lg: "2.8rem", xl: "3.1rem" }}
               color="gold"
               textAlign="center"
-              fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+              fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
               dir={i18n.language === "fa" ? "rtl" : "ltr"}
               paddingBottom="1.5rem"
             >
@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
               fontSize={{ base: "1.7rem", md: "2rem", lg: "2.2rem", xl: "2.2rem" }}
               color="#fff"
               textAlign="center"
-              fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+              fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
               dir={i18n.language === "fa" ? "rtl" : "ltr"}
             >
               {t("quizModalButtonSubTitle")}
@@ -77,7 +77,7 @@ const HeroSection: React.FC = () => {
                 padding={{ base: "2.8rem", md: "2.8rem", lg: "3.7rem", xl: "3.8rem" }}
                 marginTop="2rem"
                 borderRadius="10px"
-                fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                 dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 onClick={onOpen}
                 _hover={{
@@ -104,17 +104,17 @@ const HeroSection: React.FC = () => {
           >
             <Text
               fontSize={{ base: "3.2rem", md: "5rem", lg: "10rem" }}
-              fontWeight="1000"
-              fontFamily="'YekanBakh', sans-serif"
+              fontWeight="bold"
+              fontFamily="'Rubik', sans-serif"
               dir="rtl"
               mb={4}
             >
-              ورای یک جامعه عادی!
+              ورای یک جامعه عادی
             </Text>
             <Text
               fontSize={{ base: "1.5rem", md: "2.5rem", lg: "3rem" }}
-              fontWeight="1000"
-              fontFamily="'YekanBakh', sans-serif"
+              fontWeight="bold"
+              fontFamily="'Rubik', sans-serif"
               dir="rtl"
               mb={8}
             >

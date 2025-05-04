@@ -110,7 +110,7 @@ const MyNavbar: React.FC = () => {
                                         w="100%"
                                         variant="ghost"
                                         fontSize={NAV_ITEM_FONT_SIZE}
-                                        fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                                         color={location.pathname === item.to ? "#CB0000" : "#000"}
                                         fontWeight={location.pathname === item.to ? "bold" : "normal"}
@@ -151,7 +151,7 @@ const MyNavbar: React.FC = () => {
                                     key={item.key}
                                     variant="ghost"
                                     fontSize={NAV_ITEM_FONT_SIZE}
-                                    fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                                     color={isActive ? "#fff" : "#fff"}
                                     fontWeight={isActive ? "bold" : "normal"}

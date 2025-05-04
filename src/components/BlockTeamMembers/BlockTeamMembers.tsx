@@ -62,7 +62,7 @@ const BlockTeamMembers: React.FC = () => {
                         marginTop="0"
                         fontSize={{ base: '2.8rem', lg: '4rem' }}
                         fontWeight={i18n.language === "fa" ? "bold" : "1000"}
-                        fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "Big Shoulders Display"}
+                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : "Big Shoulders Display"}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         letterSpacing="0.5px"
                         lineHeight="1.1"
@@ -74,7 +74,7 @@ const BlockTeamMembers: React.FC = () => {
                         marginBottom="4rem"
                         marginTop="0"
                         fontSize={{ base: '1.5rem', lg: '2.3rem' }}
-                        fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "Big Shoulders Display"}
+                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : "Big Shoulders Display"}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         lineHeight="1.5"
                     >
