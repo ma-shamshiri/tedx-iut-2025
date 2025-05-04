@@ -178,7 +178,12 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
 
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered size="5xl">
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      isCentered
+      size={showResult && !showResetSlide ? "3xl" : "5xl"}
+    >
       <ModalOverlay />
       <ModalContent
         bg="gray.800"
@@ -253,10 +258,10 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                 color="gold"
                 mb={4}
                 fontSize={{
-                  base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
-                  md: i18n.language === "fa" ? "1.5rem" : "2rem",
-                  lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
-                  xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
+                  base: i18n.language === "fa" ? "2.0rem" : "2.2rem",
+                  md: i18n.language === "fa"   ? "2.0rem" : "2.5rem",
+                  lg: i18n.language === "fa"   ? "2.3rem" : "2.5rem",
+                  xl: i18n.language === "fa"   ? "2.3rem" : "2.7rem"
                 }}
                 fontWeight="bold"
                 fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
