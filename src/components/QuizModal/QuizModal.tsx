@@ -184,6 +184,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   mb={6}
                   color="gold"
                   fontSize={{ base: '1.5rem', lg: '1.7rem' }}
+                  fontWeight="bold"
                   fontFamily={i18n.language === 'fa' ? "'XBZar', sans-serif" : ''}
                   dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                 >
@@ -199,7 +200,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                       color={answers[currentQuestion]?.text === option.text ? 'white' : 'black'}
                       variant={answers[currentQuestion]?.text === option.text ? 'solid' : 'outline'}
                       padding="2.5rem"
-                      fontSize={{ base: '1.5rem', lg: '1.4rem' }}
+                      fontSize={{ base: '1.4rem', lg: '1.35rem' }}
                       fontFamily={i18n.language === 'fa' ? "'XBZar', sans-serif" : ''}
                       dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                       whiteSpace="normal"

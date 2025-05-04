@@ -25,14 +25,14 @@
 @font-face {
   font-family: 'XBZar';
   src: url('/fonts/XBZarR.ttf') format('truetype');
-  font-weight: 200;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'XBZar';
   src: url('/fonts/XBZarBd.ttf') format('truetype');
-  font-weight: 500;
+  font-weight: 700;
   font-style: normal;
 }
 
