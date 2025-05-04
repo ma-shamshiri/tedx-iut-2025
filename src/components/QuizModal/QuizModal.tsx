@@ -218,7 +218,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
 
           {/* Result Slide */}
           {showResult && !showResetSlide && (
-            <Box textAlign="center" p={6}>
+            <Box textAlign="center" pt={6}>
               <Text
                 color="gold"
                 mb={4}
@@ -247,7 +247,7 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
               </Flex>
 
               {/* Buttons Container */}
-              <Box position="relative" mt={6} padding={4}>
+              <Box position="relative" mt={8} >
                 <Flex gap={6} justifyContent="center" flexWrap="wrap">
                   {/* Download Button */}
                   <Button
