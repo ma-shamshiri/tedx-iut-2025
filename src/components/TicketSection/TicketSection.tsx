@@ -119,7 +119,7 @@ const TicketSection: React.FC = () => {
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         textAlign="center"
                     >
-                        سالن همایش‌های دانشگاه صنعتی اصفهان
+                        شهرک علمی و تحقیقاتی اصفهان
                     </Text>
                 </Flex>
                 <Button
