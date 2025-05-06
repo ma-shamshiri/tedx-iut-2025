@@ -76,6 +76,7 @@ const ContactUsSection: React.FC = () => {
       position="relative"
       width="100%"
       minH={{ base: "100vh", md: "100vh" }}
+      paddingX={{ base: "1.5rem" }}
       overflow="hidden"
       display="flex"
       alignItems="center"
