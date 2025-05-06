@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import {
     Box,
@@ -7,7 +7,6 @@ import {
     useBreakpointValue,
 } from "@chakra-ui/react";
 import { instagramPosts } from "./data";
-import { FaInstagram } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import "slick-carousel/slick/slick.css";
@@ -45,6 +44,21 @@ const CustomNextArrow = (props: any) => {
             style={{ ...style, right: "5px", zIndex: 10, display: "block" }}
         />
     );
+};
+
+const titleVariants: { [key: string]: any } = {
+    initial: {
+        y: 60,
+        opacity: 0,
+    },
+    animate: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.6,
+            ease: "easeInOut",
+        },
+    },
 };
 
 const InstagramSlide: React.FC<InstagramSlideProps> = ({ post }) => {
@@ -128,6 +142,8 @@ const InstagramSlide: React.FC<InstagramSlideProps> = ({ post }) => {
 const InstagramGallery: React.FC = () => {
     const { t, i18n } = useTranslation();
 
+    const ref = useRef<HTMLDivElement>(null);
+
     const slidesToShow = useBreakpointValue({ base: 1, md: 2, lg: 3 }) || 1;
 
     const settings = {
@@ -146,20 +162,39 @@ const InstagramGallery: React.FC = () => {
     };
 
     return (
-        <Box as="section" py="4rem" px="2rem">
-            <Heading
-                as="h2"
-                textAlign="center"
-                marginY={{ base: "4rem", lg: "6rem" }}
-                color="#FFF"
-                fontWeight="bold"
-                fontSize={{ base: "1.8rem", md: "2.4rem" }}
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
-                dir={i18n.language === "fa" ? "rtl" : "ltr"}
+        <Box
+            as="section"
+            bgGradient="radial(circle at center, rgba(229,62,62,1) 0%, rgba(229,62,62,0.2) 40%, rgba(0,0,0,1) 100%)"
+            py="4rem"
+            px="2rem"
+            width="100%"
+            overflow="hidden"
+        >
+            <motion.div
+                ref={ref}
+                variants={titleVariants}
+                initial="initial"
+                whileInView="animate"
             >
-                {t("instagramGalleryTitle2")}
-            </Heading>
-            <Box maxW="1400px" mx="auto">
+                <Heading
+                    as="h2"
+                    textAlign="center"
+                    marginY={{ base: "4rem", lg: "6rem" }}
+                    marginBottom={{ base: "4rem", lg: "8rem" }}
+                    color="#FFF"
+                    fontWeight="bold"
+                    fontSize={{ base: "2rem", md: "2.7rem", lg: "3.4rem" }}
+                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                    dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                >
+                    {t("instagramGalleryTitle2")}
+                </Heading>
+            </motion.div>
+            <Box
+                maxW="1400px"
+                mx="auto"
+                marginBottom={{ base: "2rem", lg: "6rem" }}
+            >
                 <Slider {...settings}>
                     {instagramPosts.map((post) => (
                         <InstagramSlide key={post.id} post={post} />

@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import AboutSection from "../components/AboutSection";
 import FooterSection from "../components/FooterSection";
-import HeroSection from "../components/HeroSection";
 import MyNavbar from "../components/MyNavbar";
 import TeamSection from "../components/TeamSection";
 import ContactUsSection from "../components/ContactUsSection";
+import InstagramGallery from "../components/InstagramGallery";
+import TicketSection from "../components/TicketSection";
+import QuizSection from "../components/QuizSection";
+// import HeroSection from "../components/HeroSection";
 
 const HomePage: React.FC = () => {
   const [boxLoaded, setBoxLoaded] = useState(false);
@@ -27,8 +30,11 @@ const HomePage: React.FC = () => {
         onAnimationComplete={handleBoxLoad}
       >
         <MyNavbar />
-        <HeroSection />
+        {/* <HeroSection /> */}
+        <TicketSection />
+        <QuizSection />
         <AboutSection />
+        <InstagramGallery />
         <TeamSection />
         <ContactUsSection />
         <FooterSection />

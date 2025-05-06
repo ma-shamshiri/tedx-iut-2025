@@ -23,9 +23,9 @@ const CountdownTimer: React.FC<{ eventStartTime: Date }> = ({ eventStartTime }) 
     const { t, i18n } = useTranslation();
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
-    const numberFontSize = useBreakpointValue({ base: "2rem", md: "2.8rem", lg: "2.3rem", xl: "3rem" });
-    const textFontSize = useBreakpointValue({ base: "1.3rem", md: "1.7rem", lg: "1.4rem", xl: "1.7rem" });
-    const boxSize = useBreakpointValue({ base: "70px", md: "100px", lg: "84px", xl: "100px" });
+    const numberFontSize = useBreakpointValue({ base: "1.8rem", md: "2rem", lg: "2rem", xl: "2rem" });
+    const textFontSize = useBreakpointValue({ base: "1.1rem", md: "1.3rem", lg: "1.3rem", xl: "1.3rem" });
+    const boxSize = useBreakpointValue({ base: "60px", md: "70px", lg: "70px", xl: "70px" });
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -38,19 +38,14 @@ const CountdownTimer: React.FC<{ eventStartTime: Date }> = ({ eventStartTime }) 
     const formatTimeUnit = (unit: number) =>
         unit < 10 ? `0${unit}` : unit.toString();
 
-    // Define the keys to be used both for accessing timeLeft and for translation
     const timeUnits: (keyof typeof timeLeft)[] =
         i18n.language === "fa" ? ["seconds", "minutes", "hours", "days"] : ["days", "hours", "minutes", "seconds"];
 
     return (
         <Box
-            position="absolute"
-            top={{ base: "12%", md: "10%", lg: "8%", xl: "10%" }}
-            left={{ base: "50%", md: "50%", lg: "75%", xl: "77%" }}
-            transform="translate(-50%, -50%)"
-            margin="0 auto"
-            padding="2rem"
+            position="relative"
             overflow="hidden"
+            padding={"1.5rem"}
         >
             <Flex justifyContent="center" gap={5}>
                 {timeUnits.map((unit, index) => (
@@ -71,9 +66,10 @@ const CountdownTimer: React.FC<{ eventStartTime: Date }> = ({ eventStartTime }) 
                             justifyContent="center"
                             width={boxSize}
                             height={boxSize}
-                            bgColor={useColorModeValue("rgba(255, 0, 0, 0.7)", "rgba(255, 0, 0, 0.7)")}
-                            color="white"
+                            bg="rgba(255,255,255,0.05)"
+                            color="#fff"
                             fontWeight={i18n.language === "fa" ? "semibold" : "bold"}
+                            border="2px solid #CB0000"
                             borderRadius="12px"
                             boxShadow="0 8px 16px rgba(0, 0, 0, 0.3)"
                             transition="transform 0.3s ease, box-shadow 0.3s ease"

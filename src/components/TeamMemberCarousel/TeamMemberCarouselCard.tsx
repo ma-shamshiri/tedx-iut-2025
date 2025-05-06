@@ -19,7 +19,7 @@ interface TeamMemberCarouselCardProps {
 const TeamMemberCarouselCard: React.FC<TeamMemberCarouselCardProps> = ({ member }) => {
     const { t, i18n } = useTranslation();
 
-    const cardBg = useColorModeValue('white', 'gray.700');
+    const cardBg = "#fff";
     const overlayBg = 'linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)';
 
     return (
@@ -27,7 +27,7 @@ const TeamMemberCarouselCard: React.FC<TeamMemberCarouselCardProps> = ({ member 
             position="relative"
             width="220px"
             height="280px"
-            borderRadius="lg"
+            borderRadius="12px"
             overflow="hidden"
             bg={cardBg}
             boxShadow="lg"

@@ -127,7 +127,6 @@ const HeroSection: React.FC = () => {
               width={{ base: "70px", md: "90px", lg: "120px" }}
             />
           </Box>
-          <InstagramGallery />
         </Container>
       </Box>
 
