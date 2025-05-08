@@ -208,7 +208,11 @@ const QuizPage: React.FC = () => {
     setShowPhoneInput(false);
   };
 
-  
+  const isPhoneNumberValid = (number: string) => {
+    const cleanNumber = number.replace(/\s/g, '');
+    return cleanNumber.startsWith('09') && cleanNumber.length === 11;
+  };
+
   return (
     <Flex
       direction="column"
@@ -249,14 +253,18 @@ const QuizPage: React.FC = () => {
                 type="tel"
                 pattern="[0-9]*"
                 inputMode="numeric"
-                maxLength={13} // Increased to account for spaces
+                maxLength={13}
                 _placeholder={{ color: 'gray.400' }}
                 width="60%"
                 height="5rem"
                 borderRadius="md"
-                borderColor="gray.600"
-                _hover={{ borderColor: 'gray.500' }}
-                _focus={{ borderColor: '#c53e3e', boxShadow: '0 0 0 1px #c53e3e' }}
+                borderColor={isPhoneNumberValid(phoneNumber) ? "green.400" : "gray.600"}
+                _hover={{ borderColor: isPhoneNumberValid(phoneNumber) ? "green.300" : "gray.500" }}
+                _focus={{ 
+                  borderColor: isPhoneNumberValid(phoneNumber) ? "green.400" : "#c53e3e", 
+                  boxShadow: isPhoneNumberValid(phoneNumber) ? "0 0 0 1px #48BB78" : "0 0 0 1px #c53e3e" 
+                }}
+                transition="all 0.2s"
               />
               <Button
                 bg="#c53e3e"
