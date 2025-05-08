@@ -9,6 +9,8 @@ import {
   Image,
   IconButton,
 } from '@chakra-ui/react';
+import MyNavbar from "../MyNavbar";
+import SocialFooter from './SocialFooter';
 import { questions, personalityElements, PersonalityElement, Option } from '../QuizModal/data';
 import { useTranslation } from 'react-i18next';
 import { BsStars } from 'react-icons/bs';
@@ -141,197 +143,161 @@ const QuizPage: React.FC = () => {
   };
 
   return (
-    <Box
+    <Flex
+      direction="column"
       minH="100vh"
       bg="gray.800"
-      bgGradient="linear(to bottom right, rgba(139, 67, 67, 0.7) 0%, rgba(177, 60, 60, 0.2) 30%, rgba(0,0,0,0.1) 100%)"
-      p={{ base: '1rem', lg: '2rem' }}
-    >
-      <Box maxW="600px" mx="auto">
-        {/* Quiz Question Slide */}
-        {!showResult && !showResetSlide && (
-          <Box>
-            <Box
-              p={6}
-              borderWidth={hasError ? '2px' : '1px'}
-              borderColor={hasError ? 'red.500' : 'gray.200'}
-              borderRadius="md"
-            >
-              <Text
-                mb={6}
-                color="gold"
-                fontSize={{ base: '1.5rem', lg: '1.7rem' }}
-                fontWeight="bold"
-                fontFamily={i18n.language === 'fa' ? "'XBZar', sans-serif" : ''}
-                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-              >
-                {t(shuffledQuestions[currentQuestion]?.text)}
-              </Text>
-
-              <SimpleGrid columns={{ base: 1, lg: 1 }} spacing={4}>
-                {shuffledQuestions[currentQuestion]?.options.map((option, index) => (
-                  <Button
-                    key={index}
-                    onClick={() => handleOptionSelect(option)}
-                    bg={answers[currentQuestion]?.text === option.text ? 'dodgerblue' : 'gray.100'}
-                    color={answers[currentQuestion]?.text === option.text ? 'white' : 'black'}
-                    variant={answers[currentQuestion]?.text === option.text ? 'solid' : 'outline'}
-                    padding="2.5rem"
-                    fontSize={{ base: '1.4rem', lg: '1.35rem' }}
-                    fontFamily={i18n.language === 'fa' ? "'XBZar', sans-serif" : ''}
-                    dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                    whiteSpace="normal"
-                    wordBreak="break-word"
-                    textAlign="center"
-                    _hover={{ transform: 'scale(1.03)' }}
-                    transition="color 0.2s ease, background-color 0.2s ease, transform 0.1s ease"
-                  >
-                    {t(option.text)}
-                  </Button>
-                ))}
-              </SimpleGrid>
-            </Box>
-
-            {/* Navigation buttons */}
-            <Flex w="100%" justifyContent="space-between" mt={4}>
-              <Button
-                onClick={handlePrevious}
-                isDisabled={currentQuestion === 0}
-                fontSize={{
-                  base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
-                  md: i18n.language === "fa" ? "1.5rem" : "1.8rem",
-                  lg: i18n.language === "fa" ? "1.5rem" : "1.5rem",
-                  xl: i18n.language === "fa" ? "1.8rem" : "1.8rem"
-                }}
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                paddingX={{ base: "2rem", md: "2rem", lg: "3rem" }}
-                paddingY={{ base: "2rem", md: "2rem", lg: "2rem" }}
-                _hover={{
-                  bg: "#cb0000",
-                }}
-              >
-                {t('previous')}
-              </Button>
-              
-              <Button
-                onClick={handleNext}
-                fontSize={{
-                  base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
-                  md: i18n.language === "fa" ? "1.5rem" : "1.8rem",
-                  lg: i18n.language === "fa" ? "1.5rem" : "1.5rem",
-                  xl: i18n.language === "fa" ? "1.8rem" : "1.8rem"
-                }}
-                minWidth="10rem"
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                paddingX={{ base: "2rem", md: "2rem", lg: "3rem" }}
-                paddingY={{ base: "2rem", md: "2rem", lg: "2rem" }}
-                _hover={{
-                  bg: "#07ad60",
-                }}
-              >
-                {currentQuestion === questions.length - 1 ? t('showResult') : t('next')}
-              </Button>
-            </Flex>
-
-            {/* Slide number centered */}
-            <Text
-              as="span"
-              fontSize={{
-                base: i18n.language === "fa" ? "1.2rem" : "1.4rem",
-                md: i18n.language === "fa" ? "1.2rem" : "1.7rem",
-                lg: i18n.language === "fa" ? "1.5rem" : "1.6rem",
-                xl: i18n.language === "fa" ? "1.5rem" : "1.9rem"
-              }}
-              fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-              dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-              textAlign="center"
-              display="block"
-              mt={4}
-            >
-              {`${t('quizQuestionName')} ${currentQuestion + 1} ${t('quizQuestionOutOf')} ${questions.length}`}
-            </Text>
-          </Box>
-        )}
-
-        {/* Result Slide */}
-        {showResult && !showResetSlide && (
-          <Box textAlign="center" p={6} borderRadius="md">
-            <Flex justifyContent="center" alignItems="center" mb={6}>
-              <Image
-                src={resultElement?.image}
-                alt={resultElement?.name}
-                width="50vh"
-                height="auto"
-                objectFit="cover"
-                borderRadius="10px"
-              />
-            </Flex>
-
-            {selectedDiscount && (
-              <Flex
-                align="center"
-                justify="center"
-                mb={4}
-                p={3}
+      bgGradient="linear(to bottom right, rgba(27, 12, 12, 0.7) 0%, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.1) 100%)"
+      >
+      <MyNavbar />
+      <Box
+        flex="1"
+        display="flex" flexDirection="column" justifyContent="center" alignItems="center" p={{ base: '1rem', lg: '2rem' }}>
+        <Box maxW="600px" mx="auto" w="100%">
+          {/* Quiz Question Slide */}
+          {!showResult && !showResetSlide && (
+            <Box>
+              <Box
+                p={6}
+                borderWidth={hasError ? '2px' : '1px'}
+                borderColor={hasError ? 'red.500' : 'gray.200'}
                 borderRadius="md"
-                color="#fff"
-                fontWeight="bold"
-                fontSize="1.2rem"
-                gap={2}
-                width="fit-content"
-                mx="auto"
               >
-                <Flex
-                  align="center"
-                  bg="gray.700"
-                  borderRadius="md"
-                  px={3}
-                  py={1}
-                  cursor="pointer"
-                  _hover={{ bg: 'gray.600' }}
-                  onClick={() => {
-                    navigator.clipboard.writeText(selectedDiscount.code);
-                    toast({
-                      title: t('کد تخفیف کپی شد!'),
-                      status: 'success',
-                      duration: 1500,
-                      isClosable: true,
-                    });
+                <Text
+                  mb={6}
+                  color="gold"
+                  fontSize={{ base: '1.5rem', lg: '1.7rem' }}
+                  fontWeight="bold"
+                  fontFamily={i18n.language === 'fa' ? "'XBZar', sans-serif" : ''}
+                  dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                >
+                  {t(shuffledQuestions[currentQuestion]?.text)}
+                </Text>
+
+                <SimpleGrid columns={{ base: 1, lg: 1 }} spacing={4}>
+                  {shuffledQuestions[currentQuestion]?.options.map((option, index) => (
+                    <Button
+                      key={index}
+                      onClick={() => handleOptionSelect(option)}
+                      bg={answers[currentQuestion]?.text === option.text ? 'dodgerblue' : 'gray.100'}
+                      color={answers[currentQuestion]?.text === option.text ? 'white' : 'black'}
+                      variant={answers[currentQuestion]?.text === option.text ? 'solid' : 'outline'}
+                      padding="2.5rem"
+                      fontSize={{ base: '1.4rem', lg: '1.35rem' }}
+                      fontFamily={i18n.language === 'fa' ? "'XBZar', sans-serif" : ''}
+                      dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                      whiteSpace="normal"
+                      wordBreak="break-word"
+                      textAlign="center"
+                      _hover={{ transform: 'scale(1.03)' }}
+                      transition="color 0.2s ease, background-color 0.2s ease, transform 0.1s ease"
+                    >
+                      {t(option.text)}
+                    </Button>
+                  ))}
+                </SimpleGrid>
+              </Box>
+
+              {/* Navigation buttons */}
+              <Flex w="100%" justifyContent="space-between" mt={4}>
+                <Button
+                  onClick={handlePrevious}
+                  isDisabled={currentQuestion === 0}
+                  fontSize={{
+                    base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
+                    md: i18n.language === "fa" ? "1.5rem" : "1.8rem",
+                    lg: i18n.language === "fa" ? "1.5rem" : "1.5rem",
+                    xl: i18n.language === "fa" ? "1.8rem" : "1.8rem"
+                  }}
+                  fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                  dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                  paddingX={{ base: "2rem", md: "2rem", lg: "3rem" }}
+                  paddingY={{ base: "2rem", md: "2rem", lg: "2rem" }}
+                  _hover={{
+                    bg: "#cb0000",
                   }}
                 >
-                  <Text 
-                    fontSize={{
-                      base: i18n.language === "fa" ? "1.4rem" : "1.6rem",
-                      md: i18n.language === "fa" ? "1.4rem" : "1.0rem",
-                      lg: i18n.language === "fa" ? "1.7rem" : "1.8rem",
-                      xl: i18n.language === "fa" ? "1.7rem" : "2.1rem"
-                    }}
-                    fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                    dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                    userSelect="none"
-                  >
-                    {selectedDiscount.code}
-                  </Text>
-                  
-                  <IconButton
-                    aria-label="کپی کد تخفیف"
-                    icon={<FiCopy size="1em" />}
-                    fontSize={{
-                      base: i18n.language === "fa" ? "1.4rem" : "1.6rem",
-                      md: i18n.language === "fa" ? "1.4rem" : "1.0rem",
-                      lg: i18n.language === "fa" ? "1.7rem" : "1.8rem",
-                      xl: i18n.language === "fa" ? "1.7rem" : "2.1rem"
-                    }}
-                    size="lg"
-                    variant="ghost"
-                    colorScheme="gray"
-                    ml={1}
-                    userSelect="none"
-                    _hover={{ bg: 'transparent' }}
-                    onClick={(e) => {
-                      e.stopPropagation();
+                  {t('previous')}
+                </Button>
+                
+                <Button
+                  onClick={handleNext}
+                  fontSize={{
+                    base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
+                    md: i18n.language === "fa" ? "1.5rem" : "1.8rem",
+                    lg: i18n.language === "fa" ? "1.5rem" : "1.5rem",
+                    xl: i18n.language === "fa" ? "1.8rem" : "1.8rem"
+                  }}
+                  minWidth="10rem"
+                  fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                  dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                  paddingX={{ base: "2rem", md: "2rem", lg: "3rem" }}
+                  paddingY={{ base: "2rem", md: "2rem", lg: "2rem" }}
+                  _hover={{
+                    bg: "#07ad60",
+                  }}
+                >
+                  {currentQuestion === questions.length - 1 ? t('showResult') : t('next')}
+                </Button>
+              </Flex>
+
+              {/* Slide number centered */}
+              <Text
+                as="span"
+                fontSize={{
+                  base: i18n.language === "fa" ? "1.2rem" : "1.4rem",
+                  md: i18n.language === "fa" ? "1.2rem" : "1.7rem",
+                  lg: i18n.language === "fa" ? "1.5rem" : "1.6rem",
+                  xl: i18n.language === "fa" ? "1.5rem" : "1.9rem"
+                }}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                textAlign="center"
+                display="block"
+                mt={4}
+              >
+                {`${t('quizQuestionName')} ${currentQuestion + 1} ${t('quizQuestionOutOf')} ${questions.length}`}
+              </Text>
+            </Box>
+          )}
+
+          {/* Result Slide */}
+          {showResult && !showResetSlide && (
+            <Box textAlign="center" p={6} borderRadius="md">
+              <Flex justifyContent="center" alignItems="center" mb={6}>
+                <Image
+                  src={resultElement?.image}
+                  alt={resultElement?.name}
+                  width="50vh"
+                  height="auto"
+                  objectFit="cover"
+                  borderRadius="10px"
+                />
+              </Flex>
+
+              {selectedDiscount && (
+                <Flex
+                  align="center"
+                  justify="center"
+                  mb={4}
+                  p={3}
+                  borderRadius="md"
+                  color="#fff"
+                  fontWeight="bold"
+                  fontSize="1.2rem"
+                  gap={2}
+                  width="fit-content"
+                  mx="auto"
+                >
+                  <Flex
+                    align="center"
+                    bg="gray.700"
+                    borderRadius="md"
+                    px={3}
+                    py={1}
+                    cursor="pointer"
+                    _hover={{ bg: 'gray.600' }}
+                    onClick={() => {
                       navigator.clipboard.writeText(selectedDiscount.code);
                       toast({
                         title: t('کد تخفیف کپی شد!'),
@@ -340,110 +306,152 @@ const QuizPage: React.FC = () => {
                         isClosable: true,
                       });
                     }}
-                  />
+                  >
+                    <Text 
+                      fontSize={{
+                        base: i18n.language === "fa" ? "1.4rem" : "1.6rem",
+                        md: i18n.language === "fa" ? "1.4rem" : "1.0rem",
+                        lg: i18n.language === "fa" ? "1.7rem" : "1.8rem",
+                        xl: i18n.language === "fa" ? "1.7rem" : "2.1rem"
+                      }}
+                      fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                      dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                      userSelect="none"
+                    >
+                      {selectedDiscount.code}
+                    </Text>
+                    
+                    <IconButton
+                      aria-label="کپی کد تخفیف"
+                      icon={<FiCopy size="1em" />}
+                      fontSize={{
+                        base: i18n.language === "fa" ? "1.4rem" : "1.6rem",
+                        md: i18n.language === "fa" ? "1.4rem" : "1.0rem",
+                        lg: i18n.language === "fa" ? "1.7rem" : "1.8rem",
+                        xl: i18n.language === "fa" ? "1.7rem" : "2.1rem"
+                      }}
+                      size="lg"
+                      variant="ghost"
+                      colorScheme="gray"
+                      ml={1}
+                      userSelect="none"
+                      _hover={{ bg: 'transparent' }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigator.clipboard.writeText(selectedDiscount.code);
+                        toast({
+                          title: t('کد تخفیف کپی شد!'),
+                          status: 'success',
+                          duration: 1500,
+                          isClosable: true,
+                        });
+                      }}
+                    />
+                  </Flex>
+
+                  <Text
+                    as="span"
+                    fontSize={{
+                      base: i18n.language === "fa" ? "1.8rem" : "2.0rem",
+                      md: i18n.language === "fa" ? "1.8rem" : "2.3rem",
+                      lg: i18n.language === "fa" ? "2.1rem" : "2.2rem",
+                      xl: i18n.language === "fa" ? "2.1rem" : "2.5rem"
+                    }}
+                    fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                    dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                    mx={2}
+                  >
+                    کد تخفیف %{selectedDiscount.percent}:
+                  </Text>
+                </Flex>
+              )}
+
+              <Box position="relative" mt={8}>
+                <Flex gap={6} justifyContent="center" flexWrap="wrap">
+                  {/* Download Button */}
+                  <Button
+                    colorScheme="gray"
+                    size="lg"
+                    borderRadius="12"
+                    p={4}
+                    mx={3}
+                    width="5rem"
+                    height="5rem"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    onClick={() => {
+                      setModalAction('download');
+                      setIsDownloadModalOpen(true);
+                    }}
+                  >
+                    <FaDownload size={38} />
+                  </Button>
+
+                  {/* Share Button */}
+                  <Button
+                    colorScheme="gray"
+                    size="lg"
+                    borderRadius="12"
+                    p={4}
+                    mx={3}
+                    width="5rem"
+                    height="5rem"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    onClick={() => {
+                      setModalAction('share');
+                      setIsDownloadModalOpen(true);
+                    }}
+                  >
+                    <FaShareAlt size={38} />
+                  </Button>
                 </Flex>
 
-                <Text
-                  as="span"
-                  fontSize={{
-                    base: i18n.language === "fa" ? "1.8rem" : "2.0rem",
-                    md: i18n.language === "fa" ? "1.8rem" : "2.3rem",
-                    lg: i18n.language === "fa" ? "2.1rem" : "2.2rem",
-                    xl: i18n.language === "fa" ? "2.1rem" : "2.5rem"
+                <ShareDownloadModal
+                  isOpen={isDownloadModalOpen}
+                  onClose={() => {
+                    setIsDownloadModalOpen(false);
+                    setModalAction(null);
                   }}
-                  fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                  dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                  mx={2}
-                >
-                  کد تخفیف %{selectedDiscount.percent}:
-                </Text>
-              </Flex>
-            )}
+                  action={modalAction}
+                  resultElement={resultElement}
+                />
+              </Box>
 
-            <Box position="relative" mt={8}>
-              <Flex gap={6} justifyContent="center" flexWrap="wrap">
-                {/* Download Button */}
-                <Button
-                  colorScheme="gray"
-                  size="lg"
-                  borderRadius="12"
-                  p={4}
-                  mx={3}
-                  width="5rem"
-                  height="5rem"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  onClick={() => {
-                    setModalAction('download');
-                    setIsDownloadModalOpen(true);
-                  }}
-                >
-                  <FaDownload size={38} />
-                </Button>
-
-                {/* Share Button */}
-                <Button
-                  colorScheme="gray"
-                  size="lg"
-                  borderRadius="12"
-                  p={4}
-                  mx={3}
-                  width="5rem"
-                  height="5rem"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  onClick={() => {
-                    setModalAction('share');
-                    setIsDownloadModalOpen(true);
-                  }}
-                >
-                  <FaShareAlt size={38} />
-                </Button>
-              </Flex>
-
-              <ShareDownloadModal
-                isOpen={isDownloadModalOpen}
-                onClose={() => {
-                  setIsDownloadModalOpen(false);
-                  setModalAction(null);
-                }}
-                action={modalAction}
-                resultElement={resultElement}
-              />
+              {/* Animation */}
+              {showAnimation && <SubmitAnimation />}
             </Box>
+          )}
 
-            {/* Animation */}
-            {showAnimation && <SubmitAnimation />}
-          </Box>
-        )}
-
-        {/* Reset Slide */}
-        {showResetSlide && (
-          <Box textAlign="center" p={6} borderRadius="md">
-            <Text
-              fontSize="2xl"
-              mb={6}
-              fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-              dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-            >
-              {t('theTestIsCompleted')}
-            </Text>
-            <Button
-              onClick={handleReset}
-              fontSize="xl"
-              px={10}
-              py={6}
-              fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-              dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-            >
-              {t('tryAgain')}
-            </Button>
-          </Box>
-        )}
+          {/* Reset Slide */}
+          {showResetSlide && (
+            <Box textAlign="center" p={6} borderRadius="md">
+              <Text
+                fontSize="2xl"
+                mb={6}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+              >
+                {t('theTestIsCompleted')}
+              </Text>
+              <Button
+                onClick={handleReset}
+                fontSize="xl"
+                px={10}
+                py={6}
+                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+              >
+                {t('tryAgain')}
+              </Button>
+            </Box>
+          )}
+        </Box>
       </Box>
-    </Box>
+      <SocialFooter />
+    </Flex>
   );
 };
 
