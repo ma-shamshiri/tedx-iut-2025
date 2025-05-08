@@ -8,12 +8,11 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import QuizModal from '../QuizModal';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 const QuizSection: React.FC = () => {
     const { t, i18n } = useTranslation();
-
-    const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
         <Box
@@ -53,6 +52,8 @@ const QuizSection: React.FC = () => {
                     }}
                 >
                     <Button
+                        as={RouterLink}
+                        to="/quiz/"
                         bg="gold"
                         color="#000"
                         fontSize={{ base: "2rem", md: "2.2rem", lg: "2.5rem", xl: "2.5rem" }}
@@ -61,17 +62,16 @@ const QuizSection: React.FC = () => {
                         borderRadius="10px"
                         fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
-                        onClick={onOpen}
                         _hover={{
                             bg: "gold",
                             color: "#000"
                         }}
                     >
-                        {t("startTheTest")}
+                        {/* {t("startTheTest")} */}
+                        {t("quizModalButtonTitle")}
                     </Button>
                 </motion.div>
             </Flex>
-            <QuizModal isOpen={isOpen} onClose={onClose} />
         </Box>
     );
 };
