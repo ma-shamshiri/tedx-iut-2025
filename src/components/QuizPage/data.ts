@@ -16,28 +16,28 @@ export interface Question {
 }
 
 export const questions: Question[] = [
-    {
-        id: 1,
-        text: "questionOne",
-        options: [
-            { text: "questionOneAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
-            { text: "questionOneAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
-            { text: "questionOneAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
-            { text: "questionOneAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
-            { text: "questionOneAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
-        ],
-    },
-    {
-        id: 2,
-        text: "questionTwo",
-        options: [
-            { text: "questionTwoAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
-            { text: "questionTwoAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
-            { text: "questionTwoAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
-            { text: "questionTwoAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
-            { text: "questionTwoAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
-        ],
-    },
+    // {
+    //     id: 1,
+    //     text: "questionOne",
+    //     options: [
+    //         { text: "questionOneAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionOneAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionOneAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
+    //         { text: "questionOneAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
+    //         { text: "questionOneAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
+    //     ],
+    // },
+    // {
+    //     id: 2,
+    //     text: "questionTwo",
+    //     options: [
+    //         { text: "questionTwoAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionTwoAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionTwoAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
+    //         { text: "questionTwoAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
+    //         { text: "questionTwoAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
+    //     ],
+    // },
     {
         id: 3,
         text: "questionThree",
@@ -60,28 +60,28 @@ export const questions: Question[] = [
             { text: "questionFourAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
         ],
     },
-    {
-        id: 5,
-        text: "questionFive",
-        options: [
-            { text: "questionFiveAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
-            { text: "questionFiveAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
-            { text: "questionFiveAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
-            { text: "questionFiveAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
-            { text: "questionFiveAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
-        ],
-    },
-    {
-        id: 6,
-        text: "questionSix",
-        options: [
-            { text: "questionSixAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
-            { text: "questionSixAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
-            { text: "questionSixAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
-            { text: "questionSixAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
-            { text: "questionSixAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
-        ],
-    },
+    // {
+    //     id: 5,
+    //     text: "questionFive",
+    //     options: [
+    //         { text: "questionFiveAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionFiveAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionFiveAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
+    //         { text: "questionFiveAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
+    //         { text: "questionFiveAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
+    //     ],
+    // },
+    // {
+    //     id: 6,
+    //     text: "questionSix",
+    //     options: [
+    //         { text: "questionSixAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionSixAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionSixAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
+    //         { text: "questionSixAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
+    //         { text: "questionSixAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
+    //     ],
+    // },
     {
         id: 7,
         text: "questionSeven",
@@ -115,17 +115,17 @@ export const questions: Question[] = [
             { text: "questionNineAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
         ],
     },
-    {
-        id: 10,
-        text: "questionTen",
-        options: [
-            { text: "questionTenAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
-            { text: "questionTenAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
-            { text: "questionTenAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
-            { text: "questionTenAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
-            { text: "questionTenAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
-        ],
-    }
+    // {
+    //     id: 10,
+    //     text: "questionTen",
+    //     options: [
+    //         { text: "questionTenAnswerOne",   type: [1.0, 0.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionTenAnswerTwo",   type: [0.0, 1.0, 0.0, 0.0, 0.0] },
+    //         { text: "questionTenAnswerThree", type: [0.0, 0.0, 1.0, 0.0, 0.0] },
+    //         { text: "questionTenAnswerFour",  type: [0.0, 0.0, 0.0, 1.0, 0.0] },
+    //         { text: "questionTenAnswerFive",  type: [0.0, 0.0, 0.0, 0.0, 1.0] },
+    //     ],
+    // }
 ];
 
 export interface PersonalityElement {
