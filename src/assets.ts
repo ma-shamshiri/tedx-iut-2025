@@ -8,6 +8,7 @@ import amirmahyar_teimouri from "./assets/images/amirmahyar_teimouri.jpg";
 import aref_shams from "./assets/images/aref_shams.jpg";
 import arghavan_mahdikhani from "./assets/images/arghavan_mahdikhani.jpg";
 import campaignT1 from "./assets/images/campaign/type1.jpg";
+import campaignStart from "./assets/images/campaign/start.png";
 import downInstagram from "./assets/images/campaign/download_instagram.jpg";
 import downTwitter from "./assets/images/campaign/download_twitter.jpg";
 import erfan_morshedzadeh from "./assets/images/erfan_morshedzadeh.jpg";

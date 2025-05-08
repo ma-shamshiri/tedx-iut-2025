@@ -12,7 +12,7 @@ import { IUT_logo } from '../../assets';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import InstagramGallery from '../InstagramGallery';
-import QuizModal from '../QuizModal';
+// import QuizModal from '../QuizModal';
 
 const MotionBox = motion(Box);
 
@@ -89,7 +89,7 @@ const HeroSection: React.FC = () => {
               </Button>
             </motion.div>
           </Flex>
-          <QuizModal isOpen={isOpen} onClose={onClose} />
+          {/* <QuizModal isOpen={isOpen} onClose={onClose} /> */}
           {/* <PosterSection /> */}
           <Box
             position="relative"

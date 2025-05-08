@@ -39,26 +39,25 @@ const SocialFooter: React.FC = () => {
       </Text>
       <Flex justify="center" align="center" gap={8} mb={4} flexWrap="wrap">
         {socialLinks.map((item, idx) => (
-          <Flex key={item.label} direction="column" align="center" minW="80px">
+          <Flex key={item.label} direction="row" align="center" minW="80px">
             <Link href={item.href} isExternal _hover={{ textDecoration: 'none' }}>
               <Icon
                 as={item.icon}
-                boxSize={14}
-                // color="#3b82f6"
+                boxSize={12}
                 color="#e53e3e"
                 borderRadius="10px"
-                // border="2px solid #e53e3e"
                 p={1}
-                mb={1}
                 transition="all 0.2s"
                 _hover={{ bg: '#222', color: '#f87171' }}
+                // mr={2}
               />
             </Link>
             <Text
               fontSize="1.2rem"
               fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
               dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-              color="#fff" mt={1}>{item.label}</Text>
+              color="#fff">{item.label}
+            </Text>
           </Flex>
         ))}
       </Flex>

@@ -100,7 +100,7 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
                         lg: i18n.language === "fa"   ? "3.0rem" : "2.7rem",
                         xl: i18n.language === "fa"   ? "2.6rem" : "3.0rem"
                         }}
-                        fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                        fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                         dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                     >
                         {t('downloadModalTitle')}
@@ -115,7 +115,7 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
                         lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
                         xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
                         }}
-                        fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                        fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                         dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                     >
                         {action === 'download' ? t('downloadResultTitle') : t('shareResultTitle')}
@@ -146,7 +146,7 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
                                 xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
                                 }}
                                 // fontWeight="bold"
-                                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                                fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                             >
                                 {t('downloadModalInstagram')}
@@ -175,7 +175,7 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
                                 lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
                                 xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
                                 }}
-                                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                                fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                             >
                                 {t('downloadModalTwitter')}
@@ -269,7 +269,7 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
                             lg: i18n.language === "fa" ?   "1.3rem" : "1.5rem",
                             xl: i18n.language === "fa" ?   "1.3rem" : "1.9rem"
                             }}
-                            fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                            fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                             dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                         >
                             {t('downloadModalClose')}

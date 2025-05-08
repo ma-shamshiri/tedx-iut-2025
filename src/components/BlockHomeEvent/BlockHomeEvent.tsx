@@ -12,7 +12,7 @@ import { starsImage } from "../../assets";
 import { useTranslation } from "react-i18next";
 import Typed from "react-typed";
 import CountdownTimer from "../CountdownTimer";
-import QuizModal from "../QuizModal";
+// import QuizModal from "../QuizPage";
 import { motion } from "framer-motion";
 import TeamMemberCarousel from "../TeamMemberCarousel";
 
@@ -195,7 +195,7 @@ const BlockHomeEvent: React.FC = () => {
                         {t("startTheTest")}
                     </Button>
                 </motion.div>
-                <QuizModal isOpen={isOpen} onClose={onClose} />
+                {/* <QuizModal isOpen={isOpen} onClose={onClose} /> */}
                 {/* Other homepage content */}
             </Flex>
         </Box>
