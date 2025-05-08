@@ -3,12 +3,12 @@ import {
     Box,
     Text,
     Button,
-    useDisclosure,
     Flex,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
+
 
 
 const QuizSection: React.FC = () => {

@@ -17,6 +17,9 @@ import SubmitAnimation from '../Animations/SubmitAnimation';
 import { FaShareAlt, FaDownload } from 'react-icons/fa';
 import ShareDownloadModal from './ShareDownloadModal/ShareDownloadModal';
 import { FiCopy, FiRefreshCw } from 'react-icons/fi';
+import {
+  campaignStart,
+} from "../../assets";
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
@@ -154,7 +157,7 @@ const QuizPage: React.FC = () => {
           {!started ? (
             <Flex direction="column" justify="center" align="center" minH="300px" p={4}>
               <Image
-                src="/src/assets/images/campaign/start.png"
+                src={campaignStart}
                 alt="Sample"
                 width="30vh"
                 height="auto"

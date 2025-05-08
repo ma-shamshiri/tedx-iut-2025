@@ -145,4 +145,5 @@ export {
     tickImage,
     unknownBoyProfile,
     unknownGirlProfile,
+    campaignStart,
 };
