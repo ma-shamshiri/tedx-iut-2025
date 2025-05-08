@@ -17,7 +17,7 @@ import { BsStars } from 'react-icons/bs';
 import SubmitAnimation from '../Animations/SubmitAnimation';
 import { FaShareAlt, FaDownload } from 'react-icons/fa';
 import ShareDownloadModal from '../QuizModal/ShareDownloadModal/ShareDownloadModal';
-import { FiCopy } from 'react-icons/fi';
+import { FiCopy, FiRefreshCw } from 'react-icons/fi';
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
@@ -406,6 +406,23 @@ const QuizPage: React.FC = () => {
                     }}
                   >
                     <FaShareAlt size={38} />
+                  </Button>
+
+                  {/* Reset Button */}
+                  <Button
+                    colorScheme="gray"
+                    size="lg"
+                    borderRadius="12"
+                    p={4}
+                    mx={3}
+                    width="5rem"
+                    height="5rem"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    onClick={handleReset}
+                  >
+                    <FiRefreshCw size={38} />
                   </Button>
                 </Flex>
 
