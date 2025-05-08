@@ -70,6 +70,10 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
       options: shuffleArray(question.options),
     }));
     setShuffledQuestions(shuffledQuestionsCopy);
+
+    setShowResult(true)
+    setShowResetSlide(false)
+    setResultElement(personalityElements[0])
   };
 
   useEffect(() => {
@@ -159,16 +163,12 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
       >
         <ModalCloseButton size="lg" p="1rem" fontSize="1.5rem" />
         <ModalHeader
-          fontSize={{ lg: '2.3rem' }}
-          color="#fff"
-          fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-          dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-          marginTop="3rem"
+          // fontSize={{ lg: '2.3rem' }}
+          // color="#fff"
+          // fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+          // dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+          // marginTop="3rem"
         >
-          <Flex align="center" gap="1rem">
-            <BsStars color="#fff" />
-            {t('quizModalButtonTitle')}
-          </Flex>
         </ModalHeader>
         <ModalBody>
           {/* Quiz Question Slide */}
@@ -220,21 +220,6 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
           {/* Result Slide */}
           {showResult && !showResetSlide && (
             <Box textAlign="center" pt={6}>
-              <Text
-                color="gold"
-                mb={4}
-                fontSize={{
-                  base: i18n.language === "fa" ? "2.0rem" : "2.2rem",
-                  md: i18n.language === "fa"   ? "2.0rem" : "2.5rem",
-                  lg: i18n.language === "fa"   ? "2.3rem" : "2.5rem",
-                  xl: i18n.language === "fa"   ? "2.3rem" : "2.7rem"
-                }}
-                fontWeight="bold"
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-              >
-                {t('yourResult')} : {t(resultElement?.name || '')}
-              </Text>
               
               <Flex justifyContent="center" alignItems="center" mb={6}>
                 <Image
@@ -255,31 +240,19 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                     colorScheme="gray"
                     size="lg"
                     borderRadius="12"
-                    px={5}
-                    py={8}
-                    fontSize={{ base: '1.2rem', md: '1.5rem' }}
-                    fontWeight="bold"
+                    p={4}
+                    mx={3}
+                    width="5rem"
+                    height="5rem"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
                     onClick={() => {
                       setModalAction('download');
                       setIsDownloadModalOpen(true);
                     }}
                   >
-                    <Text
-                      as="span"
-                      m={4}
-                      fontSize={{
-                        base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
-                        md: i18n.language === "fa" ? "1.5rem" : "2rem",
-                        lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
-                        xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
-                      }}
-                      fontWeight="bold"
-                      fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                      dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                    >
-                      {t('downloadResult')}
-                    </Text>
-                    <FaDownload size={20} />
+                    <FaDownload size={38} />
                   </Button>
 
                   {/* Share Button */}
@@ -287,31 +260,19 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                     colorScheme="gray"
                     size="lg"
                     borderRadius="12"
-                    px={5}
-                    py={8}
-                    fontSize={{ base: '1.2rem', md: '1.5rem' }}
-                    fontWeight="bold"
+                    p={4}
+                    mx={3}
+                    width="5rem"
+                    height="5rem"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
                     onClick={() => {
                       setModalAction('share');
                       setIsDownloadModalOpen(true);
                     }}
                   >
-                    <Text
-                      as="span"
-                      m={4}
-                      fontSize={{
-                        base: i18n.language === "fa" ? "1.5rem" : "1.7rem",
-                        md: i18n.language === "fa" ? "1.5rem" : "2rem",
-                        lg: i18n.language === "fa" ? "1.8rem" : "1.9rem",
-                        xl: i18n.language === "fa" ? "1.8rem" : "2.2rem"
-                      }}
-                      fontWeight="bold"
-                      fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-                      dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-                    >
-                      {t('shareResult')}
-                    </Text>
-                    <FaShareAlt size={20} />
+                    <FaShareAlt size={38} />
                   </Button>
                 </Flex>
 
