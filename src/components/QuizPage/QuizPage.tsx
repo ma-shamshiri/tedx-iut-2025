@@ -13,7 +13,6 @@ import MyNavbar from "../MyNavbar";
 import SocialFooter from './SocialFooter';
 import { questions, personalityElements, PersonalityElement, Option } from '../QuizModal/data';
 import { useTranslation } from 'react-i18next';
-import { BsStars } from 'react-icons/bs';
 import SubmitAnimation from '../Animations/SubmitAnimation';
 import { FaShareAlt, FaDownload } from 'react-icons/fa';
 import ShareDownloadModal from '../QuizModal/ShareDownloadModal/ShareDownloadModal';
@@ -93,7 +92,7 @@ const QuizPage: React.FC = () => {
         containerStyle: {
           padding: '1rem',
           fontSize: '1.5rem',
-          fontFamily: i18n.language === 'fa' ? "'YekanBakh', sans-serif" : '',
+          fontFamily: i18n.language === 'fa' ? "'IRANSans', sans-serif" : '',
           direction: i18n.language === 'fa' ? 'rtl' : 'ltr',
         } as any,
       });
@@ -159,38 +158,43 @@ const QuizPage: React.FC = () => {
             <Box>
               <Box
                 p={6}
-                borderWidth={hasError ? '2px' : '1px'}
-                borderColor={hasError ? 'red.500' : 'gray.200'}
-                borderRadius="md"
               >
                 <Text
                   mb={6}
                   color="gold"
                   fontSize={{ base: '1.5rem', lg: '1.7rem' }}
                   fontWeight="bold"
-                  fontFamily={i18n.language === 'fa' ? "'XBZar', sans-serif" : ''}
+                  fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                   dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                 >
                   {t(shuffledQuestions[currentQuestion]?.text)}
                 </Text>
 
-                <SimpleGrid columns={{ base: 1, lg: 1 }} spacing={4}>
+                <SimpleGrid columns={{ base: 1, lg: 1 }} spacing={3}>
                   {shuffledQuestions[currentQuestion]?.options.map((option, index) => (
                     <Button
                       key={index}
                       onClick={() => handleOptionSelect(option)}
-                      bg={answers[currentQuestion]?.text === option.text ? 'dodgerblue' : 'gray.100'}
-                      color={answers[currentQuestion]?.text === option.text ? 'white' : 'black'}
-                      variant={answers[currentQuestion]?.text === option.text ? 'solid' : 'outline'}
-                      padding="2.5rem"
-                      fontSize={{ base: '1.4rem', lg: '1.35rem' }}
-                      fontFamily={i18n.language === 'fa' ? "'XBZar', sans-serif" : ''}
+                      bg={answers[currentQuestion]?.text === option.text ? "#fff" : "#18181b"}
+                      color={answers[currentQuestion]?.text === option.text ? "#18181b" : "#fff"}
+                      border={answers[currentQuestion]?.text === option.text ? "none" : "1.5px solid #333"}
+                      borderRadius="2xl"
+                      fontWeight={answers[currentQuestion]?.text === option.text ? "bold" : "normal"}
+                      boxShadow="none"
+                      paddingY="2.5rem"
+                      fontSize="1.5rem"
+                      marginY="0.2rem"
+                      width="100%"
+                      _hover={{
+                        bg: answers[currentQuestion]?.text === option.text ? "#fff" : "#232326",
+                        color: answers[currentQuestion]?.text === option.text ? "#18181b" : "#fff",
+                      }}
+                      transition="all 0.15s"
+                      fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                       dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                       whiteSpace="normal"
                       wordBreak="break-word"
                       textAlign="center"
-                      _hover={{ transform: 'scale(1.03)' }}
-                      transition="color 0.2s ease, background-color 0.2s ease, transform 0.1s ease"
                     >
                       {t(option.text)}
                     </Button>
@@ -209,7 +213,7 @@ const QuizPage: React.FC = () => {
                     lg: i18n.language === "fa" ? "1.5rem" : "1.5rem",
                     xl: i18n.language === "fa" ? "1.8rem" : "1.8rem"
                   }}
-                  fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                  fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                   dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                   paddingX={{ base: "2rem", md: "2rem", lg: "3rem" }}
                   paddingY={{ base: "2rem", md: "2rem", lg: "2rem" }}
@@ -229,7 +233,7 @@ const QuizPage: React.FC = () => {
                     xl: i18n.language === "fa" ? "1.8rem" : "1.8rem"
                   }}
                   minWidth="10rem"
-                  fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                  fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                   dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                   paddingX={{ base: "2rem", md: "2rem", lg: "3rem" }}
                   paddingY={{ base: "2rem", md: "2rem", lg: "2rem" }}
@@ -250,7 +254,7 @@ const QuizPage: React.FC = () => {
                   lg: i18n.language === "fa" ? "1.5rem" : "1.6rem",
                   xl: i18n.language === "fa" ? "1.5rem" : "1.9rem"
                 }}
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                 textAlign="center"
                 display="block"
@@ -357,7 +361,7 @@ const QuizPage: React.FC = () => {
                       lg: i18n.language === "fa" ? "2.1rem" : "2.2rem",
                       xl: i18n.language === "fa" ? "2.1rem" : "2.5rem"
                     }}
-                    fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                    fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                     dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                     mx={2}
                   >
@@ -374,9 +378,9 @@ const QuizPage: React.FC = () => {
                     size="lg"
                     borderRadius="12"
                     p={4}
-                    mx={3}
-                    width="5rem"
-                    height="5rem"
+                    mx={2}
+                    width="4.5rem"
+                    height="4.5rem"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
@@ -394,9 +398,9 @@ const QuizPage: React.FC = () => {
                     size="lg"
                     borderRadius="12"
                     p={4}
-                    mx={3}
-                    width="5rem"
-                    height="5rem"
+                    mx={2}
+                    width="4.5rem"
+                    height="4.5rem"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
@@ -414,9 +418,9 @@ const QuizPage: React.FC = () => {
                     size="lg"
                     borderRadius="12"
                     p={4}
-                    mx={3}
-                    width="5rem"
-                    height="5rem"
+                    mx={2}
+                    width="4.5rem"
+                    height="4.5rem"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
@@ -448,7 +452,7 @@ const QuizPage: React.FC = () => {
               <Text
                 fontSize="2xl"
                 mb={6}
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
               >
                 {t('theTestIsCompleted')}
@@ -458,7 +462,7 @@ const QuizPage: React.FC = () => {
                 fontSize="xl"
                 px={10}
                 py={6}
-                fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
               >
                 {t('tryAgain')}

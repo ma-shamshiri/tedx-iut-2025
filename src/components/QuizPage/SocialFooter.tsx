@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Flex, Text, Link, Icon, useColorModeValue } from '@chakra-ui/react';
 import { FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import i18n from 'i18next';
 
 const socialLinks = [
   {
@@ -9,7 +10,7 @@ const socialLinks = [
     href: 'https://instagram.com',
   },
   {
-    label: 'تویتر',
+    label: 'توییتر',
     icon: FaTwitter,
     href: 'https://twitter.com',
   },
@@ -29,7 +30,11 @@ const SocialFooter: React.FC = () => {
   return (
     <Box as="footer" w="100%" pt={8} pb={2} px={2}
       color="#fff" textAlign="center">
-      <Text fontSize={{ base: '1.5rem', md: '2rem' }} fontWeight="bold" mb={4}>
+      <Text
+        fontSize={{ base: '1.5rem', md: '2rem' }}
+        fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
+        dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+        fontWeight="bold" mb={4}>
         ما در شبکه‌های اجتماعی
       </Text>
       <Flex justify="center" align="center" gap={8} mb={4} flexWrap="wrap">
@@ -49,11 +54,19 @@ const SocialFooter: React.FC = () => {
                 _hover={{ bg: '#222', color: '#f87171' }}
               />
             </Link>
-            <Text fontSize="1.2rem" color="#fff" mt={1}>{item.label}</Text>
+            <Text
+              fontSize="1.2rem"
+              fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
+              dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+              color="#fff" mt={1}>{item.label}</Text>
           </Flex>
         ))}
       </Flex>
-      <Text color="#888" fontSize="1.1rem" mt={2}>
+      <Text
+        color="#888" fontSize="1.1rem"
+        fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
+        dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+        mt={2}>
         تمامی حقوق این سایت متعلق به رویداد تداِکس دانشگاه صنعتی اصفهان است.
       </Text>
     </Box>
