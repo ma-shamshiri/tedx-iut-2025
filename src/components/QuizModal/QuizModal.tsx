@@ -14,6 +14,7 @@ import {
   Flex,
   ModalCloseButton,
   Image,
+  IconButton,
 } from '@chakra-ui/react';
 import { questions, personalityElements, PersonalityElement, Option } from './data';
 import { useTranslation } from 'react-i18next';
@@ -21,6 +22,7 @@ import { BsStars } from 'react-icons/bs';
 import SubmitAnimation from '../Animations/SubmitAnimation';
 import { FaShareAlt, FaDownload } from 'react-icons/fa';
 import ShareDownloadModal from "./ShareDownloadModal";
+import { FiCopy } from 'react-icons/fi';
 
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -56,6 +58,12 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
   const [modalAction, setModalAction] = useState<'download' | 'share' | null>(null);
 
+  const discountCodes = [
+    { code: 'TEDX2025A', percent: 20 },
+    { code: 'TEDX2025B', percent: 30 },
+  ];
+  const [selectedDiscount, setSelectedDiscount] = useState<{ code: string, percent: number } | null>(null);
+
 
   const handleReset = () => {
     setCurrentQuestion(0);
@@ -74,6 +82,9 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
     setShowResult(true)
     setShowResetSlide(false)
     setResultElement(personalityElements[0])
+
+    const randomCode = discountCodes[Math.floor(Math.random() * discountCodes.length)];
+    setSelectedDiscount(randomCode);
   };
 
   useEffect(() => {
@@ -125,6 +136,9 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
       setTimeout(() => {
         setShowAnimation(false);
       }, 1000);
+
+      const randomCode = discountCodes[Math.floor(Math.random() * discountCodes.length)];
+      setSelectedDiscount(randomCode);
     }
   };
 
@@ -163,11 +177,6 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
       >
         <ModalCloseButton size="lg" p="1rem" fontSize="1.5rem" />
         <ModalHeader
-          // fontSize={{ lg: '2.3rem' }}
-          // color="#fff"
-          // fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
-          // dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
-          // marginTop="3rem"
         >
         </ModalHeader>
         <ModalBody>
@@ -231,6 +240,98 @@ const QuizModal: React.FC<QuizModalProps> = ({ isOpen, onClose }) => {
                   borderRadius="10px"
                 />
               </Flex>
+
+              {selectedDiscount && (
+                <Flex
+                  align="center"
+                  justify="center"
+                  mb={4}
+                  p={3}
+                  borderRadius="md"
+                  color="#fff"
+                  fontWeight="bold"
+                  fontSize="1.2rem"
+                  gap={2}
+                  width="fit-content"
+                  mx="auto"
+                >
+                  <Flex
+                    align="center"
+                    bg="gray.700"
+                    borderRadius="md"
+                    px={3}
+                    py={1}
+                    cursor="pointer"
+                    _hover={{ bg: 'gray.600' }}
+                    onClick={() => {
+                      navigator.clipboard.writeText(selectedDiscount.code);
+                      toast({
+                        title: t('کد تخفیف کپی شد!'),
+                        status: 'success',
+                        duration: 1500,
+                        isClosable: true,
+                      });
+                    }}
+                  >
+                    <Text 
+                      fontSize={{
+                        base: i18n.language === "fa" ? "1.4rem" : "1.6rem",
+                        md: i18n.language === "fa" ?   "1.4rem" : "1.0rem",
+                        lg: i18n.language === "fa" ?   "1.7rem" : "1.8rem",
+                        xl: i18n.language === "fa" ?   "1.7rem" : "2.1rem"
+                      }}
+                      fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                      dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                      userSelect="none"
+                    >
+                      {selectedDiscount.code}
+                    </Text>
+                    
+                    <IconButton
+                      aria-label="کپی کد تخفیف"
+                      icon={<FiCopy size="1em" />}
+                      fontSize={{
+                        base: i18n.language === "fa" ? "1.4rem" : "1.6rem",
+                        md: i18n.language === "fa" ?   "1.4rem" : "1.0rem",
+                        lg: i18n.language === "fa" ?   "1.7rem" : "1.8rem",
+                        xl: i18n.language === "fa" ?   "1.7rem" : "2.1rem"
+                      }}
+                      size="lg"
+                      variant="ghost"
+                      colorScheme="gray"
+                      ml={1}
+                      userSelect="none"
+                      _hover={{ bg: 'transparent' }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigator.clipboard.writeText(selectedDiscount.code);
+                        toast({
+                          title: t('کد تخفیف کپی شد!'),
+                          status: 'success',
+                          duration: 1500,
+                          isClosable: true,
+                        });
+                      }}
+                    />
+                  </Flex>
+
+                  <Text
+                    as="span"
+                    fontSize={{
+                      base: i18n.language === "fa" ? "1.8rem" : "2.0rem",
+                      md: i18n.language === "fa" ?   "1.8rem" : "2.3rem",
+                      lg: i18n.language === "fa" ?   "2.1rem" : "2.2rem",
+                      xl: i18n.language === "fa" ?   "2.1rem" : "2.5rem"
+                    }}
+                    fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
+                    dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
+                    mx={2}
+                  >
+                    {/* {`${t('quizQuestionName')} ${currentQuestion + 1} ${t('quizQuestionOutOf')} ${questions.length}`} */}
+                    کد تخفیف %{selectedDiscount.percent}:
+                  </Text>
+                </Flex>
+              )}
 
               {/* Buttons Container */}
               <Box position="relative" mt={8} >
