@@ -1,7 +1,19 @@
 import {
-    campaignT1,
-    // campaignT1,
-    // campaignT1,
+    simorgh_result,
+    simorgh_twitter,
+    simorgh_instagram,
+    rakhsh_result,
+    rakhsh_twitter,
+    rakhsh_instagram,
+    ghoghnos_result,
+    ghoghnos_twitter,
+    ghoghnos_instagram,
+    morghe_amin_result,
+    morghe_amin_instagram,
+    morghe_amin_twitter,
+    shire_gorzan_result,
+    shire_gorzan_twitter,
+    shire_gorzan_instagram,
 } from "../../assets";
 
 export interface Option {
@@ -132,7 +144,9 @@ export interface PersonalityElement {
     id: number;
     name: string;
     description: string;
-    image: string;
+    image: string;  
+    image_twitter: string;
+    image_instagram: string;
 }
 
 export const personalityElements: PersonalityElement[] = [
@@ -140,30 +154,40 @@ export const personalityElements: PersonalityElement[] = [
         id: 1,
         name: "resultOneName",
         description: "resultOneDescription",
-        image: campaignT1,
+        image: simorgh_result,
+        image_twitter: simorgh_twitter,
+        image_instagram: simorgh_instagram,
     },
     {
         id: 2,
         name: "resultTwoName",
         description: "resultTwoDescription",
-        image: campaignT1,
+        image: rakhsh_result,
+        image_twitter: rakhsh_twitter,
+        image_instagram: rakhsh_instagram,
     },
     {
         id: 3,
         name: "resultThreeName",
         description: "resultThreeDescription",
-        image: campaignT1,
+        image: ghoghnos_result, 
+        image_twitter: ghoghnos_twitter,
+        image_instagram: ghoghnos_instagram,
     },
     {
         id: 4,
         name: "resultFourName",
         description: "resultFourDescription",
-        image: campaignT1,
+        image: morghe_amin_result,
+        image_twitter: morghe_amin_twitter,
+        image_instagram: morghe_amin_instagram,
     },
     {
         id: 5,
         name: "resultFiveName",
         description: "resultFiveDescription",
-        image: campaignT1,
+        image: shire_gorzan_result,
+        image_twitter: shire_gorzan_twitter,
+        image_instagram: shire_gorzan_instagram,
     },
 ];
