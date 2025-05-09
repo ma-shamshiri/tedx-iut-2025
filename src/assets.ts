@@ -7,10 +7,7 @@ import amir from "./assets/images/amir.jpg";
 import amirmahyar_teimouri from "./assets/images/amirmahyar_teimouri.jpg";
 import aref_shams from "./assets/images/aref_shams.jpg";
 import arghavan_mahdikhani from "./assets/images/arghavan_mahdikhani.jpg";
-import campaignT1 from "./assets/images/campaign/type1.jpg";
 import campaignStart from "./assets/images/campaign/start.png";
-import downInstagram from "./assets/images/campaign/download_instagram.jpg";
-import downTwitter from "./assets/images/campaign/download_twitter.jpg";
 import erfan_morshedzadeh from "./assets/images/erfan_morshedzadeh.jpg";
 import erfaneh_hosseini from "./assets/images/erfaneh_hosseini.jpg";
 import farzaneh_maghsoudi from "./assets/images/farzaneh_maghsoudi.png";
@@ -70,6 +67,21 @@ import tedxWhite from "./assets/images/tedxWhite.png";
 import tickImage from "./assets/images/tick.svg";
 import unknownBoyProfile from "./assets/images/unknownBoyProfile.jpg";
 import unknownGirlProfile from "./assets/images/unknownGirlProfile.jpg";
+import simorgh_instagram from "./assets/images/campaign/simorgh_instagram.jpg";
+import simorgh_result from "./assets/images/campaign/simorgh_result.jpg";
+import simorgh_twitter from "./assets/images/campaign/simorgh_twitter.jpg";
+import morghe_amin_instagram from "./assets/images/campaign/morghe_amin_instagram.jpg";
+import morghe_amin_result from "./assets/images/campaign/morghe_amin_result.jpg";
+import morghe_amin_twitter from "./assets/images/campaign/morghe_amin_twitter.jpg";
+import shire_gorzan_instagram from "./assets/images/campaign/shire_gorzan_instagram.jpg";
+import shire_gorzan_result from "./assets/images/campaign/shire_gorzan_result.jpg";
+import shire_gorzan_twitter from "./assets/images/campaign/shire_gorzan_twitter.jpg";
+import rakhsh_instagram from "./assets/images/campaign/rakhsh_instagram.jpg";
+import rakhsh_result from "./assets/images/campaign/rakhsh_result.jpg";
+import rakhsh_twitter from "./assets/images/campaign/rakhsh_twitter.jpg";
+import ghoghnos_instagram from "./assets/images/campaign/ghoghnos_instagram.jpg"; 
+import ghoghnos_result from "./assets/images/campaign/ghoghnos_result.jpg";
+import ghoghnos_twitter from "./assets/images/campaign/ghoghnos_twitter.jpg";
 
 
 
@@ -83,9 +95,6 @@ export {
     amirmahyar_teimouri,
     aref_shams,
     arghavan_mahdikhani,
-    campaignT1,
-    downInstagram,
-    downTwitter,
     erfan_morshedzadeh,
     erfaneh_hosseini,
     farzaneh_maghsoudi,
@@ -146,4 +155,19 @@ export {
     unknownBoyProfile,
     unknownGirlProfile,
     campaignStart,
+    simorgh_instagram,
+    simorgh_twitter,
+    simorgh_result,
+    morghe_amin_instagram,
+    morghe_amin_twitter,
+    morghe_amin_result,
+    shire_gorzan_instagram,
+    shire_gorzan_twitter,
+    shire_gorzan_result,
+    rakhsh_instagram,
+    rakhsh_twitter,
+    rakhsh_result,
+    ghoghnos_instagram,
+    ghoghnos_twitter,
+    ghoghnos_result
 };

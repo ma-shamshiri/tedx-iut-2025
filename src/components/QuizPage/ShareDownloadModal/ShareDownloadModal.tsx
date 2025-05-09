@@ -19,10 +19,6 @@ import { FaShareAlt, FaWhatsapp, FaLinkedin, FaTelegram, FaInstagram } from 'rea
 import { FaXTwitter } from 'react-icons/fa6';
 import { PersonalityElement } from '../data';
 
-import {
-  downInstagram,
-  downTwitter,
-} from "../../../assets";
 
 interface ShareDownloadModal {
     isOpen: boolean;
@@ -63,7 +59,7 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
     };
 
     const getShareUrl = (platform: string): string => {
-        const baseText = encodeURIComponent('Check out my quiz result!');
+        const baseText = encodeURIComponent(t('quizShareResultTitle'));
         const imageUrl = `${window.location.origin}${resultElement?.image}`;
     
         switch (platform) {
@@ -131,7 +127,7 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
                             p={2}
                             borderRadius="md"
                             onClick={() => {
-                                handleDownload(`${downInstagram}`);
+                                handleDownload(`${resultElement?.image_instagram}`);
                             }}
                             >
                             <Icon as={BsArrowDown} size={30} />
@@ -161,7 +157,7 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
                             p={2}
                             borderRadius="md"
                             onClick={() => {
-                                handleDownload(`${downTwitter}`);
+                                handleDownload(`${resultElement?.image_twitter}`);
                             }}
                             >
                             <Icon as={BsArrowDown} size={30} />
