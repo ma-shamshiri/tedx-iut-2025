@@ -59,7 +59,7 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
     };
 
     const getShareUrl = (platform: string): string => {
-        const baseText = encodeURIComponent('Check out my quiz result!');
+        const baseText = encodeURIComponent(t('quizShareResultTitle'));
         const imageUrl = `${window.location.origin}${resultElement?.image}`;
     
         switch (platform) {

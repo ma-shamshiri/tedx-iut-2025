@@ -177,5 +177,15 @@
     "tedxDescription": "TEDx is a program that empowers individuals and local communities to host independently organized events under the TED framework and standards. Its goal is to create a space for exchanging ideas, inspiring others, and networking at the community level. These events—centered around diverse themes and featuring engaging speakers—foster intellectual and social growth and build a bridge between global ideas and local needs.",
     "tedxiutTitle": "TEDx Isfahan University of Technology",
     "tedxiutSubTitle": "A fusion of inspiration and action",
-    "tedxiutDescription": "TEDxIUT is an independently organized event at Isfahan University of Technology, bringing together students, faculty, and innovation enthusiasts. It offers a platform to share fresh ideas and encourage interaction between the university and the wider community. By inviting distinguished speakers and hosting specialized workshops, TEDxIUT strives to cultivate a culture of innovation and social responsibility on campus."
+    "tedxiutDescription": "TEDxIUT is an independently organized event at Isfahan University of Technology, bringing together students, faculty, and innovation enthusiasts. It offers a platform to share fresh ideas and encourage interaction between the university and the wider community. By inviting distinguished speakers and hosting specialized workshops, TEDxIUT strives to cultivate a culture of innovation and social responsibility on campus.",
+    "quizShareResultTitle": "Check out my quiz result!",
+    "quizHandlePhoneNumber": "Please enter your phone number",
+    "quizHandlePhoneNumberError": "The mobile number must start with 09 and be 11 digits long.",
+    "quizContinue": "Continue",
+    "quizStartTitle": "Which supernatural being are you?",
+    "quizStartDescription": "This quiz is less than 10 questions and takes less than 2 minutes to complete!",
+    "quizStart": "Start",
+    "quizDiscountCopied": "Discount code copied!",
+    "quizDiscountCopy": "Copy discount code",
+    "quizDiscountPercent": "Discount code"
 }

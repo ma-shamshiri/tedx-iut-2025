@@ -206,7 +206,7 @@ const QuizPage: React.FC = () => {
     
     if (!cleanNumber.trim()) {
       toast({
-        title: t('لطفا شماره موبایل خود را وارد کنید'),
+        title: t('quizHandlePhoneNumber'),
         status: 'error',
         duration: 2500,
         containerStyle: {
@@ -222,7 +222,7 @@ const QuizPage: React.FC = () => {
     // Validate phone number format
     if (!cleanNumber.startsWith('09') || cleanNumber.length !== 11) {
       toast({
-        title: t('شماره موبایل باید با 09 شروع شود و 11 رقم باشد'),
+        title: t('quizHandlePhoneNumberError'),
         status: 'error',
         duration: 2500,
         containerStyle: {
@@ -275,14 +275,16 @@ const QuizPage: React.FC = () => {
                 dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                 textAlign="center"
               >
-                لطفا شماره موبایل خود را وارد کنید
+                {t('quizHandlePhoneNumber')}
               </Text>
               <Input
                 value={phoneNumber}
                 onChange={handlePhoneChange}
                 placeholder="09xx xxx xxxx"
+                
                 size="lg"
                 fontSize="1.8rem"
+                fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                 fontWeight="bold" 
                 bg="#1A202C"
                 color="white"
@@ -318,7 +320,7 @@ const QuizPage: React.FC = () => {
                 onClick={handlePhoneSubmit}
                 fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
               >
-                ادامه
+                {t('quizContinue')}
               </Button>
             </Flex>
           ) : (
@@ -345,7 +347,7 @@ const QuizPage: React.FC = () => {
                     dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                     textAlign="center"
                   >
-                    کدوم شخصیت ماورایی هستی؟
+                    {t('quizStartTitle')}
                   </Text>
                   <Text
                     fontSize="1.6rem"
@@ -355,7 +357,7 @@ const QuizPage: React.FC = () => {
                     dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                     textAlign="center"
                   >
-                    این تست کمتر از 10 تا سواله و کمتر از 2 دقیقه طول می‌کشه!
+                    {t('quizStartDescription')}
                   </Text>
                   <Button
                     bg="#c53e3e"
@@ -370,7 +372,7 @@ const QuizPage: React.FC = () => {
                     onClick={() => setStarted(true)}
                     fontFamily={i18n.language === 'fa' ? "'IRANSans', sans-serif" : ''}
                   >
-                    شروع
+                    {t('quizStart')}
                   </Button>
                 </Flex>
               ) : (
@@ -526,7 +528,7 @@ const QuizPage: React.FC = () => {
                             onClick={() => {
                               navigator.clipboard.writeText(selectedDiscount.code);
                               toast({
-                                title: t('کد تخفیف کپی شد!'),
+                                title: t('quizDiscountCopied'),
                                 status: 'success',
                                 duration: 1500,
                                 isClosable: true,
@@ -549,7 +551,7 @@ const QuizPage: React.FC = () => {
                             </Text>
                             
                             <IconButton
-                              aria-label="کپی کد تخفیف"
+                              aria-label={t('quizDiscountCopy')}
                               icon={<FiCopy size="1em" />}
                               fontSize={{
                                 base: i18n.language === "fa" ? "1.4rem" : "1.6rem",
@@ -567,7 +569,7 @@ const QuizPage: React.FC = () => {
                                 e.stopPropagation();
                                 navigator.clipboard.writeText(selectedDiscount.code);
                                 toast({
-                                  title: t('کد تخفیف کپی شد!'),
+                                  title: t('quizDiscountCopied'),
                                   status: 'success',
                                   duration: 1500,
                                   isClosable: true,
@@ -588,7 +590,7 @@ const QuizPage: React.FC = () => {
                             dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                             mx={2}
                           >
-                            کد تخفیف %{selectedDiscount.percent}:
+                            {t('quizDiscountPercent')} %{selectedDiscount.percent}: 
                           </Text>
                         </Flex>
                       )}
