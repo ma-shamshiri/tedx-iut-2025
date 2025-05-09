@@ -40,16 +40,42 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
         // For iOS devices, create a temporary page to display the image
         const tempWindow = window.open('', '_blank');
         if (tempWindow) {
+          const isRTL = i18n.language === 'fa';
+          const instructionText = isRTL ? 'برای ذخیره تصویر، انگشت خود را روی آن نگه دارید' : 'Hold the image to save it to your device';
+          
           tempWindow.document.write(`
             <html>
               <head>
                 <title>Download Image</title>
                 <style>
-                  body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #000; }
-                  img { max-width: 100%; max-height: 100vh; }
+                  body { 
+                    margin: 0; 
+                    padding: 0; 
+                    display: flex; 
+                    flex-direction: column;
+                    justify-content: center; 
+                    align-items: center; 
+                    min-height: 100vh; 
+                    background: #000; 
+                    font-family: ${isRTL ? "'IRANSans', sans-serif" : "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"};
+                    direction: ${isRTL ? 'rtl' : 'ltr'};
+                  }
+                  .instruction {
+                    color: white;
+                    text-align: center;
+                    padding: 20px;
+                    font-size: clamp(1.5rem, 4vw, 2.2rem);
+                    margin-bottom: 20px;
+                    font-weight: bold;
+                  }
+                  img { 
+                    max-width: 100%; 
+                    max-height: 80vh; 
+                  }
                 </style>
               </head>
               <body>
+                <div class="instruction">${instructionText}</div>
                 <img src="${filePath}" alt="Downloadable image" />
                 <script>
                   // Add long press handler for iOS
