@@ -32,6 +32,7 @@ const TicketSection: React.FC = () => {
 
     return (
         <Box
+            id="ticket-section"
             as="section"
             width="100%"
             py={{ base: "4rem", md: "7rem" }}

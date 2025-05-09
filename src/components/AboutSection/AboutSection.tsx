@@ -75,6 +75,7 @@ const AboutSection: React.FC = () => {
 
     return (
         <Box
+            id="about-section"
             as="section"
             width="100%"
             position="relative"
