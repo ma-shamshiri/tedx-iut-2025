@@ -3,31 +3,21 @@
   <!-- Home Page -->
   <url>
     <loc>https://tedxiut.com/</loc>
-    <lastmod>2025-04-10</lastmod>
+    <lastmod>2025-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Speakers Page -->
+  <!-- Gallery Page -->
   <url>
-    <loc>https://tedxiut.com/speakers</loc>
-    <lastmod>2025-04-10</lastmod>
+    <loc>https://tedxiut.com/gallery</loc>
+    <lastmod>2025-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <!-- Team Page -->
   <url>
     <loc>https://tedxiut.com/team</loc>
-    <lastmod>2025-04-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Sponsors Page -->
-  <url>
-    <loc>https://tedxiut.com/sponsors</loc>
-    <lastmod>2025-04-10</lastmod>
+    <lastmod>2025-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
