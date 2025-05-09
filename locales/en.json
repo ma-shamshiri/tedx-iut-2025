@@ -187,5 +187,11 @@
     "quizStart": "Start",
     "quizDiscountCopied": "Discount code copied!",
     "quizDiscountCopy": "Copy discount code",
-    "quizDiscountPercent": "Discount code"
+    "quizDiscountPercent": "Discount code",
+    "quizSocialFooter": "We are on social media",
+    "quizCopyright": "All rights reserved to TEDx Isfahan University of Technology",
+    "quizInstagram": "Instagram",
+    "quizTwitter": "Twitter",
+    "quizLinkedin": "Linkedin",
+    "quizYoutube": "Youtube"
 }
