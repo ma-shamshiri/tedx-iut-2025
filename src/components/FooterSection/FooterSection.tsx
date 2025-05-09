@@ -12,7 +12,7 @@ import {
   VStack,
   Image,
 } from '@chakra-ui/react';
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaInstagram, FaTelegramPlane } from 'react-icons/fa';
 import { BsLinkedin } from 'react-icons/bs';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink, useLocation } from "react-router-dom";
@@ -31,8 +31,8 @@ const FooterSection: React.FC = () => {
   const linkedinIconSize = useBreakpointValue({ base: "2rem", lg: "2rem" });
   const linkedinIconBoxSize = useBreakpointValue({ base: "3.5rem", lg: "3.5rem" });
 
-  const facebookIconSize = useBreakpointValue({ base: "2.1rem", lg: "2.1rem" });
-  const facebookIconBoxSize = useBreakpointValue({ base: "3.2rem", lg: "3.2rem" });
+  const telegramIconSize = useBreakpointValue({ base: "2.2rem", lg: "2.2rem" });
+  const telegramIconBoxSize = useBreakpointValue({ base: "3.3rem", lg: "3.3rem" });
 
 
   const handleSmoothScroll = (id: string) => (e: React.MouseEvent) => {
@@ -238,19 +238,24 @@ const FooterSection: React.FC = () => {
                   boxSize={linkedinIconBoxSize}
                 />
               </Box>
-              <Box as="a" target="_blank" rel="noopener noreferrer">
+              <Box
+                as="a"
+                href={"https://t.me/TEDxIUTch?fbclid=PAQ0xDSwKKRqxleHRuA2FlbQIxMQABp-MCbNpdYb3uTUKlCJxBBtU10ROf4gYKw8ak2Z5om1RP_FyD6QNdJlsw13AW_aem_mXhDWOfSKmvkd7IYMzeNMg"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <IconButton
-                  aria-label="facebook"
+                  aria-label="telegram"
                   variant="ghost"
                   size="xl"
-                  icon={<FaFacebookF size={facebookIconSize} />}
+                  icon={<FaTelegramPlane size={telegramIconSize} />}
                   color="#fff"
                   _hover={{
                     bg: "#fff",
                     color: "#000",
                   }}
                   isRound
-                  boxSize={facebookIconBoxSize}
+                  boxSize={telegramIconBoxSize}
                 />
               </Box>
               <Box
