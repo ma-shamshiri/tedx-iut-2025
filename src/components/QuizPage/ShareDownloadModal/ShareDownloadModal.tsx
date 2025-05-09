@@ -32,12 +32,46 @@ const ShareDownloadModal: React.FC<ShareDownloadModal> = ({ isOpen, onClose, act
   
     const handleDownload = (file: string) => {
       const filePath = `${window.location.origin}${file}`;
-      const link = document.createElement('a');
-      link.href = filePath;
-      link.download = `${file.split('/').pop()}`; // Name of the file to be downloaded
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      
+      // Check if the device is iOS
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+      
+      if (isIOS) {
+        // For iOS devices, create a temporary page to display the image
+        const tempWindow = window.open('', '_blank');
+        if (tempWindow) {
+          tempWindow.document.write(`
+            <html>
+              <head>
+                <title>Download Image</title>
+                <style>
+                  body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #000; }
+                  img { max-width: 100%; max-height: 100vh; }
+                </style>
+              </head>
+              <body>
+                <img src="${filePath}" alt="Downloadable image" />
+                <script>
+                  // Add long press handler for iOS
+                  document.querySelector('img').addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                  });
+                </script>
+              </body>
+            </html>
+          `);
+          tempWindow.document.close();
+        }
+      } else {
+        // For other devices, use the download attribute
+        const link = document.createElement('a');
+        link.href = filePath;
+        link.download = `${file.split('/').pop()}`; // Name of the file to be downloaded
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+      
       onClose(); // Close the popup after download
     };
 
