@@ -102,7 +102,8 @@ const FooterSection: React.FC = () => {
             flex="3"
             justify="center"
             mb={{ base: 6, lg: 0 }}
-            width={{ base: "100%", lg: "initial" }}
+            width={{ base: "80%", md: "100%", lg: "initial" }}
+            margin="auto"
           >
             <Image
               src={tedxWhite}
@@ -114,7 +115,10 @@ const FooterSection: React.FC = () => {
             <Stack
               direction="row"
               align="center"
+              justifyContent="center"
               spacing={{ base: 7, lg: 7 }}
+              flexWrap="wrap"
+              width={{ base: "80%", md: "initial", lg: "initial" }}
             >
               <Link
                 href="#ticket-section"
@@ -166,6 +170,23 @@ const FooterSection: React.FC = () => {
                 dir={i18n.language === "fa" ? "rtl" : "ltr"}
               >
                 {t("team")}
+              </Link>
+              <Link
+                as={RouterLink}
+                to="/gallery"
+                fontSize={linkFontSize}
+                color="gray.200"
+                _hover={{
+                  textDecoration: 'none',
+                  color: "#fff",
+                  transform: "translateY(-6px)",
+                  transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)",
+                }}
+                transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)"
+                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                dir={i18n.language === "fa" ? "rtl" : "ltr"}
+              >
+                {t("gallery")}
               </Link>
               <Link
                 href="#contact-section"

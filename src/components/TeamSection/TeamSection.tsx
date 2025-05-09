@@ -45,7 +45,7 @@ const TeamSection: React.FC = () => {
             position="relative"
             bg="linear-gradient(120deg, #f8fafc 0%, #f3f6fb 60%, #f9f6ff 100%)"
             // bg={"#000"}
-            paddingY={{ base: '6rem', md: '8rem' }}
+            paddingY={{ base: '6rem', md: '6rem' }}
             width="100%"
             overflow="hidden"
         >
@@ -113,7 +113,7 @@ const TeamSection: React.FC = () => {
                         lineHeight="1.2"
                         fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
-                        mb="2rem"
+                        mb="1rem"
                         color="#000"
                     >
                         {t("teamPageTitle")}
@@ -138,7 +138,7 @@ const TeamSection: React.FC = () => {
                         fontSize={{ base: "1.8rem", lg: "2rem" }}
                         fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
-                        marginTop={{ base: "2rem", lg: "5rem" }}
+                        marginTop={{ base: "2rem", lg: "3rem" }}
                         padding="1.5rem"
                         paddingX="3rem"
                         textAlign="center"

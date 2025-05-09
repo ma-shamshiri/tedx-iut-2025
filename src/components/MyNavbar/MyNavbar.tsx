@@ -17,19 +17,21 @@ import {
     VStack,
     HStack,
 } from "@chakra-ui/react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { tedxBlack, tedxWhite } from "../../assets";
 import { FaBars } from "react-icons/fa";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
 const NAV_ITEMS = [
-    { key: "home", label: "home", to: "/" },
-    { key: "team", label: "team", to: "/team" },
-    { key: "gallery", label: "gallery", to: "/gallery" },
+    { key: "home", label: "home", type: "section", section: "ticket-section" },
+    { key: "aboutUs", label: "aboutUs", type: "section", section: "about-section" },
+    { key: "team", label: "team", type: "route", to: "/team" },
+    { key: "gallery", label: "gallery", type: "route", to: "/gallery" },
+    { key: "contactUs", label: "contactUs", type: "section", section: "contact-section" },
 ];
 
-const NAV_ITEM_FONT_SIZE = "1.5rem";
+const NAV_ITEM_FONT_SIZE = "1.3rem";
 
 const MyNavbar: React.FC = () => {
     const { t, i18n } = useTranslation();
@@ -37,8 +39,22 @@ const MyNavbar: React.FC = () => {
     const tedxImg = colorMode === "dark" ? tedxWhite : tedxBlack;
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    // For highlighting the active nav item
     const location = useLocation();
+    const navigate = useNavigate();
+
+    // Smooth scroll handler for section links
+    const handleSmoothScroll = (sectionId: string) => (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (location.pathname === "/") {
+            const el = document.getElementById(sectionId);
+            if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+            }
+        } else {
+            window.location.href = `/#${sectionId}`;
+        }
+        setIsDrawerOpen(false);
+    };
 
     return (
         <>
@@ -102,27 +118,49 @@ const MyNavbar: React.FC = () => {
                         <DrawerCloseButton />
                         <DrawerBody bg="#f1f1f1">
                             <VStack spacing={6} mt={12}>
-                                {NAV_ITEMS.map((item) => (
-                                    <Button
-                                        as={RouterLink}
-                                        to={item.to}
-                                        key={item.key}
-                                        w="100%"
-                                        variant="ghost"
-                                        fontSize={NAV_ITEM_FONT_SIZE}
-                                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
-                                        dir={i18n.language === "fa" ? "rtl" : "ltr"}
-                                        color={location.pathname === item.to ? "#CB0000" : "#000"}
-                                        fontWeight={location.pathname === item.to ? "bold" : "normal"}
-                                        _hover={{
-                                            color: "#CB0000",
-                                            bg: "transparent",
-                                        }}
-                                        onClick={() => setIsDrawerOpen(false)}
-                                    >
-                                        {t(item.label)}
-                                    </Button>
-                                ))}
+                                {NAV_ITEMS.map((item) =>
+                                    item.type === "section" ? (
+                                        <Button
+                                            as="a"
+                                            href={`#${item.section}`}
+                                            key={item.key}
+                                            w="100%"
+                                            variant="ghost"
+                                            fontSize={NAV_ITEM_FONT_SIZE}
+                                            fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                                            dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                                            color="#000"
+                                            fontWeight="normal"
+                                            _hover={{
+                                                color: "#CB0000",
+                                                bg: "transparent",
+                                            }}
+                                            onClick={handleSmoothScroll(item.section!)}
+                                        >
+                                            {t(item.label)}
+                                        </Button>
+                                    ) : (
+                                        <Button
+                                            as={RouterLink}
+                                            to={item.to!}
+                                            key={item.key}
+                                            w="100%"
+                                            variant="ghost"
+                                            fontSize={NAV_ITEM_FONT_SIZE}
+                                            fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                                            dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                                            color={location.pathname === item.to ? "#CB0000" : "#000"}
+                                            fontWeight={location.pathname === item.to ? "bold" : "normal"}
+                                            _hover={{
+                                                color: "#CB0000",
+                                                bg: "transparent",
+                                            }}
+                                            onClick={() => setIsDrawerOpen(false)}
+                                        >
+                                            {t(item.label)}
+                                        </Button>
+                                    )
+                                )}
                             </VStack>
                         </DrawerBody>
                     </DrawerContent>
@@ -141,38 +179,67 @@ const MyNavbar: React.FC = () => {
                     justifyContent="flex-start"
                 >
                     {/* Nav Items on the right */}
-                    <HStack spacing={4} pl={6}>
+                    <HStack spacing={1} pl={1}>
                         {NAV_ITEMS.map((item) => {
-                            const isActive = location.pathname === item.to;
-                            return (
+                            const isActive =
+                                (item.type === "route" && location.pathname === item.to) ||
+                                (item.type === "section" && location.pathname === "/" && window.location.hash === `#${item.section}`);
+                            return item.type === "section" ? (
                                 <Button
-                                    as={RouterLink}
-                                    to={item.to}
+                                    as="a"
+                                    href={`#${item.section}`}
                                     key={item.key}
                                     variant="ghost"
                                     fontSize={NAV_ITEM_FONT_SIZE}
                                     fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
                                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
-                                    color={isActive ? "#fff" : "#fff"}
+                                    color="#fff"
+                                    fontWeight={isActive ? "bold" : "normal"}
+                                    bg="transparent"
+                                    _hover={{
+                                        color: "#fff",
+                                        bg: "linear-gradient(90deg, #CB0000 60%, #a80000 100%)",
+                                        transform: "translateY(-6px)",
+                                        transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1), background 0.18s",
+                                    }}
+                                    transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1), background 0.18s"
+                                    onClick={handleSmoothScroll(item.section!)}
+                                    padding={"1.5rem"}
+                                >
+                                    {t(item.label)}
+                                </Button>
+                            ) : (
+                                <Button
+                                    as={RouterLink}
+                                    to={item.to!}
+                                    key={item.key}
+                                    variant="ghost"
+                                    fontSize={NAV_ITEM_FONT_SIZE}
+                                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                                    dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                                    color="gray.200"
                                     fontWeight={isActive ? "bold" : "normal"}
                                     bg={isActive ? "linear-gradient(90deg, #CB0000 60%, #a80000 100%)" : "transparent"}
                                     boxShadow={isActive ? "0 2px 12px 0 rgba(203,0,0,0.13)" : "none"}
                                     _hover={{
                                         color: "#fff",
                                         bg: "linear-gradient(90deg, #CB0000 60%, #a80000 100%)",
+                                        transform: "translateY(-6px)",
+                                        transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1), background 0.18s",
                                     }}
+                                    transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1), background 0.18s"
                                     padding={"2rem"}
-                                    transition="all 0.18s"
                                 >
                                     {t(item.label)}
                                 </Button>
                             );
                         })}
                     </HStack>
+
                     {/* Logo Centered */}
                     <Flex position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)">
                         <Link as={RouterLink} to="/" cursor="pointer">
-                            <Image src={tedxImg} width={{lg:350, xl:450}} borderRadius={0} />
+                            <Image src={tedxImg} width={{ lg: 300, xl: 450 }} borderRadius={0} />
                         </Link>
                     </Flex>
                     {/* LanguageSwitcher on the far left */}

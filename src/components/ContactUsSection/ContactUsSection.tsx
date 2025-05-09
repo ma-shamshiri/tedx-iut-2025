@@ -113,7 +113,7 @@ const ContactUsSection: React.FC = () => {
       <Box
         position="relative"
         zIndex={2}
-        width={{ base: "98%", sm: "90%", md: "700px", lg: "820px" }}
+        width={{ base: "98%", md: "700px", lg: "700px" }}
         mx="auto"
         borderRadius="2xl"
         p={{ base: 6, md: 12 }}
