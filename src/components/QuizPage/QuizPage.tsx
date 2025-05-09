@@ -51,10 +51,41 @@ const QuizPage: React.FC = () => {
   const [showPhoneInput, setShowPhoneInput] = useState(true);
 
   const discountCodes = [
-    { code: 'TEDX2025A', percent: 20 },
-    { code: 'TEDX2025B', percent: 30 },
+    { code: 'TEDx2025A', percent: 20 },
+    { code: 'TEDx2025B', percent: 40 },
+    { code: 'TEDx2025C', percent: 55 },
+    { code: 'TEDx2025D', percent: 60 },
   ];
   const [selectedDiscount, setSelectedDiscount] = useState<{ code: string, percent: number } | null>(null);
+
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwJJTsbUNbHEm8Nb6yoRe1vN6qS1NY8BY4ONPgMAXxLnu4RoSHyUpt4G51IIYGqyUrAjw/exec';
+
+  const submitPhoneNumber = async (phone: string) => {
+    try {
+      const submissionAttempt = {
+        phone,
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent
+      };
+
+      // Send to Google Sheets
+      fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ phoneNumber: phone }),
+      }).catch(error => {
+        // If the request fails, store in localStorage
+        const fallbackStorage = JSON.parse(localStorage.getItem('failedSubmissions') || '[]');
+        localStorage.setItem('failedSubmissions', JSON.stringify([...fallbackStorage, submissionAttempt]));
+        console.error('Submission error:', error);
+      });
+    } catch (error) {
+      console.error('Submission error:', error);
+    }
+  };
 
   const handleReset = () => {
     setStarted(false);
@@ -209,6 +240,10 @@ const QuizPage: React.FC = () => {
     const discountIndex = lastFourDigits % discountCodes.length;
     setSelectedDiscount(discountCodes[discountIndex]);
 
+    // Submit phone number in the background
+    submitPhoneNumber(cleanNumber);
+
+    // Continue to the quiz immediately
     setShowPhoneInput(false);
   };
 
@@ -508,6 +543,7 @@ const QuizPage: React.FC = () => {
                               fontFamily={i18n.language === 'fa' ? "'YekanBakh', sans-serif" : ''}
                               dir={i18n.language === 'fa' ? 'rtl' : 'ltr'}
                               userSelect="none"
+                              pl={2}
                             >
                               {selectedDiscount.code}
                             </Text>
