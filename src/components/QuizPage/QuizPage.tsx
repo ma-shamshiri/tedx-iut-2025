@@ -70,8 +70,10 @@ const QuizPage: React.FC = () => {
     }));
     setShuffledQuestions(shuffledQuestionsCopy);
 
-    const randomCode = discountCodes[Math.floor(Math.random() * discountCodes.length)];
-    setSelectedDiscount(randomCode);
+    // Get last 4 digits and use them to select discount code
+    const lastFourDigits = parseInt(phoneNumber.replace(/\s/g, '').slice(-4));
+    const discountIndex = lastFourDigits % discountCodes.length;
+    setSelectedDiscount(discountCodes[discountIndex]);
   };
 
   useEffect(() => {
@@ -121,9 +123,6 @@ const QuizPage: React.FC = () => {
       setTimeout(() => {
         setShowAnimation(false);
       }, 1000);
-
-      const randomCode = discountCodes[Math.floor(Math.random() * discountCodes.length)];
-      setSelectedDiscount(randomCode);
     }
   };
 
@@ -204,6 +203,11 @@ const QuizPage: React.FC = () => {
       });
       return;
     }
+
+    // Get last 4 digits and use them to select discount code
+    const lastFourDigits = parseInt(cleanNumber.slice(-4));
+    const discountIndex = lastFourDigits % discountCodes.length;
+    setSelectedDiscount(discountCodes[discountIndex]);
 
     setShowPhoneInput(false);
   };
