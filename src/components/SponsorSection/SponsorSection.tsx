@@ -38,7 +38,7 @@ const SponsorSection: React.FC = () => {
                         textShadow="0 4px 24px #EB242344"
                         mb={{ base: 8, lg: 8 }}
                     >
-                        {t("sponsorSectionTitle", "حامیان مالی رویداد")}
+                        {t("sponsorSectionTitle")}
                     </Heading>
                     <Text
                         textAlign="center"
@@ -50,7 +50,7 @@ const SponsorSection: React.FC = () => {
                         mb={{ base: 8, lg: 16 }}
                         maxWidth="80%"
                     >
-                        {t("sponsorSectionSubTitle", "قدردانی از حامیان سخاوتمند ما در برگزاری موفق این رویداد")}
+                        {t("sponsorSectionSubTitle")}
                     </Text>
                 </Center>
 

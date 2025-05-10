@@ -18,7 +18,8 @@ const AboutCard: React.FC<AboutCardProps> = ({ icon, title, subtitle, descriptio
             bg={bg}
             color="#fff"
             borderRadius="2xl"
-            boxShadow="0 12px 36px 0 rgba(203,0,0,0.18), 0 2px 16px 0 rgba(0,0,0,0.10)"
+            // boxShadow="0 12px 36px 0 rgba(203,0,0,0.18), 0 2px 16px 0 rgba(0,0,0,0.10)"
+            boxShadow="0 0 20px 1px gray"
             paddingX="2rem"
             paddingY="2.5rem"
             paddingBottom={{ base: "7.5rem", md: "6rem" }}
@@ -34,7 +35,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ icon, title, subtitle, descriptio
             transition="transform 0.4s, box-shadow 0.4s, background 0.4s, color 0.4s"
             _hover={{
                 transform: "scale(1.06) translateY(-12px)",
-                boxShadow: "0 24px 64px 0 rgba(203,0,0,0.22), 0 4px 24px 0 rgba(0,0,0,0.13)",
+                // boxShadow: "0 24px 64px 0 rgba(203,0,0,0.22), 0 4px 24px 0 rgba(0,0,0,0.13)",
             }}
         >
             <Heading
@@ -54,7 +55,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ icon, title, subtitle, descriptio
                 fontWeight="bold"
                 textAlign="justify"
                 lineHeight="1.6"
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                 dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 mb="1.8rem"
                 zIndex={2}
@@ -65,7 +66,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ icon, title, subtitle, descriptio
                 fontSize={{ base: "1.4rem", md: "1.7rem", lg: "1.5rem" }}
                 textAlign={i18n.language === "fa" ? "justify" : "left"}
                 lineHeight="1.6"
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                 dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 zIndex={2}
             >
@@ -89,7 +90,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ icon, title, subtitle, descriptio
                 {icon}
             </Flex>
             {/* Decorative red accent */}
-            <Box
+            {/* <Box
                 position="absolute"
                 bottom="-3.2rem"
                 left="50%"
@@ -101,7 +102,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ icon, title, subtitle, descriptio
                 borderRadius="2xl"
                 zIndex={2}
                 filter="blur(2.5px)"
-            />
+            /> */}
         </Box>
     );
 };

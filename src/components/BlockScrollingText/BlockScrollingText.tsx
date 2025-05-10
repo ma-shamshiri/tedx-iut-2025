@@ -26,7 +26,7 @@ const BlockScrollingText: React.FC = () => {
     }, []);
 
     // Repeat pattern: text - image - text - image ...
-    const repeatCount = 4;
+    const repeatCount = 1;
     const text = "تداِکس دانشگاه صنعتی اصفهان";
 
     return (
@@ -53,17 +53,6 @@ const BlockScrollingText: React.FC = () => {
                 >
                     {Array.from({ length: repeatCount }).map((_, idx) => (
                         <React.Fragment key={idx}>
-                            <Text
-                                as="span"
-                                color="#fff"
-                                fontSize={textSize}
-                                fontFamily={"'Rubik', sans-serif"}
-                                fontWeight="bold"
-                                mx={8}
-                            >
-                                {text}
-                            </Text>
-                            {/* Image between texts */}
                             <Image
                                 src={IUT_logo_white}
                                 alt="TEDx Logo"
@@ -77,7 +66,7 @@ const BlockScrollingText: React.FC = () => {
                                 as="span"
                                 color="#fff"
                                 fontSize={textSize}
-                                fontFamily={"'Rubik', sans-serif"}
+                                fontFamily={"'IRANSans', sans-serif"}
                                 fontWeight="bold"
                                 mx={8}
                             >

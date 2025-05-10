@@ -37,7 +37,7 @@ const QuizSection: React.FC = () => {
                     fontSize={{ base: "1.7rem", md: "2rem", lg: "2.2rem", xl: "2.2rem" }}
                     color="#fff"
                     textAlign="center"
-                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                    fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 >
                     {t("quizModalButtonSubTitle")}
@@ -60,7 +60,7 @@ const QuizSection: React.FC = () => {
                         padding={{ base: "2.8rem", md: "2.8rem", lg: "3.7rem", xl: "3.8rem" }}
                         marginTop="2rem"
                         borderRadius="10px"
-                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                        fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         _hover={{
                             bg: "gold",

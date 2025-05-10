@@ -79,60 +79,11 @@ const AboutSection: React.FC = () => {
             as="section"
             width="100%"
             position="relative"
-            bg="linear-gradient(120deg, #f8fafc 0%, #f3f6fb 60%, #f9f6ff 100%)"
+            // bg="linear-gradient(120deg, #f8fafc 0%, #f3f6fb 60%, #f9f6ff 100%)"
+            bg="#fff"
             py={{ base: "6rem", md: "6rem", lg: "8rem" }}
             overflow="hidden"
         >
-            {/* Tangible blurred “spotlights” */}
-            <Box
-                position="absolute"
-                top="-120px"
-                left="-120px"
-                w="400px"
-                h="400px"
-                bg="#CB0000"
-                opacity={0.10}
-                borderRadius="50%"
-                filter="blur(64px)"
-                zIndex={0}
-            />
-            <Box
-                position="absolute"
-                bottom="-100px"
-                right="-100px"
-                w="320px"
-                h="320px"
-                bg="#8f00ff"
-                opacity={0.10}
-                borderRadius="50%"
-                filter="blur(64px)"
-                zIndex={0}
-            />
-            <Box
-                position="absolute"
-                top="40%"
-                left="60%"
-                w="200px"
-                h="200px"
-                bg="#CB0000"
-                opacity={0.07}
-                borderRadius="50%"
-                filter="blur(48px)"
-                zIndex={0}
-            />
-
-            {/* Subtle diagonal grid overlay */}
-            <Box
-                position="absolute"
-                inset={0}
-                zIndex={0}
-                pointerEvents="none"
-                style={{
-                    backgroundImage:
-                        "repeating-linear-gradient(135deg, rgba(200,0,0,0.04) 0 2px, transparent 2px 40px)",
-                }}
-            />
-
             <Box maxW="1200px" mx="auto" px={{ base: 4, md: 8 }} position="relative" zIndex={1}>
                 <motion.div
                     ref={ref}
@@ -166,7 +117,7 @@ const AboutSection: React.FC = () => {
                         fontSize={{ base: "2rem", md: "2.7rem", lg: "3.4rem" }}
                         textAlign="center"
                         color="#000"
-                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                        fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         mb={{ base: "2rem", md: "6rem" }}
                     >
@@ -205,7 +156,7 @@ const AboutSection: React.FC = () => {
                         fontSize={{ base: "2rem", md: "2.7rem", lg: "3.4rem" }}
                         textAlign="center"
                         color="#000"
-                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                        fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         mb={{ base: "2rem", md: "6rem" }}
                     >

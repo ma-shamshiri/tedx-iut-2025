@@ -86,7 +86,7 @@ const TicketSection: React.FC = () => {
                     textAlign="center"
                     lineHeight="1.15"
                     textShadow="0 4px 24px #EB242344"
-                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : "'Rubik', sans-serif"}
+                    fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : "'IRANSans', sans-serif"}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 >
                     تداِکس دانشگاه صنعتی اصفهان
@@ -145,7 +145,7 @@ const TicketSection: React.FC = () => {
                     width="100%"
                     maxW="340px"
                     mx="auto"
-                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                    fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 >
                     خرید بلیت

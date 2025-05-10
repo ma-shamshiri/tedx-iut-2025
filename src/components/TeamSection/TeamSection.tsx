@@ -43,62 +43,12 @@ const TeamSection: React.FC = () => {
             as="section"
             color="white"
             position="relative"
-            bg="linear-gradient(120deg, #f8fafc 0%, #f3f6fb 60%, #f9f6ff 100%)"
-            // bg={"#000"}
+            // bg="linear-gradient(120deg, #f8fafc 0%, #f3f6fb 60%, #f9f6ff 100%)"
+            bg={"#fff"}
             paddingY={{ base: '6rem', md: '6rem' }}
             width="100%"
             overflow="hidden"
         >
-            {/* Tangible blurred “spotlights” */}
-            <Box
-                position="absolute"
-                top="-120px"
-                left="-120px"
-                w="400px"
-                h="400px"
-                bg="#CB0000"
-                opacity={0.10}
-                borderRadius="50%"
-                filter="blur(64px)"
-                zIndex={0}
-            />
-            <Box
-                position="absolute"
-                bottom="-100px"
-                right="-100px"
-                w="320px"
-                h="320px"
-                bg="#8f00ff"
-                opacity={0.10}
-                borderRadius="50%"
-                filter="blur(64px)"
-                zIndex={0}
-            />
-            <Box
-                position="absolute"
-                top="40%"
-                left="60%"
-                w="200px"
-                h="200px"
-                bg="#CB0000"
-                opacity={0.07}
-                borderRadius="50%"
-                filter="blur(48px)"
-                zIndex={0}
-            />
-
-            {/* Subtle diagonal grid overlay */}
-            <Box
-                position="absolute"
-                inset={0}
-                zIndex={0}
-                pointerEvents="none"
-                style={{
-                    backgroundImage:
-                        "repeating-linear-gradient(135deg, rgba(200,0,0,0.04) 0 2px, transparent 2px 40px)",
-                }}
-            />
-
             <Container maxW="1400px" textAlign="center" position="relative" zIndex={1}>
                 <motion.div
                     ref={ref}

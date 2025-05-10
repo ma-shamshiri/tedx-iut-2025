@@ -79,8 +79,8 @@ const InstagramSlide: React.FC<InstagramSlideProps> = ({ post }) => {
                 position="relative"
                 borderRadius="10px"
                 overflow="hidden"
-                boxShadow="0 4px 12px rgba(0,0,0,0.3)"
-                border={"2px solid #320701"}
+                boxShadow="0 0 20px 1px #404040"
+                border={"2px solid #800000"}
             >
                 <Image
                     src={post.imageUrl}
@@ -164,7 +164,8 @@ const InstagramGallery: React.FC = () => {
     return (
         <Box
             as="section"
-            bgGradient="radial(circle at center, rgba(229,62,62,1) 0%, rgba(229,62,62,0.2) 40%, rgba(0,0,0,1) 100%)"
+            // bgGradient="radial(circle at center, rgba(229,62,62,1) 0%, rgba(229,62,62,0.2) 40%, rgba(0,0,0,1) 100%)"
+            bg="#000"
             py="4rem"
             px="2rem"
             width="100%"
@@ -184,7 +185,7 @@ const InstagramGallery: React.FC = () => {
                     color="#FFF"
                     fontWeight="bold"
                     fontSize={{ base: "2rem", md: "2.7rem", lg: "3.4rem" }}
-                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                    fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 >
                     {t("instagramGalleryTitle2")}
