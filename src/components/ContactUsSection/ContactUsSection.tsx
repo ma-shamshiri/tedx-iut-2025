@@ -131,7 +131,7 @@ const ContactUsSection: React.FC = () => {
       >
         <Heading
           fontSize={{ base: '2rem', md: '2.5rem' }}
-          fontFamily="'Rubik', sans-serif"
+          fontFamily="'IRANSans', sans-serif"
           textAlign="center"
           color="#000"
           mb={2}
@@ -143,7 +143,7 @@ const ContactUsSection: React.FC = () => {
 
         <Text
           fontSize={{ base: "1.3rem", md: '1.8rem' }}
-          fontFamily="'Rubik', sans-serif"
+          fontFamily="'IRANSans', sans-serif"
           textAlign="center"
           mb={8}
           color="#222"
@@ -180,7 +180,7 @@ const ContactUsSection: React.FC = () => {
                       name={field.name}
                       type={field.type}
                       placeholder={t(field.placeholder)}
-                      fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                      fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                       dir={i18n.language === "fa" ? "rtl" : "ltr"}
                       value={values[field.name] || ""}
                       onFocus={() => handleFocus(field.name)}
@@ -231,7 +231,7 @@ const ContactUsSection: React.FC = () => {
                       name={field.name}
                       type={field.type}
                       placeholder={t(field.placeholder)}
-                      fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                      fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                       dir={i18n.language === "fa" ? "rtl" : "ltr"}
                       value={values[field.name] || ""}
                       onFocus={() => handleFocus(field.name)}
@@ -281,7 +281,7 @@ const ContactUsSection: React.FC = () => {
                 name="subject"
                 type="text"
                 placeholder={t("subject")}
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                 dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 value={values["subject"] || ""}
                 onFocus={() => handleFocus("subject")}
@@ -315,7 +315,7 @@ const ContactUsSection: React.FC = () => {
             <FormLabel
               htmlFor="message"
               fontSize="1.4rem"
-              fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+              fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
               dir={i18n.language === "fa" ? "rtl" : "ltr"}
               fontWeight="medium"
               color="#000"
@@ -341,7 +341,7 @@ const ContactUsSection: React.FC = () => {
               color="#000"
               fontSize="1.4rem"
               fontWeight="medium"
-              fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+              fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
               dir={i18n.language === "fa" ? "rtl" : "ltr"}
               px={6}
               py={5}
@@ -366,7 +366,7 @@ const ContactUsSection: React.FC = () => {
             bg="#CB0000"
             color="#fff"
             borderRadius="full"
-            fontFamily="'Rubik', sans-serif"
+            fontFamily="'IRANSans', sans-serif"
             fontWeight="extrabold"
             fontSize="1.4rem"
             letterSpacing="0.01em"

@@ -78,7 +78,7 @@ const CountdownTimer: React.FC<{ eventStartTime: Date }> = ({ eventStartTime }) 
                                 boxShadow: "0 12px 24px rgba(0, 0, 0, 0.4)",
                             }}
                             textAlign="center"
-                            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                            fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                             dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         >
                             <Text

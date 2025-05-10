@@ -65,7 +65,7 @@ const TeamMemberCarouselCard: React.FC<TeamMemberCarouselCardProps> = ({ member 
                     fontWeight="bold"
                     color="white"
                     mb={1}
-                    fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                    fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 >
                     {member.name && t(member.name)}
@@ -74,7 +74,7 @@ const TeamMemberCarouselCard: React.FC<TeamMemberCarouselCardProps> = ({ member 
                     fontSize={{ base: "1.2rem", lg: "1.2rem" }}
                     color="gray.200"
                     mb={2}
-                    fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+                    fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 >
                     {member.title && t(member.title)}

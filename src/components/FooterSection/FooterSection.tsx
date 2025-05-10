@@ -114,7 +114,7 @@ const FooterSection: React.FC = () => {
               fontSize={{ base: "1.1rem", lg: "1.4rem" }}
               color="gray.100"
               maxW="340px"
-              fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+              fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
               dir={i18n.language === "fa" ? "rtl" : "ltr"}
             >
               {t("footerDescription2")}
@@ -263,7 +263,7 @@ const FooterSection: React.FC = () => {
               fontSize={{ base: "1.1rem", lg: "1.3rem" }}
               color="gray.100"
               mt={2}
-              fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+              fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
               dir={i18n.language === "fa" ? "rtl" : "ltr"}
             >
               {t("footerDescription1")}
@@ -280,7 +280,7 @@ const FooterSection: React.FC = () => {
             fontSize={{ base: "1rem", lg: "1.15rem" }}
             color="gray.200"
             mb={2}
-            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+            fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
             dir={i18n.language === "fa" ? "rtl" : "ltr"}
           >
             {t("copyrightLineOne")}
@@ -289,7 +289,7 @@ const FooterSection: React.FC = () => {
             textAlign="center"
             fontSize={{ base: "1rem", lg: "1.1rem" }}
             color="gray.400"
-            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : ""}
+            fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
             dir={i18n.language === "fa" ? "rtl" : "ltr"}
           >
             {t("copyrightLineTwo")}

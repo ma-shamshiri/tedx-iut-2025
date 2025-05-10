@@ -103,7 +103,7 @@ const TicketSection: React.FC = () => {
                             fontSize={{ base: "1.5rem", md: "1.5rem" }}
                             color="#fff"
                             fontWeight="bold"
-                            fontFamily={i18n.language === "fa" ? "'YekanBakh', sans-serif" : "'Rubik', sans-serif"}
+                            fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : "'Rubik', sans-serif"}
                             dir={i18n.language === "fa" ? "rtl" : "ltr"}
                             textAlign="center"
                         >
@@ -116,7 +116,7 @@ const TicketSection: React.FC = () => {
                         fontSize={{ base: "1.5rem", md: "1.5rem" }}
                         color="#fff"
                         fontWeight="bold"
-                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : "'Rubik', sans-serif"}
+                        fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : "'Rubik', sans-serif"}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         textAlign="center"
                     >

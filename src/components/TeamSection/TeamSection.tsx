@@ -61,7 +61,7 @@ const TeamSection: React.FC = () => {
                         fontSize={headingSize}
                         fontWeight="bold"
                         lineHeight="1.2"
-                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                        fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         mb="1rem"
                         color="#000"
@@ -86,7 +86,7 @@ const TeamSection: React.FC = () => {
                         borderRadius="7px"
                         cursor="pointer"
                         fontSize={{ base: "1.8rem", lg: "2rem" }}
-                        fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                        fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         marginTop={{ base: "2rem", lg: "3rem" }}
                         padding="1.5rem"
