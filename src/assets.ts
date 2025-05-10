@@ -79,13 +79,20 @@ import shire_gorzan_twitter from "./assets/images/campaign/shire_gorzan_twitter.
 import rakhsh_instagram from "./assets/images/campaign/rakhsh_instagram.jpg";
 import rakhsh_result from "./assets/images/campaign/rakhsh_result.jpg";
 import rakhsh_twitter from "./assets/images/campaign/rakhsh_twitter.jpg";
-import ghoghnos_instagram from "./assets/images/campaign/ghoghnos_instagram.jpg"; 
+import ghoghnos_instagram from "./assets/images/campaign/ghoghnos_instagram.jpg";
 import ghoghnos_result from "./assets/images/campaign/ghoghnos_result.jpg";
 import ghoghnos_twitter from "./assets/images/campaign/ghoghnos_twitter.jpg";
 
-
+import sponsor1 from "./assets/images/sponsor1.png"
+import sponsor2 from "./assets/images/sponsor2.png"
+import sponsor_logo from "./assets/images/sponsor_logo.png"
+import IUT_logo_white from "./assets/images/IUT_logo_white.png"
 
 export {
+    IUT_logo_white,
+    sponsor1,
+    sponsor2,
+    sponsor_logo,
     ali_bozorgzad,
     ali_karimi,
     ali_mehrjoo,

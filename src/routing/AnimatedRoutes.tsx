@@ -5,6 +5,7 @@ import HomePage from "./HomePage";
 import TeamPage from "./TeamPage";
 import GalleryPage from './GalleryPage';
 import QuizPage from '../components/QuizPage/QuizPage';
+import SponsorPage from './SponsorPage';
 
 const AnimatedRoutes: React.FC = () => {
   const location = useLocation();
@@ -16,6 +17,7 @@ const AnimatedRoutes: React.FC = () => {
         <Route path="/team/" element={<TeamPage />} />
         <Route path="/gallery/" element={<GalleryPage />} />
         <Route path="/quiz/" element={<QuizPage />} />
+        <Route path="/sponsors/" element={<SponsorPage />} />
       </Routes>
     </AnimatePresence>
   );
