@@ -10,8 +10,8 @@ import { IUT_logo, IUT_logo_white } from '../../assets';
 
 const BlockScrollingText: React.FC = () => {
     const [offset, setOffset] = useState(0);
-    const textSize = useBreakpointValue({ base: "2rem", md: "3.5rem", lg: "5rem", xl: "6rem" });
-    const logoSize = useBreakpointValue({ base: "4.5rem", md: "7rem", lg: "10rem", xl: "10rem" });
+    const textSize = useBreakpointValue({ base: "1.8rem", md: "2rem", lg: "2.2rem", xl: "2.2rem" });
+    const logoSize = useBreakpointValue({ base: "4.0rem", md: "5rem", lg: "6rem", xl: "6.5rem" });
 
     useEffect(() => {
         const handleScroll = () => {
