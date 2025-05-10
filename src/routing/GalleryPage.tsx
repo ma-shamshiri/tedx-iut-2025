@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import MyNavbar from "../components/MyNavbar";
-import FooterSection from "../components/FooterSection";
 import InfiniteCarousel from "../components/InfiniteCarousel";
 
 const GalleryPage: React.FC = () => {

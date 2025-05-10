@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import AboutSection from "../components/AboutSection";
-import FooterSection from "../components/FooterSection";
-import MyNavbar from "../components/MyNavbar";
-import TeamSection from "../components/TeamSection";
 import ContactUsSection from "../components/ContactUsSection";
+import FooterSection from "../components/FooterSection";
 import InstagramGallery from "../components/InstagramGallery";
-import TicketSection from "../components/TicketSection";
+import MyNavbar from "../components/MyNavbar";
 import QuizSection from "../components/QuizSection";
+import TeamSection from "../components/TeamSection";
+import TicketSection from "../components/TicketSection";
+import BlockScrollingText from "../components/BlockScrollingText";
 // import HeroSection from "../components/HeroSection";
 
 const HomePage: React.FC = () => {
@@ -33,6 +34,7 @@ const HomePage: React.FC = () => {
         {/* <HeroSection /> */}
         <TicketSection />
         <QuizSection />
+        <BlockScrollingText />
         <AboutSection />
         <InstagramGallery />
         <TeamSection />

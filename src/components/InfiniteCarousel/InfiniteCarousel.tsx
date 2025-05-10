@@ -97,7 +97,7 @@ const InfiniteCarousel: React.FC = () => {
     const counterRef = useRef<HTMLDivElement>(null);
 
     const imageList = [
-        group_photo1,
+        group_photo2,
         group_photo2,
         group_photo3,
         group_photo4,
@@ -315,12 +315,12 @@ const InfiniteCarousel: React.FC = () => {
                 {/* Initial slide */}
                 <div className="slide">
                     <div className="slide-bg-img">
-                        <img src={group_photo1} alt="" />
+                        <img src={group_photo2} alt="" />
                     </div>
                 </div>
                 <div className="slide-main-img" ref={mainImgRef}>
                     <div className="slide-main-img-wrapper">
-                        <img src={group_photo1} alt="" />
+                        <img src={group_photo2} alt="" />
                     </div>
                 </div>
                 <div className="slide-copy">

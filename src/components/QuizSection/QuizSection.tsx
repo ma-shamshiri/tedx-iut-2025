@@ -23,7 +23,7 @@ const QuizSection: React.FC = () => {
             alignItems="center"
             bg="#000"
             width="100%"
-            minH={{ base: "28vh", lg: "20vh" }}
+            minH={{ base: "20vh", lg: "20vh" }}
             overflow="hidden"
         >
             <Flex
