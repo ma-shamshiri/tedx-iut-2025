@@ -169,7 +169,7 @@ const MyNavbar: React.FC = () => {
                                 borderRadius="30px"
                                 border="2px solid #fff"
                             >
-                                <Link href="https://instagram.com/tedx.iut" isExternal>
+                                <Link href="https://www.instagram.com/tedx.iut" isExternal>
                                     <IconButton
                                         icon={<FaInstagram size={iconSize} />}
                                         aria-label="Instagram"
@@ -187,7 +187,7 @@ const MyNavbar: React.FC = () => {
                                         transition="all 0.2s"
                                     />
                                 </Link>
-                                <Link href="https://t.me/tedxiut" isExternal>
+                                <Link href="https://www.linkedin.com/company/tedx-iut/" isExternal>
                                     <IconButton
                                         icon={<BsLinkedin size={iconSize} />}
                                         aria-label="LinkedIn"
@@ -205,7 +205,7 @@ const MyNavbar: React.FC = () => {
                                         transition="all 0.2s"
                                     />
                                 </Link>
-                                <Link href="https://linkedin.com/company/tedx-iut" isExternal>
+                                <Link href="https://t.me/TEDxIUTch?fbclid=PAQ0xDSwKKRqxleHRuA2FlbQIxMQABp-MCbNpdYb3uTUKlCJxBBtU10ROf4gYKw8ak2Z5om1RP_FyD6QNdJlsw13AW_aem_mXhDWOfSKmvkd7IYMzeNMg" isExternal>
                                     <IconButton
                                         icon={<FaTelegramPlane size={iconSize} />}
                                         aria-label="Telegram"
