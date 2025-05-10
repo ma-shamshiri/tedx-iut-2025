@@ -18,6 +18,31 @@ import { useTranslation } from 'react-i18next';
 import { Link as RouterLink, useLocation } from "react-router-dom";
 import { tedxWhite } from '../../assets';
 
+// --- Nav Item Types ---
+interface RouteNavItem {
+  key: string;
+  label: string;
+  type: "route";
+  to: string;
+}
+interface SectionNavItem {
+  key: string;
+  label: string;
+  type: "section";
+  section: string;
+}
+type FooterNavItem = RouteNavItem | SectionNavItem;
+
+// --- Nav Items List ---
+const FOOTER_NAV_ITEMS: FooterNavItem[] = [
+  { key: "home", label: "home", type: "section", section: "ticket-section" },
+  // { key: "aboutUs", label: "aboutUs", type: "section", section: "about-section" },
+  { key: "team", label: "team", type: "route", to: "/team" },
+  { key: "gallery", label: "gallery", type: "route", to: "/gallery" },
+  { key: "sponsors", label: "sponsors", type: "route", to: "/sponsors" },
+  // { key: "contactUs", label: "contactUs", type: "section", section: "contact-section" },
+];
+
 const FooterSection: React.FC = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -33,7 +58,6 @@ const FooterSection: React.FC = () => {
 
   const telegramIconSize = useBreakpointValue({ base: "2.2rem", lg: "2.2rem" });
   const telegramIconBoxSize = useBreakpointValue({ base: "3.3rem", lg: "3.3rem" });
-
 
   const handleSmoothScroll = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault();
@@ -120,91 +144,47 @@ const FooterSection: React.FC = () => {
               flexWrap="wrap"
               width={{ base: "80%", md: "initial", lg: "initial" }}
             >
-              <Link
-                href="#ticket-section"
-                onClick={handleSmoothScroll("ticket-section")}
-                fontSize={linkFontSize}
-                color="gray.200"
-                _hover={{
-                  textDecoration: 'none',
-                  color: "#fff",
-                  transform: "translateY(-6px)",
-                  transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)",
-                }}
-                transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)"
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
-                dir={i18n.language === "fa" ? "rtl" : "ltr"}
-              >
-                {t("home")}
-              </Link>
-              <Link
-                href="#about-section"
-                onClick={handleSmoothScroll("about-section")}
-                fontSize={linkFontSize}
-                color="gray.200"
-                _hover={{
-                  textDecoration: 'none',
-                  color: "#fff",
-                  transform: "translateY(-6px)",
-                  transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)",
-                }}
-                transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)"
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
-                dir={i18n.language === "fa" ? "rtl" : "ltr"}
-              >
-                {t("aboutUs")}
-              </Link>
-              <Link
-                as={RouterLink}
-                to="/team"
-                fontSize={linkFontSize}
-                color="gray.200"
-                _hover={{
-                  textDecoration: 'none',
-                  color: "#fff",
-                  transform: "translateY(-6px)",
-                  transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)",
-                }}
-                transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)"
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
-                dir={i18n.language === "fa" ? "rtl" : "ltr"}
-              >
-                {t("team")}
-              </Link>
-              <Link
-                as={RouterLink}
-                to="/gallery"
-                fontSize={linkFontSize}
-                color="gray.200"
-                _hover={{
-                  textDecoration: 'none',
-                  color: "#fff",
-                  transform: "translateY(-6px)",
-                  transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)",
-                }}
-                transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)"
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
-                dir={i18n.language === "fa" ? "rtl" : "ltr"}
-              >
-                {t("gallery")}
-              </Link>
-              <Link
-                href="#contact-section"
-                onClick={handleSmoothScroll("contact-section")}
-                fontSize={linkFontSize}
-                color="gray.200"
-                _hover={{
-                  textDecoration: 'none',
-                  color: "#fff",
-                  transform: "translateY(-6px)",
-                  transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)",
-                }}
-                transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)"
-                fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
-                dir={i18n.language === "fa" ? "rtl" : "ltr"}
-              >
-                {t("contactUs")}
-              </Link>
+              {FOOTER_NAV_ITEMS.map((item) =>
+                item.type === "section" ? (
+                  <Link
+                    key={item.key}
+                    href={`#${item.section}`}
+                    onClick={handleSmoothScroll(item.section)}
+                    fontSize={linkFontSize}
+                    color="gray.200"
+                    _hover={{
+                      textDecoration: 'none',
+                      color: "#fff",
+                      transform: "translateY(-6px)",
+                      transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)",
+                    }}
+                    transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)"
+                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                    dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                  >
+                    {t(item.label)}
+                  </Link>
+                ) : (
+                  <Link
+                    as={RouterLink}
+                    to={item.to}
+                    key={item.key}
+                    fontSize={linkFontSize}
+                    color="gray.200"
+                    _hover={{
+                      textDecoration: 'none',
+                      color: "#fff",
+                      transform: "translateY(-6px)",
+                      transition: "color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)",
+                    }}
+                    transition="color 0.25s cubic-bezier(.4,2,.6,1), transform 0.35s cubic-bezier(.4,2,.6,1)"
+                    fontFamily={i18n.language === "fa" ? "'Rubik', sans-serif" : ""}
+                    dir={i18n.language === "fa" ? "rtl" : "ltr"}
+                  >
+                    {t(item.label)}
+                  </Link>
+                )
+              )}
             </Stack>
           </VStack>
 
