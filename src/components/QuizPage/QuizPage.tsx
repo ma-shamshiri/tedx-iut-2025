@@ -51,10 +51,9 @@ const QuizPage: React.FC = () => {
   const [showPhoneInput, setShowPhoneInput] = useState(true);
 
   const discountCodes = [
-    { code: 'TEDx2025A', percent: 20 },
-    { code: 'TEDx2025B', percent: 40 },
-    { code: 'TEDx2025C', percent: 55 },
-    { code: 'TEDx2025D', percent: 60 },
+    { code: 'ost4s', percent: 40 },
+    { code: 'os5r', percent: 55 },
+    { code: '6osts', percent: 60 },
   ];
   const [selectedDiscount, setSelectedDiscount] = useState<{ code: string, percent: number } | null>(null);
 
