@@ -88,8 +88,10 @@ import sponsor2 from "./assets/images/sponsor2.png"
 import sponsor3 from "./assets/images/sponsor3.jpg"
 import sponsor_logo from "./assets/images/sponsor_logo.png"
 import IUT_logo_white from "./assets/images/IUT_logo_white.png"
+import zahra_akhbarioun from "./assets/images/zahra_akhbarioun.png"
 
 export {
+    zahra_akhbarioun,
     IUT_logo_white,
     sponsor1,
     sponsor2,
