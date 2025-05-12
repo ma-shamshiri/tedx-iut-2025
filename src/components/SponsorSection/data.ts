@@ -1,4 +1,11 @@
-import { sponsor1, sponsor2, sponsor3, sponsor_logo } from "../../assets";
+import {
+    sponsor1,
+    sponsor2,
+    sponsor3,
+    sponsor4,
+    sponsor5,
+    sponsor_logo,
+} from "../../assets";
 
 export interface Sponsor {
     id: number;
@@ -32,15 +39,15 @@ export const sponsors: Sponsor[] = [
     },
     {
         id: 4,
-        name: "",
-        logo: sponsor_logo,
+        name: "sponsor4Name",
+        logo: sponsor4,
         description: "",
         tier: "",
     },
     {
         id: 5,
-        name: "",
-        logo: sponsor_logo,
+        name: "sponsor5Name",
+        logo: sponsor5,
         description: "",
         tier: "",
     },

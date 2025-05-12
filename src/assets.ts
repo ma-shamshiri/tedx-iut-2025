@@ -86,6 +86,8 @@ import ghoghnos_twitter from "./assets/images/campaign/ghoghnos_twitter.jpg";
 import sponsor1 from "./assets/images/sponsor1.png"
 import sponsor2 from "./assets/images/sponsor2.png"
 import sponsor3 from "./assets/images/sponsor3.jpg"
+import sponsor4 from "./assets/images/sponsor4.png"
+import sponsor5 from "./assets/images/sponsor5.jpg"
 import sponsor_logo from "./assets/images/sponsor_logo.png"
 import IUT_logo_white from "./assets/images/IUT_logo_white.png"
 import zahra_akhbarioun from "./assets/images/zahra_akhbarioun.png"
@@ -96,6 +98,8 @@ export {
     sponsor1,
     sponsor2,
     sponsor3,
+    sponsor4,
+    sponsor5,
     sponsor_logo,
     ali_bozorgzad,
     ali_karimi,
