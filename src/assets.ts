@@ -92,7 +92,21 @@ import sponsor_logo from "./assets/images/sponsor_logo.png"
 import IUT_logo_white from "./assets/images/IUT_logo_white.png"
 import zahra_akhbarioun from "./assets/images/zahra_akhbarioun.png"
 
+import sponsor6 from "./assets/images/sponsor6.jpg"
+import sponsor7 from "./assets/images/sponsor7.jpg"
+import sponsor8 from "./assets/images/sponsor8.jpg"
+import sponsor9 from "./assets/images/sponsor9.jpg"
+import sponsor10 from "./assets/images/sponsor10.jpg"
+import sponsor11 from "./assets/images/sponsor11.jpg"
+
+
 export {
+    sponsor6,
+    sponsor7,
+    sponsor8,
+    sponsor9,
+    sponsor10,
+    sponsor11,
     zahra_akhbarioun,
     IUT_logo_white,
     sponsor1,
