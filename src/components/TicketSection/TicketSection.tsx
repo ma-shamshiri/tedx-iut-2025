@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { poster } from '../../assets';
 import CountdownTimer from '../CountdownTimer';
 
-const EVENT_DATE = new Date("2025-06-15T17:00:00+04:30");
+const EVENT_DATE = new Date("2025-05-15T08:00:00+03:30");
 const TICKET_URL = "https://evand.com/events/%D8%AA%D8%AF%D8%A7%DA%A9%D8%B3-2025-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B5%D9%86%D8%B9%D8%AA%DB%8C-%D8%A7%D8%B5%D9%81%D9%87%D8%A7%D9%86-71116?fbclid=PAQ0xDSwKGWH1leHRuA2FlbQIxMAABpwEOnH2aagoPS395lm2Hm2Y7k1hYCfjfcm9vq8SHl5KUen-RFcdjxvLZDSQY_aem_bK4V8TjhexwoE2XqIgXAJA";
 
 const getTimeLeft = () => {
@@ -23,7 +23,7 @@ const TicketSection: React.FC = () => {
     const [timeLeft, setTimeLeft] = useState(getTimeLeft());
     const { i18n } = useTranslation();
 
-    const eventStartTime = new Date("2025-05-15T09:00:00-08:00");
+    const eventStartTime = new Date("2025-05-15T08:00:00+03:30");
 
     useEffect(() => {
         const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
