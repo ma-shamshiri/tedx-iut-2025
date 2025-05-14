@@ -98,7 +98,7 @@ import sponsor8 from "./assets/images/sponsor8.jpg"
 import sponsor9 from "./assets/images/sponsor9.jpg"
 import sponsor10 from "./assets/images/sponsor10.jpg"
 import sponsor11 from "./assets/images/sponsor11.jpg"
-
+import sponsor12 from "./assets/images/sponsor12.png"
 
 export {
     sponsor6,
@@ -107,6 +107,7 @@ export {
     sponsor9,
     sponsor10,
     sponsor11,
+    sponsor12,
     zahra_akhbarioun,
     IUT_logo_white,
     sponsor1,

@@ -11,6 +11,7 @@ import {
     sponsor10,
     sponsor11,
     sponsor_logo,
+    sponsor12,
 } from "../../assets";
 
 export interface Sponsor {
@@ -99,8 +100,15 @@ export const sponsors: Sponsor[] = [
         description: "",
         tier: "",
     },
-    {
+        {
         id: 12,
+        name: "sponsor12Name",
+        logo: sponsor12,
+        description: "",
+        tier: "",
+    },
+    {
+        id: 13,
         name: "",
         logo: sponsor_logo,
         description: "",
