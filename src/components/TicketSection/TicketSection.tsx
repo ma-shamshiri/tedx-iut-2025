@@ -20,8 +20,8 @@ const getTimeLeft = () => {
 };
 
 const TicketSection: React.FC = () => {
+    const { t, i18n } = useTranslation();
     const [timeLeft, setTimeLeft] = useState(getTimeLeft());
-    const { i18n } = useTranslation();
 
     const eventStartTime = new Date("2025-05-15T08:00:00+03:30");
 
@@ -89,7 +89,7 @@ const TicketSection: React.FC = () => {
                     fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : "'IRANSans', sans-serif"}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 >
-                    تداِکس دانشگاه صنعتی اصفهان
+                    {t("ticketSectionTitle")}
                 </Heading>
                 <Flex
                     direction="row"
@@ -107,7 +107,7 @@ const TicketSection: React.FC = () => {
                             dir={i18n.language === "fa" ? "rtl" : "ltr"}
                             textAlign="center"
                         >
-                            بیست و پنج اردیبهشت، از ساعت ۸:۰۰ تا ۱۴:۰۰
+                            {t("ticketSectionDate")}
                         </Text>
                     </Flex>
                 </Flex>
@@ -120,7 +120,7 @@ const TicketSection: React.FC = () => {
                         dir={i18n.language === "fa" ? "rtl" : "ltr"}
                         textAlign="center"
                     >
-                        شهرک علمی و تحقیقاتی اصفهان
+                        {t("ticketSectionLoc")}
                     </Text>
                 </Flex>
                 <Button
@@ -148,7 +148,7 @@ const TicketSection: React.FC = () => {
                     fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
                     dir={i18n.language === "fa" ? "rtl" : "ltr"}
                 >
-                    خرید بلیت
+                    {t("ticketSectionBuy")}
                 </Button>
             </Flex>
         </Box>
