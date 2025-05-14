@@ -1,4 +1,4 @@
-import { speaker1, speaker2, speaker3, speaker4, speaker5, speaker6 } from "../../assets";
+import { speaker1, speaker2, speaker3, speaker4, speaker5, speaker6, speaker7 } from "../../assets";
 
 export interface Speakers {
     id: string;
@@ -42,6 +42,12 @@ export const speakers: Speakers[] = [
         id: "6",
         imageUrl: speaker6,
         name: "سخنران 6",
+        description: "توضیحات",
+    },
+    {
+        id: "7",
+        imageUrl: speaker7,
+        name: "سخنران 7",
         description: "توضیحات",
     },
 ];
