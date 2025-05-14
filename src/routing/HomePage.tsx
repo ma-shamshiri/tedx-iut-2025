@@ -9,6 +9,7 @@ import QuizSection from "../components/QuizSection";
 import TeamSection from "../components/TeamSection";
 import TicketSection from "../components/TicketSection";
 import BlockScrollingText from "../components/BlockScrollingText";
+import Speakers from "../components/Speakers";
 // import HeroSection from "../components/HeroSection";
 
 const HomePage: React.FC = () => {
@@ -33,6 +34,7 @@ const HomePage: React.FC = () => {
         <MyNavbar />
         {/* <HeroSection /> */}
         <TicketSection />
+        <Speakers />
         <QuizSection />
         <BlockScrollingText />
         <AboutSection />

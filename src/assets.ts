@@ -100,6 +100,13 @@ import sponsor10 from "./assets/images/sponsor10.jpg"
 import sponsor11 from "./assets/images/sponsor11.jpg"
 import sponsor12 from "./assets/images/sponsor12.png"
 
+import speaker1 from "./assets/images/speakers/1.jpg"
+import speaker2 from "./assets/images/speakers/2.jpg"
+import speaker3 from "./assets/images/speakers/3.jpg"
+import speaker4 from "./assets/images/speakers/4.jpg"
+import speaker5 from "./assets/images/speakers/5.jpg"
+
+
 export {
     sponsor6,
     sponsor7,
@@ -199,5 +206,10 @@ export {
     rakhsh_result,
     ghoghnos_instagram,
     ghoghnos_twitter,
-    ghoghnos_result
+    ghoghnos_result,
+    speaker1,
+    speaker2,
+    speaker3,
+    speaker4,
+    speaker5
 };
