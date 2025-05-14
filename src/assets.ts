@@ -105,6 +105,7 @@ import speaker2 from "./assets/images/speakers/2.jpg"
 import speaker3 from "./assets/images/speakers/3.jpg"
 import speaker4 from "./assets/images/speakers/4.jpg"
 import speaker5 from "./assets/images/speakers/5.jpg"
+import speaker6 from "./assets/images/speakers/6.jpg"
 
 
 export {
@@ -211,5 +212,6 @@ export {
     speaker2,
     speaker3,
     speaker4,
-    speaker5
+    speaker5,
+    speaker6
 };
