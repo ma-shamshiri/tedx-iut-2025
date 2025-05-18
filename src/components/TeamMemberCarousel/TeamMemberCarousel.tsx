@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Box, IconButton } from '@chakra-ui/react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import TeamMemberCarouselCard from './TeamMemberCarouselCard';
-import { teamMembersData } from './data';
+import { teamMembersData } from '../BlockTeamMembers/data';
 
 const ITEMS_TO_SHOW = 5; // how many items are visible at once
 

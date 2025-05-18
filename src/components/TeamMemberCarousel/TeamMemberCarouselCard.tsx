@@ -9,7 +9,7 @@ import {
     useColorModeValue,
 } from '@chakra-ui/react';
 import { FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
-import { TeamMember } from './data';
+import { TeamMember } from '../BlockTeamMembers/data';
 import { useTranslation } from 'react-i18next';
 
 interface TeamMemberCarouselCardProps {
