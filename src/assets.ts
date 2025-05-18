@@ -12,6 +12,8 @@ import erfan_morshedzadeh from "./assets/images/erfan_morshedzadeh.jpg";
 import erfaneh_hosseini from "./assets/images/erfaneh_hosseini.jpg";
 import farzaneh_maghsoudi from "./assets/images/farzaneh_maghsoudi.png";
 import fatemeh_nasr from "./assets/images/fatemeh_nasr.jpg";
+import mohadese_akhoondi from "./assets/images/mohadese_akhoondi.jpg";
+import amirali_mahouzi from "./assets/images/amirali_mahouzi.jpg";
 import group_photo from "./assets/images/group_photo.webp";
 import group_photo1 from "./assets/images/group_photo1.webp";
 import group_photo10 from "./assets/images/group_photo10.webp";
@@ -138,6 +140,8 @@ export {
     erfaneh_hosseini,
     farzaneh_maghsoudi,
     fatemeh_nasr,
+    mohadese_akhoondi,
+    amirali_mahouzi,
     group_photo,
     group_photo1,
     group_photo10,
