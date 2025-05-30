@@ -44,7 +44,7 @@ const NAV_ITEMS: NavItem[] = [
     // { key: "aboutUs", label: "aboutUs", type: "section", section: "about-section" },
     { key: "team", label: "team", type: "route", to: "/team" },
     { key: "gallery", label: "gallery", type: "route", to: "/gallery" },
-    { key: "sponsors", label: "sponsors", type: "route", to: "/sponsors" },
+    // { key: "sponsors", label: "sponsors", type: "route", to: "/sponsors" },
     // { key: "contactUs", label: "contactUs", type: "section", section: "contact-section" },
 ];
 
