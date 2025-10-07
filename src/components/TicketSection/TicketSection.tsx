@@ -35,22 +35,21 @@ const TicketSection: React.FC = () => {
             id="ticket-section"
             as="section"
             width="100%"
-            py={{ base: "4rem", md: "7rem" }}
+            py={{ base: "4rem", md: "0rem", lg: "1rem" }}
             position="relative"
             bgImage={`url(${poster})`}
-            bgSize="contain"
+            bgSize="cover"
             bgPosition="center"
             bgRepeat="no-repeat"
             overflow="hidden"
-            px={"1rem"}
-            minH="50vh"
+            minH="75vh"
         >
             <Box
                 position="absolute"
                 inset={0}
-                bg="linear-gradient(90deg, 
-                            rgba(0,0,0,0.99) 10%,
-                            rgba(0,0,0,0.50) 50%, 
+                bg="linear-gradient(180deg, 
+                            rgba(0,0,0,0.1) 5%,
+                            rgba(0,0,0,0.05) 62%, 
                             rgba(0,0,0,0.99) 100%)"
                 zIndex={0}
             />
@@ -64,8 +63,6 @@ const TicketSection: React.FC = () => {
                 maxW="540px"
                 mx="auto"
                 borderRadius="2.5rem"
-                px={{ base: "1.5rem", md: "2.5rem" }}
-                py={{ base: "2.5rem", md: "3.5rem" }}
                 style={{
                     background: "rgba(255,255,255,0.02)",
                     border: "2.5px solid rgba(255,255,255,0.18)",
@@ -74,13 +71,11 @@ const TicketSection: React.FC = () => {
                     WebkitBackdropFilter: "blur(24px) saturate(180%)",
                 }}
             >
-                <CountdownTimer eventStartTime={eventStartTime} />
-
                 <Heading
                     as="h3"
                     fontSize={{ base: "1.8rem", md: "2.7rem" }}
                     color="#fff"
-                    marginY="4rem"
+                    mt='2rem'
                     fontWeight="extrabold"
                     letterSpacing="0.01em"
                     textAlign="center"
@@ -96,7 +91,7 @@ const TicketSection: React.FC = () => {
                     align="center"
                     justify="center"
                     gap={6}
-                    mb="0.7rem"
+                    mb="2rem"
                 >
                     <Flex align="center" gap={2}>
                         <Text
@@ -111,45 +106,6 @@ const TicketSection: React.FC = () => {
                         </Text>
                     </Flex>
                 </Flex>
-                <Flex align="center" justify="center" mb="2.2rem" gap={2}>
-                    <Text
-                        fontSize={{ base: "1.5rem", md: "1.5rem" }}
-                        color="#fff"
-                        fontWeight="bold"
-                        fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : "'Rubik', sans-serif"}
-                        dir={i18n.language === "fa" ? "rtl" : "ltr"}
-                        textAlign="center"
-                    >
-                        {t("ticketSectionLoc")}
-                    </Text>
-                </Flex>
-                <Button
-                    as="a"
-                    href={TICKET_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    size="lg"
-                    fontSize={{ base: "1.7rem", md: "2rem" }}
-                    fontWeight="bold"
-                    color="#fff"
-                    bg="#CB0000"
-                    borderRadius="2xl"
-                    px={{ base: "2.5rem", md: "3.5rem" }}
-                    py={{ base: "1.7rem", md: "2.2rem" }}
-                    _hover={{
-                        bg: "#fff",
-                        color: "#CB0000",
-                        boxShadow: "0 12px 40px 0 rgba(235,36,35,0.18)",
-                    }}
-                    transition="all 0.2s"
-                    width="100%"
-                    maxW="340px"
-                    mx="auto"
-                    fontFamily={i18n.language === "fa" ? "'IRANSans', sans-serif" : ""}
-                    dir={i18n.language === "fa" ? "rtl" : "ltr"}
-                >
-                    {t("ticketSectionBuy")}
-                </Button>
             </Flex>
         </Box>
     );
